@@ -36,6 +36,10 @@ Run the command `pnpm install`
 
 - Run the script `./run_tests.sh`
 
+## Try it online
+
+<https://darellanodev.github.io/task-eater-manager/>
+
 ## Notes for VSCode
 
 - You must activate Prettier and ESLint extension to auto format the code on save
