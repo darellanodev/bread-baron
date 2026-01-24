@@ -1,6 +1,6 @@
-# Task Eater Manager
+# Bread Baron
 
-![Task Eater Manager banner](https://github.com/darellanodev/task-eater-manager/blob/main/github_readme/banner.png?raw=true)
+![Bread Baron banner](https://github.com/darellanodev/bread-baron/blob/main/github_readme/banner.png?raw=true)
 
 A clicker style game.
 
@@ -8,7 +8,7 @@ A clicker style game.
 
 ## Github repository
 
-- <https://github.com/darellanodev/task-eater-manager>
+- <https://github.com/darellanodev/bread-baron>
 
 ## Technologies
 
@@ -38,7 +38,7 @@ Run the command `pnpm install`
 
 ## Try it online
 
-<https://darellanodev.github.io/task-eater-manager/>
+<https://darellanodev.github.io/bread-baron/>
 
 ## Notes for VSCode
 

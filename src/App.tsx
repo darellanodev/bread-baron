@@ -21,7 +21,7 @@ function App() {
             🍞
           </div>
           <h2 className="text-[#181511] dark:text-[#f4f3f0] text-xl font-extrabold leading-tight tracking-[-0.015em]">
-            Task Eater Manager
+            Bread Baron
           </h2>
         </div>
         <div className="flex flex-1 justify-end gap-8">
