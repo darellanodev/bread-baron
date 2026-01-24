@@ -1,10 +1,7 @@
-import { Page } from '../Page'
-import './App.css'
-
 function App() {
   return (
     <div>
-      <Page />
+      <h1>Task Eater Manager</h1>
     </div>
   )
 }

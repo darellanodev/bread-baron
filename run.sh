@@ -1,1 +1,1 @@
-pnpm run dev
+pnpm dev
