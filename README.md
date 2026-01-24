@@ -28,6 +28,14 @@ Node, pnpm (recommended instead of npm).
 
 Run the command `pnpm install`
 
+## Run the application
+
+- Execute the script `./run.sh`
+
+## Unit tests
+
+- Run the script `./run_tests.sh`
+
 ## Notes for VSCode
 
 - You must activate Prettier and ESLint extension to auto format the code on save
