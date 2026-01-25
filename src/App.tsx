@@ -1,6 +1,7 @@
 import { OrderCard } from './components/OrderCard'
 import { Worker } from './components/Worker'
 import { Customer } from './components/Customer'
+import { Stat } from './components/Stat'
 
 function App() {
   return (
@@ -28,24 +29,9 @@ function App() {
         </div>
         <div className="flex flex-1 justify-end gap-8">
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 px-4 py-1.5 bg-[#f4f3f0] dark:bg-[#2a2418] rounded-full">
-              <span className="text-[#eca013] text-xl">💰</span>
-              <span className="text-[#181511] dark:text-[#f4f3f0] text-sm font-bold">
-                $12,450
-              </span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-1.5 bg-[#f4f3f0] dark:bg-[#2a2418] rounded-full">
-              <span className="text-[#eca013] text-xl">⚡</span>
-              <span className="text-[#181511] dark:text-[#f4f3f0] text-sm font-bold">
-                14.5 P/s
-              </span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-1.5 bg-[#f4f3f0] dark:bg-[#2a2418] rounded-full">
-              <span className="text-[#eca013] text-xl">🥖</span>
-              <span className="text-[#181511] dark:text-[#f4f3f0] text-sm font-bold">
-                1.2M Baked
-              </span>
-            </div>
+            <Stat icon="💰" value="$12,450" />
+            <Stat icon="⚡" value="14.5 P/s" />
+            <Stat icon="🥖" value="1.2M Baked" />
           </div>
           <div className="flex gap-2">
             <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#eca013] text-[#181511] text-sm font-bold transition-all active:scale-95 shadow-md">
