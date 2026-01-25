@@ -1,5 +1,6 @@
 import { OrderCard } from './components/OrderCard'
 import { Worker } from './components/Worker'
+import { Customer } from './components/Customer'
 
 function App() {
   return (
@@ -178,39 +179,9 @@ function App() {
                 Customers in Queue (12)
               </p>
               <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-3 p-3 bg-[#f4f3f0]/50 dark:bg-[#2a2418]/50 rounded-xl border border-dashed border-[#d6d2cb] dark:border-[#3a3121]">
-                  <div className="size-10 rounded-full bg-[#eca013]/20 flex items-center justify-center text-2xl">
-                    👤
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-bold">The Mayor</p>
-                    <p className="text-xs text-[#897b61]">
-                      Wants: 5x Rustic Bread
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 bg-[#f4f3f0]/50 dark:bg-[#2a2418]/50 rounded-xl border border-dashed border-[#d6d2cb] dark:border-[#3a3121]">
-                  <div className="size-10 rounded-full bg-[#eca013]/20 flex items-center justify-center text-2xl">
-                    👤
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-bold">Construction Worker</p>
-                    <p className="text-xs text-[#897b61]">
-                      Wants: 2x Croissants
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 bg-[#f4f3f0]/50 dark:bg-[#2a2418]/50 rounded-xl border border-dashed border-[#d6d2cb] dark:border-[#3a3121]">
-                  <div className="size-10 rounded-full bg-[#eca013]/20 flex items-center justify-center text-2xl">
-                    👤
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-bold">Village Baker</p>
-                    <p className="text-xs text-[#897b61]">
-                      Wants: 10x Dough Bags
-                    </p>
-                  </div>
-                </div>
+                <Customer name="The Mayor" wants="5x Rustic Bread" />
+                <Customer name="Construction Worker" wants="2x Croissants" />
+                <Customer name="Village Baker" wants="10x Dough Bags" />
               </div>
             </div>
           </div>
