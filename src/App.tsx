@@ -1,4 +1,4 @@
-import React from 'react'
+import { OrderCard } from './components/OrderCard'
 
 function App() {
   return (
@@ -76,83 +76,29 @@ function App() {
             </div>
           </div>
           <div className="flex-1 overflow-y-auto px-4 pb-4 space-y-4">
-            {/* Order Card 1 */}
-            <div className="dough-card rounded-xl bg-white dark:bg-[#2a2418] p-4 flex flex-col gap-3">
-              <div className="flex justify-between items-start">
-                <div>
-                  <p className="text-[#eca013] text-xs font-bold uppercase tracking-widest">
-                    Difficulty: Medium
-                  </p>
-                  <h3 className="text-lg font-bold leading-tight">
-                    Rustic Bread Batch
-                  </h3>
-                </div>
-                <span className="text-green-500 font-bold">$150</span>
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <div className="flex justify-between text-xs font-bold">
-                  <span>Progress</span>
-                  <span>7/10</span>
-                </div>
-                <div className="h-3 rounded-full bg-[#e6e2db] dark:bg-[#1a150d] overflow-hidden">
-                  <div
-                    className="h-full bg-[#eca013]"
-                    style={{ width: '70%' }}
-                  ></div>
-                </div>
-              </div>
-              <button className="flex items-center justify-center gap-2 w-full rounded-full h-9 bg-[#eca013]/10 text-[#eca013] font-bold text-sm hover:bg-[#eca013] hover:text-white transition-all">
-                ⭐ Prioritize
-              </button>
-            </div>
-
-            {/* Order Card 2 */}
-            <div className="dough-card rounded-xl bg-white dark:bg-[#2a2418] p-4 flex flex-col gap-3">
-              <div className="flex justify-between items-start">
-                <div>
-                  <p className="text-orange-600 text-xs font-bold uppercase tracking-widest">
-                    Difficulty: Hard
-                  </p>
-                  <h3 className="text-lg font-bold leading-tight">
-                    Gourmet Croissants
-                  </h3>
-                </div>
-                <span className="text-green-500 font-bold">$500</span>
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <div className="flex justify-between text-xs font-bold">
-                  <span>Progress</span>
-                  <span>2/25</span>
-                </div>
-                <div className="h-3 rounded-full bg-[#e6e2db] dark:bg-[#1a150d] overflow-hidden">
-                  <div
-                    className="h-full bg-[#eca013]"
-                    style={{ width: '8%' }}
-                  ></div>
-                </div>
-              </div>
-              <button className="flex items-center justify-center gap-2 w-full rounded-full h-9 bg-[#eca013]/10 text-[#eca013] font-bold text-sm hover:bg-[#eca013] hover:text-white transition-all">
-                ⭐ Prioritize
-              </button>
-            </div>
-
-            {/* Order Card 3 - Inactive */}
-            <div className="dough-card rounded-xl bg-white dark:bg-[#2a2418] p-4 flex flex-col gap-3 opacity-60">
-              <div className="flex justify-between items-start">
-                <div>
-                  <p className="text-green-500 text-xs font-bold uppercase tracking-widest">
-                    Difficulty: Easy
-                  </p>
-                  <h3 className="text-lg font-bold leading-tight">
-                    Daily Baguettes
-                  </h3>
-                </div>
-                <span className="text-green-500 font-bold">$40</span>
-              </div>
-              <button className="w-full rounded-full h-9 bg-[#f4f3f0] dark:bg-[#1a150d] text-[#897b61] font-bold text-sm cursor-not-allowed">
-                Waiting for Dough...
-              </button>
-            </div>
+            <OrderCard
+              difficulty="Medium"
+              difficultyColor="text-[#eca013]"
+              title="Rustic Bread Batch"
+              price={150}
+              progress={7}
+              maxProgress={10}
+            />
+            <OrderCard
+              difficulty="Hard"
+              difficultyColor="text-orange-600"
+              title="Gourmet Croissants"
+              price={500}
+              progress={2}
+              maxProgress={25}
+            />
+            <OrderCard
+              difficulty="Easy"
+              difficultyColor="text-green-500"
+              title="Daily Baguettes"
+              price={40}
+              isInactive={true}
+            />
           </div>
         </aside>
 
