@@ -18,21 +18,14 @@ function App() {
         .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
       `}</style>
 
-      {/* HEADER */}
       <Header />
 
       <main className="flex flex-1 overflow-hidden">
-        {/* LEFT PANEL - ORDERS */}
         <OrdersPanel />
-
-        {/* CENTER - BAKERY SCENE */}
         <BakeryScene />
-
-        {/* RIGHT PANEL - MARKET */}
         <MarketPanel />
       </main>
 
-      {/* BOTTOM BAR - WORKERS */}
       <WorkersPanel />
     </div>
   )
