@@ -1,4 +1,3 @@
-import { OrderCard } from './components/OrderCard'
 import { Worker } from './components/Worker'
 import { Customer } from './components/Customer'
 import { Header } from './components/layout/Header'
