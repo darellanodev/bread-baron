@@ -1,4 +1,5 @@
 import { OrderCard } from './components/OrderCard'
+import { Worker } from './components/Worker'
 
 function App() {
   return (
@@ -251,40 +252,20 @@ function App() {
             </span>
           </div>
           <div className="flex gap-4 overflow-x-auto pb-2 scroll-smooth">
-            <div className="flex-none w-64 dough-card bg-[#f4f3f0] dark:bg-[#2a2418] rounded-xl p-3 flex gap-4 items-center">
-              <div className="size-14 bg-[#eca013]/20 rounded-full flex items-center justify-center shrink-0 text-3xl">
-                👩
-              </div>
-              <div className="flex-1 flex flex-col gap-1">
-                <div className="flex justify-between items-center">
-                  <h4 className="font-bold text-sm">Apprentice Sue</h4>
-                  <span className="bg-[#eca013] text-[#181511] text-[10px] px-2 py-0.5 rounded-full font-black">
-                    LVL 3
-                  </span>
-                </div>
-                <p className="text-xs text-[#897b61]">+1.2 breads/sec</p>
-                <button className="mt-1 h-7 bg-white dark:bg-[#1a150d] rounded-full text-[10px] font-bold border border-[#eca013]/20 hover:bg-[#eca013]/10 transition-colors">
-                  Upgrade ($150)
-                </button>
-              </div>
-            </div>
-            <div className="flex-none w-64 dough-card bg-[#f4f3f0] dark:bg-[#2a2418] rounded-xl p-3 flex gap-4 items-center">
-              <div className="size-14 bg-[#eca013]/20 rounded-full flex items-center justify-center shrink-0 text-3xl">
-                👨
-              </div>
-              <div className="flex-1 flex flex-col gap-1">
-                <div className="flex justify-between items-center">
-                  <h4 className="font-bold text-sm">Kneader Dan</h4>
-                  <span className="bg-[#eca013] text-[#181511] text-[10px] px-2 py-0.5 rounded-full font-black">
-                    LVL 1
-                  </span>
-                </div>
-                <p className="text-xs text-[#897b61]">+2.5 breads/sec</p>
-                <button className="mt-1 h-7 bg-white dark:bg-[#1a150d] rounded-full text-[10px] font-bold border border-[#eca013]/20 hover:bg-[#eca013]/10 transition-colors">
-                  Upgrade ($400)
-                </button>
-              </div>
-            </div>
+            <Worker
+              emoji="👩"
+              name="Apprentice Sue"
+              level={3}
+              productivity={1.2}
+              upgradePrice={150}
+            />
+            <Worker
+              emoji="👨"
+              name="Kneader Dan"
+              level={1}
+              productivity={2.5}
+              upgradePrice={400}
+            />
             <div className="flex-none w-48 border-4 border-dashed border-[#d6d2cb] dark:border-[#3a3121] rounded-xl flex flex-col items-center justify-center p-4 hover:border-[#eca013] transition-colors cursor-pointer group">
               <span className="text-3xl text-[#897b61] group-hover:text-[#eca013] mb-2">
                 ➕
