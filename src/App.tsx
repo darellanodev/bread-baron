@@ -1,6 +1,6 @@
 import { Header } from './components/layout/Header'
 import { OrdersPanel } from './components/layout/OrdersPanel'
-import { BakeryScene } from './components/layout/BakeryScene'
+import { BakeryPanel } from './components/layout/BakeryPanel'
 import { MarketPanel } from './components/layout/MarketPanel'
 import { WorkersPanel } from './components/layout/WorkersPanel'
 
@@ -22,7 +22,7 @@ function App() {
 
       <main className="flex flex-1 overflow-hidden">
         <OrdersPanel />
-        <BakeryScene />
+        <BakeryPanel />
         <MarketPanel />
       </main>
 

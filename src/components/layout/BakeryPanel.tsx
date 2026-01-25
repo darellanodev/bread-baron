@@ -1,4 +1,4 @@
-export function BakeryScene() {
+export function BakeryPanel() {
   return (
     <section className="w-1/2 flex flex-col bg-[#fdf5e6] dark:bg-[#221c10] p-8 relative overflow-hidden">
       <div className="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center text-[30rem]">
