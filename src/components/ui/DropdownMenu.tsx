@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { Switch } from './Switch'
+import { useDarkMode } from '../../hooks/useDarkMode'
 
 interface DropdownMenuProps {
   children: React.ReactNode
@@ -50,6 +51,8 @@ export function DropdownMenuItem({ children, onClick }: DropdownMenuItemProps) {
 }
 
 export function SettingsMenu() {
+  const { isDark, toggle } = useDarkMode()
+
   return (
     <DropdownMenu
       trigger={
@@ -62,7 +65,7 @@ export function SettingsMenu() {
         <span className="text-sm text-[#181511] dark:text-[#f4f3f0]">
           Dark mode
         </span>
-        <Switch />
+        <Switch checked={isDark} onChange={() => toggle()} />
       </div>
     </DropdownMenu>
   )
