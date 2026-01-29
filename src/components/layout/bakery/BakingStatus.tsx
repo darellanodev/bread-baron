@@ -2,7 +2,7 @@ export function BakingStatus() {
   return (
     <div className="w-full max-w-md flex flex-col gap-3">
       <div className="flex justify-between items-end px-2">
-        <span className="text-xl font-extrabold text-[#8b4513] dark:text-primary">
+        <span className="text-xl font-extrabold text-brownDark dark:text-primary">
           Baking Sourdough...
         </span>
         <span className="font-bold">64%</span>

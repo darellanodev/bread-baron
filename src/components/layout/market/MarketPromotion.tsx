@@ -7,7 +7,7 @@ export function MarketPromotion() {
         </span>
         Launch Promotion!
       </button>
-      <p className="text-center text-xs font-bold text-[#897b61] mt-4">
+      <p className="text-center text-xs font-bold text-textSecondary mt-4">
         Boost demand by 200% for 30s
       </p>
     </>

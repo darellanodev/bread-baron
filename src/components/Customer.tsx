@@ -11,7 +11,7 @@ export function Customer({ name, wants }: CustomerProps) {
       </div>
       <div className="flex-1">
         <p className="text-sm font-bold">{name}</p>
-        <p className="text-xs text-[#897b61]">Wants: {wants}</p>
+        <p className="text-xs text-textSecondary">Wants: {wants}</p>
       </div>
     </div>
   )

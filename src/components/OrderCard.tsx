@@ -62,7 +62,7 @@ export function OrderCard({
           </button>
         </>
       ) : (
-        <button className="w-full rounded-full h-9 bg-bgLight dark:bg-deepDark text-[#897b61] font-bold text-sm cursor-not-allowed">
+        <button className="w-full rounded-full h-9 bg-bgLight dark:bg-deepDark text-textSecondary font-bold text-sm cursor-not-allowed">
           Waiting for Dough...
         </button>
       )}

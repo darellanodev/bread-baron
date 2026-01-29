@@ -3,7 +3,7 @@ import { Customer } from '../../Customer'
 export function MarketCustomers() {
   return (
     <div className="mb-6">
-      <p className="text-xs font-bold text-[#897b61] uppercase tracking-widest mb-3">
+      <p className="text-xs font-bold text-textSecondary uppercase tracking-widest mb-3">
         Customers in Queue (12)
       </p>
       <div className="flex flex-col gap-3">

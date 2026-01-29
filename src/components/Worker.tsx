@@ -27,7 +27,7 @@ export function Worker({
             LVL {level}
           </span>
         </div>
-        <p className="text-xs text-[#897b61]">+{productivity} breads/sec</p>
+        <p className="text-xs text-textSecondary">+{productivity} breads/sec</p>
         <button
           onClick={onUpgrade}
           className="mt-1 h-7 bg-white dark:bg-deepDark rounded-full text-[10px] font-bold border border-primary/20 hover:bg-primary/10 transition-colors"
