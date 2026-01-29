@@ -26,7 +26,7 @@ export function DropdownMenu({ children, trigger }: DropdownMenuProps) {
     <div className="relative" ref={menuRef}>
       <div onClick={() => setIsOpen(!isOpen)}>{trigger}</div>
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-56 rounded-lg bg-[#f4f3f0] dark:bg-[#2a2418] border border-[#eca013]/20 shadow-lg z-50">
+        <div className="absolute right-0 top-full mt-2 w-56 rounded-lg bg-bgLight dark:bg-cardDark border border-primary/20 shadow-lg z-50">
           <div className="py-1">{children}</div>
         </div>
       )}
@@ -40,13 +40,13 @@ export function SettingsMenu() {
   return (
     <DropdownMenu
       trigger={
-        <button className="flex items-center justify-center rounded-full h-10 w-10 bg-[#f4f3f0] dark:bg-[#2a2418] text-[#181511] dark:text-[#f4f3f0] transition-all hover:bg-[#eca013]/20 text-xl">
+        <button className="flex items-center justify-center rounded-full h-10 w-10 bg-bgLight dark:bg-cardDark text-textLight dark:text-bgLight transition-all hover:bg-primary/20 text-xl">
           ⚙️
         </button>
       }
     >
       <div className="flex items-center justify-between px-4 py-2">
-        <span className="text-sm text-[#181511] dark:text-[#f4f3f0]">
+        <span className="text-sm text-textLight dark:text-bgLight">
           Dark mode
         </span>
         <Switch checked={isDark} onChange={() => toggle()} />

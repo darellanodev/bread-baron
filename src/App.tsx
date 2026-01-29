@@ -6,7 +6,7 @@ import { WorkersPanel } from './components/layout/WorkersPanel'
 
 function App() {
   return (
-    <div className="bg-[#f8f7f6] dark:bg-[#221c10] text-[#181511] dark:text-[#f4f3f0] h-screen overflow-hidden flex flex-col font-sans">
+    <div className="bg-bgSecondary dark:bg-bgDark text-textLight dark:text-bgLight h-screen overflow-hidden flex flex-col font-sans">
       <style>{`
         body { font-family: 'Be Vietnam Pro', sans-serif; margin: 0; }
         .dough-card { border: 4px solid #f4f3f0; box-shadow: 0 4px 0px rgba(0,0,0,0.05); }
