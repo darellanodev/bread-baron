@@ -23,6 +23,18 @@ export function useDarkMode() {
     }
   }, [isDark])
 
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'darkMode') {
+        const newValue = e.newValue === 'true'
+        setIsDark(newValue)
+      }
+    }
+
+    window.addEventListener('storage', handleStorageChange)
+    return () => window.removeEventListener('storage', handleStorageChange)
+  }, [])
+
   const toggle = () => setIsDark(!isDark)
 
   return { isDark, toggle }
