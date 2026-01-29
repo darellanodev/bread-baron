@@ -34,22 +34,6 @@ export function DropdownMenu({ children, trigger }: DropdownMenuProps) {
   )
 }
 
-interface DropdownMenuItemProps {
-  children: React.ReactNode
-  onClick?: () => void
-}
-
-export function DropdownMenuItem({ children, onClick }: DropdownMenuItemProps) {
-  return (
-    <div
-      onClick={onClick}
-      className="px-4 py-2 text-sm text-[#181511] dark:text-[#f4f3f0] hover:bg-[#eca013]/20 cursor-pointer transition-colors"
-    >
-      {children}
-    </div>
-  )
-}
-
 export function SettingsMenu() {
   const { isDark, toggle } = useDarkMode()
 
