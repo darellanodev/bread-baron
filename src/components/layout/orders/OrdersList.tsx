@@ -5,7 +5,7 @@ export function OrdersList() {
     <div className="flex-1 overflow-y-auto px-4 pb-4 space-y-4">
       <OrderCard
         difficulty="Medium"
-        difficultyColor="text-[#eca013]"
+        difficultyColor="text-primary"
         title="Rustic Bread Batch"
         price={150}
         progress={7}
