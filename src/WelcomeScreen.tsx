@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useDarkMode } from './hooks/useDarkMode'
 
 export default function WelcomeScreen({ onStart }: { onStart?: () => void }) {
-  const [isDark, setIsDark] = useState(false)
+  const { toggle } = useDarkMode()
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -9,12 +10,12 @@ export default function WelcomeScreen({ onStart }: { onStart?: () => void }) {
   }, [])
 
   return (
-    <div className={isDark ? 'dark' : ''}>
+    <div>
       <div className="bg-bgLight dark:bg-bgDark min-h-screen flex items-center justify-center p-4 font-sans transition-colors duration-300 hero-pattern">
         {/* Dark/Light toggle */}
         <button
           className="fixed top-6 right-6 p-3 bg-bgSecondary dark:bg-cardDark rounded-full shadow-lg hover:scale-110 transition-transform z-50 text-brownDark dark:text-amber-100"
-          onClick={() => setIsDark(!isDark)}
+          onClick={toggle}
         >
           {/* Moon icon – visible in light mode */}
           <svg
