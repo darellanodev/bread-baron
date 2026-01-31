@@ -1,6 +1,6 @@
 interface OrderCardProps {
   difficulty: string
-  difficultyColor?: string
+  difficultyColor: string
   title: string
   price: number
   progress?: number
@@ -11,7 +11,7 @@ interface OrderCardProps {
 
 export function OrderCard({
   difficulty,
-  difficultyColor = '',
+  difficultyColor,
   title,
   price,
   progress,
@@ -19,30 +19,52 @@ export function OrderCard({
   isInactive = false,
   onPrioritize,
 }: OrderCardProps) {
+  const progressPercentage =
+    progress && maxProgress ? (progress / maxProgress) * 100 : 0
+
   return (
     <div
-      className={`p-4 rounded-xl bg-card-light dark:bg-card-dark ${isInactive ? 'opacity-40' : ''}`}
+      className={`dough-card rounded-xl bg-white dark:bg-cardDark p-4 flex flex-col gap-3 ${isInactive ? 'opacity-60' : ''}`}
     >
-      <div className="flex items-center justify-between mb-2">
-        <div className={`font-bold ${difficultyColor}`}>{difficulty}</div>
-        <div className="text-sm font-black flex items-center gap-2">
-          <span>${price}</span>
-          {onPrioritize && (
-            <button
-              onClick={onPrioritize}
-              aria-label="Prioritize"
-              className="text-xs px-2 py-1 rounded bg-yellow-300 dark:bg-yellow-500 font-bold"
-            >
-              P
-            </button>
-          )}
+      <div className="flex justify-between items-start">
+        <div>
+          <p
+            className={`${difficultyColor} text-xs font-bold uppercase tracking-widest`}
+          >
+            Difficulty: {difficulty}
+          </p>
+          <h3 className="text-lg font-bold leading-tight">{title}</h3>
         </div>
+        <span className="text-green-500 font-bold">${price}</span>
       </div>
-      <div className="text-lg font-bold">{title}</div>
-      {progress !== undefined && maxProgress !== undefined && (
-        <div className="mt-2 text-sm text-textSecondary">
-          {progress}/{maxProgress}
-        </div>
+
+      {!isInactive ? (
+        <>
+          <div className="flex flex-col gap-1.5">
+            <div className="flex justify-between text-xs font-bold">
+              <span>Progress</span>
+              <span>
+                {progress}/{maxProgress}
+              </span>
+            </div>
+            <div className="h-3 rounded-full bg-inputLight dark:bg-deepDark overflow-hidden">
+              <div
+                className="h-full bg-primary"
+                style={{ width: `${progressPercentage}%` }}
+              ></div>
+            </div>
+          </div>
+          <button
+            onClick={onPrioritize}
+            className="flex items-center justify-center gap-2 w-full rounded-full h-9 bg-primary/10 text-primary font-bold text-sm hover:bg-primary hover:text-white transition-all"
+          >
+            ⭐ Prioritize
+          </button>
+        </>
+      ) : (
+        <button className="w-full rounded-full h-9 bg-bgLight dark:bg-deepDark text-textSecondary font-bold text-sm cursor-not-allowed">
+          Waiting for Dough...
+        </button>
       )}
     </div>
   )
