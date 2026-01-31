@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useDarkMode } from './hooks/useDarkMode'
+import breadBaronImg from './assets/bread_baron.png'
 
 export default function WelcomeScreen({ onStart }: { onStart?: () => void }) {
   const { toggle } = useDarkMode()
@@ -62,7 +63,7 @@ export default function WelcomeScreen({ onStart }: { onStart?: () => void }) {
                 <img
                   alt="Bread Baron Character"
                   className="w-full h-full object-contain drop-shadow-xl"
-                  src="src/assets/bread_baron.png"
+                  src={breadBaronImg}
                 />
               </div>
               <div className="text-center md:text-left">
