@@ -1,4 +1,4 @@
-import { OrderCard } from '../../OrderCard'
+import { OrderCard } from '../../components/OrderCard'
 
 export function OrdersList() {
   return (

@@ -1,4 +1,4 @@
-import { SettingsMenu } from '../../../components/ui/DropdownMenu'
+import { SettingsMenu } from '../../../../components/ui/DropdownMenu'
 
 export function HeaderActions() {
   return (

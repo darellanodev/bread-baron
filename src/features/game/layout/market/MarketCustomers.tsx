@@ -1,4 +1,4 @@
-import { Customer } from '../../Customer'
+import { Customer } from '../../components/Customer'
 
 export function MarketCustomers() {
   return (

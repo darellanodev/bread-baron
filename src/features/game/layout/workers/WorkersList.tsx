@@ -1,4 +1,4 @@
-import { Worker } from '../../Worker'
+import { Worker } from '../../components/Worker'
 
 export function WorkersList() {
   return (
