@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ onStart }: { onStart?: () => void }) {
   const [isDark, setIsDark] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -87,7 +87,10 @@ export default function WelcomeScreen() {
             </div>
 
             <div className="flex justify-center">
-              <button className="group relative bg-primary hover:bg-accent-orange text-white font-display text-2xl md:text-3xl px-12 py-5 rounded-xl shadow-[0_6px_0_#92400e] hover:shadow-[0_4px_0_#92400e] active:shadow-none active:translate-y-1 transition-all duration-150 flex items-center gap-4">
+              <button
+                className="group relative bg-primary hover:bg-accent-orange text-white font-display text-2xl md:text-3xl px-12 py-5 rounded-xl shadow-[0_6px_0_#92400e] hover:shadow-[0_4px_0_#92400e] active:shadow-none active:translate-y-1 transition-all duration-150 flex items-center gap-4"
+                onClick={() => onStart?.()}
+              >
                 <span>Start Kneading!</span>
                 <svg
                   className="h-8 w-8 group-hover:translate-x-1 transition-transform"
