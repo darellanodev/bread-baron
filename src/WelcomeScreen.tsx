@@ -111,41 +111,6 @@ export default function WelcomeScreen({ onStart }: { onStart?: () => void }) {
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/5 dark:bg-white/2 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           </div>
-
-          <div className="mt-8 text-center text-amber-900/40 dark:text-amber-100/20 font-medium flex items-center justify-center gap-8 text-sm md:text-base">
-            <span className="flex items-center gap-2">
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-              </svg>
-              Industrial Idle Tycoon
-            </span>
-            <span className="flex items-center gap-2">
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-              </svg>
-              F2P Manager
-            </span>
-          </div>
         </main>
 
         <style>{`
