@@ -1,24 +1,10 @@
+/* Global styles without a Tailwind equivalent */
+
+@import './styles/welcomeScreen.css';
+@import './styles/gameScreen.css';
+
+/* Tailwind styles */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Global styles without a Tailwind equivalent */
-
-.bubbly-text {
-  -webkit-text-stroke: 1.5px #5e2f0d;
-  paint-order: stroke fill;
-  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
-}
-
-.dark .bubbly-text {
-  -webkit-text-stroke: 1.5px #1a0f05;
-}
-
-.hero-pattern {
-  background-image: radial-gradient(#d6d2cb 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.dark .hero-pattern {
-  background-image: radial-gradient(#3a3121 1px, transparent 1px);
-}
