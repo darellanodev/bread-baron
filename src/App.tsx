@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import WelcomeScreen from './WelcomeScreen'
-import { GameScreen } from './GameScreen'
+import WelcomeScreen from './features/welcome/WelcomeScreen'
+import { GameScreen } from './features/game/GameScreen'
 
 function App() {
   const [screen, setScreen] = useState<'welcome' | 'game'>('welcome')

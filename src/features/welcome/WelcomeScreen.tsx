@@ -4,7 +4,7 @@ import {
   WelcomeHeader,
   WelcomeDescription,
   WelcomeButton,
-} from './features/welcome/layout'
+} from './layout'
 
 export default function WelcomeScreen({ onStart }: { onStart?: () => void }) {
   const [isVisible, setIsVisible] = useState(false)

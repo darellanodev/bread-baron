@@ -1,8 +1,8 @@
-import { Header } from './features/game/layout/Header'
-import { OrdersPanel } from './features/game/layout/OrdersPanel'
-import { BakeryPanel } from './features/game/layout/BakeryPanel'
-import { MarketPanel } from './features/game/layout/MarketPanel'
-import { WorkersPanel } from './features/game/layout/WorkersPanel'
+import { Header } from './layout/Header'
+import { OrdersPanel } from './layout/OrdersPanel'
+import { BakeryPanel } from './layout/BakeryPanel'
+import { MarketPanel } from './layout/MarketPanel'
+import { WorkersPanel } from './layout/WorkersPanel'
 
 export function GameScreen() {
   return (
