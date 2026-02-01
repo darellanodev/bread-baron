@@ -1,4 +1,4 @@
-export default function WelcomeCTA({ onStart }: { onStart?: () => void }) {
+export default function WelcomeButton({ onStart }: { onStart?: () => void }) {
   return (
     <div className="flex justify-center">
       <button
