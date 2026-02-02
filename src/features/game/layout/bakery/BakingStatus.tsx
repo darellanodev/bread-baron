@@ -1,3 +1,5 @@
+import { ProgressBar } from '../../../../components/ui/ProgressBar'
+
 export function BakingStatus() {
   return (
     <div className="w-full max-w-md flex flex-col gap-3">
@@ -7,12 +9,13 @@ export function BakingStatus() {
         </span>
         <span className="font-bold">64%</span>
       </div>
-      <div className="h-8 w-full bg-inputLight dark:bg-deepDark rounded-full p-1.5 shadow-inner border-2 border-borderLight dark:border-borderDark">
-        <div
-          className="h-full bg-gradient-to-r from-primary to-orange-400 rounded-full shadow-[0_0_15px_rgba(236,160,19,0.5)]"
-          style={{ width: '64%' }}
-        ></div>
-      </div>
+      <ProgressBar
+        value={64}
+        max={100}
+        variant="gradient"
+        showPercentage={false}
+        showFraction={false}
+      />
     </div>
   )
 }
