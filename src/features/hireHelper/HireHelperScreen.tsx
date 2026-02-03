@@ -49,8 +49,8 @@ const HireHelperScreen: React.FC<HireHelperScreenProps> = ({ onClose }) => {
 
   return (
     <div className={isDark ? 'dark' : ''}>
-      <div className="bg-slate-200 dark:bg-slate-900 min-h-screen flex items-center justify-center p-4">
-        <div className="w-full max-w-2xl bg-white dark:bg-black rounded-3xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-800 flex flex-col h-[600px]">
+      <div className="bg-bgSecondary dark:bg-bgDark min-h-screen flex items-center justify-center p-4">
+        <div className="w-full max-w-2xl bg-bgLight dark:bg-deepDark rounded-3xl shadow-2xl overflow-hidden border border-borderLight dark:border-borderDark flex flex-col h-[600px]">
           <HireHelperHeader onClose={onClose} />
           <HelpersList helpers={helpers} onHire={handleHire} />
           <HireHelperFooter onClose={onClose} />
@@ -60,9 +60,9 @@ const HireHelperScreen: React.FC<HireHelperScreenProps> = ({ onClose }) => {
         <div className="fixed bottom-4 right-4 flex gap-2">
           <button
             onClick={() => setIsDark(!isDark)}
-            className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700 flex items-center justify-center"
+            className="p-3 rounded-full bg-bgLight dark:bg-cardDark shadow-xl border border-borderLight dark:border-borderDark flex items-center justify-center"
           >
-            <span className="material-icons text-gray-800 dark:text-yellow-400">
+            <span className="material-icons text-textLight dark:text-primary">
               brightness_4
             </span>
           </button>
