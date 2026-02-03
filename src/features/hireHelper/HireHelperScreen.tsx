@@ -7,7 +7,11 @@ interface Helper {
   skill2: number
 }
 
-const HireHelperScreen: React.FC = () => {
+interface HireHelperScreenProps {
+  onClose: () => void
+}
+
+const HireHelperScreen: React.FC<HireHelperScreenProps> = ({ onClose }) => {
   const [isDark, setIsDark] = useState(true)
 
   const helpers: Helper[] = [
@@ -38,10 +42,6 @@ const HireHelperScreen: React.FC = () => {
     console.log(`Hired helper ${id}`)
   }
 
-  const handleClose = () => {
-    console.log('Close modal')
-  }
-
   return (
     <div className={isDark ? 'dark' : ''}>
       <div className="bg-slate-200 dark:bg-slate-900 min-h-screen flex items-center justify-center p-4">
@@ -52,7 +52,7 @@ const HireHelperScreen: React.FC = () => {
               Hire a New Helper
             </h1>
             <button
-              onClick={handleClose}
+              onClick={onClose}
               className="w-8 h-8 rounded-full bg-black dark:bg-gray-800 text-white flex items-center justify-center hover:opacity-80 transition-opacity"
             >
               <span className="material-icons text-sm">close</span>
@@ -112,7 +112,7 @@ const HireHelperScreen: React.FC = () => {
           {/* Footer */}
           <div className="bg-gray-300 dark:bg-gray-700 p-6 flex justify-center border-t border-gray-400 dark:border-gray-600">
             <button
-              onClick={handleClose}
+              onClick={onClose}
               className="bg-black text-white px-12 py-2 rounded-xl text-lg font-bold tracking-widest uppercase hover:bg-gray-900 transition-colors shadow-md"
             >
               Close

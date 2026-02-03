@@ -1,6 +1,10 @@
 import { Worker } from '../../components/Worker'
 
-export function WorkersList() {
+interface WorkersListProps {
+  onHireHelper: () => void
+}
+
+export function WorkersList({ onHireHelper }: WorkersListProps) {
   return (
     <div className="flex-1 flex flex-col h-full py-4 overflow-hidden">
       <div className="flex justify-between items-center mb-4">
@@ -27,7 +31,10 @@ export function WorkersList() {
           productivity={2.5}
           upgradePrice={400}
         />
-        <div className="flex-none w-48 border-4 border-dashed border-borderLight dark:border-borderDark rounded-xl flex flex-col items-center justify-center p-4 hover:border-primary transition-colors cursor-pointer group">
+        <div
+          onClick={onHireHelper}
+          className="flex-none w-48 border-4 border-dashed border-borderLight dark:border-borderDark rounded-xl flex flex-col items-center justify-center p-4 hover:border-primary transition-colors cursor-pointer group"
+        >
           <span className="text-3xl text-textSecondary group-hover:text-primary mb-2">
             ➕
           </span>

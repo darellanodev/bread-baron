@@ -4,7 +4,11 @@ import { BakeryPanel } from './layout/BakeryPanel'
 import { MarketPanel } from './layout/MarketPanel'
 import { WorkersPanel } from './layout/WorkersPanel'
 
-export function GameScreen() {
+interface GameScreenProps {
+  onHireHelper: () => void
+}
+
+export function GameScreen({ onHireHelper }: GameScreenProps) {
   return (
     <div className="bg-bgSecondary dark:bg-bgDark text-textLight dark:text-bgLight h-screen overflow-hidden flex flex-col font-sans">
       <Header />
@@ -13,7 +17,7 @@ export function GameScreen() {
         <BakeryPanel />
         <MarketPanel />
       </main>
-      <WorkersPanel />
+      <WorkersPanel onHireHelper={onHireHelper} />
     </div>
   )
 }
