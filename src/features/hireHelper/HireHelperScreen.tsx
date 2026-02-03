@@ -110,18 +110,6 @@ const HireHelperScreen: React.FC<HireHelperScreenProps> = ({ onClose }) => {
             </button>
           </div>
         </div>
-
-        {/* Theme Toggle */}
-        <div className="fixed bottom-4 right-4 flex gap-2">
-          <button
-            onClick={() => setIsDark(!isDark)}
-            className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700 flex items-center justify-center"
-          >
-            <span className="material-icons text-gray-800 dark:text-yellow-400">
-              brightness_4
-            </span>
-          </button>
-        </div>
       </div>
     </div>
   )
