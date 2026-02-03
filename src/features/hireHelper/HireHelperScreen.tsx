@@ -1,14 +1,7 @@
 import React, { useState } from 'react'
-import { Worker } from '../game/components/Worker'
-
-interface Helper {
-  id: number
-  emoji: string
-  name: string
-  level: number
-  productivity: number
-  hirePrice: number
-}
+import { HireHelperHeader } from './HireHelperHeader'
+import { HelpersList, Helper } from './HelpersList'
+import { HireHelperFooter } from './HireHelperFooter'
 
 interface HireHelperScreenProps {
   onClose: () => void
@@ -58,57 +51,21 @@ const HireHelperScreen: React.FC<HireHelperScreenProps> = ({ onClose }) => {
     <div className={isDark ? 'dark' : ''}>
       <div className="bg-slate-200 dark:bg-slate-900 min-h-screen flex items-center justify-center p-4">
         <div className="w-full max-w-2xl bg-white dark:bg-black rounded-3xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-800 flex flex-col h-[600px]">
-          {/* Header */}
-          <div className="bg-gray-100 dark:bg-[#222] px-6 py-4 flex justify-between items-center border-b border-gray-200 dark:border-gray-800">
-            <h1 className="text-gray-600 dark:text-gray-300 font-bold tracking-widest text-lg uppercase flex-grow text-center ml-8">
-              Hire a New Helper
-            </h1>
-            <button
-              onClick={onClose}
-              className="w-8 h-8 rounded-full bg-black dark:bg-gray-800 text-white flex items-center justify-center hover:opacity-80 transition-opacity"
-            >
-              <span className="material-icons text-sm">close</span>
-            </button>
-          </div>
+          <HireHelperHeader onClose={onClose} />
+          <HelpersList helpers={helpers} onHire={handleHire} />
+          <HireHelperFooter onClose={onClose} />
+        </div>
 
-          {/* Helpers List */}
-          <div className="flex-grow bg-black p-6 overflow-y-auto">
-            <div className="space-y-4">
-              {helpers.map((helper) => (
-                <div
-                  key={helper.id}
-                  className="flex items-center justify-between bg-gray-800/40 border border-gray-700/50 rounded-xl p-4 hover:bg-gray-800/60 transition-colors"
-                >
-                  <Worker
-                    emoji={helper.emoji}
-                    name={helper.name}
-                    level={helper.level}
-                    productivity={helper.productivity}
-                    upgradePrice={helper.hirePrice}
-                    onUpgrade={() => handleHire(helper.id)}
-                  />
-                  <div className="ml-4">
-                    <button
-                      onClick={() => handleHire(helper.id)}
-                      className="bg-green-600 hover:bg-green-500 text-white px-6 py-2 rounded-md text-sm font-semibold transition-all shadow-lg"
-                    >
-                      Hire ${helper.hirePrice}
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="bg-gray-300 dark:bg-gray-700 p-6 flex justify-center border-t border-gray-400 dark:border-gray-600">
-            <button
-              onClick={onClose}
-              className="bg-black text-white px-12 py-2 rounded-xl text-lg font-bold tracking-widest uppercase hover:bg-gray-900 transition-colors shadow-md"
-            >
-              Close
-            </button>
-          </div>
+        {/* Theme Toggle */}
+        <div className="fixed bottom-4 right-4 flex gap-2">
+          <button
+            onClick={() => setIsDark(!isDark)}
+            className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700 flex items-center justify-center"
+          >
+            <span className="material-icons text-gray-800 dark:text-yellow-400">
+              brightness_4
+            </span>
+          </button>
         </div>
       </div>
     </div>
