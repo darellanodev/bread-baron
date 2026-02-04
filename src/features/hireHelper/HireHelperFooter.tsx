@@ -1,3 +1,5 @@
+import { RoundedButton } from '../../components/ui/RoundedButton'
+
 interface HireHelperFooterProps {
   onClose: () => void
 }
@@ -5,12 +7,13 @@ interface HireHelperFooterProps {
 export function HireHelperFooter({ onClose }: HireHelperFooterProps) {
   return (
     <div className="bg-bgLight dark:bg-cardDark p-6 flex justify-center border-t border-borderLight dark:border-borderDark">
-      <button
+      <RoundedButton
         onClick={onClose}
-        className="bg-primary hover:bg-primary/80 text-white px-12 py-2 rounded-xl text-lg font-bold tracking-widest uppercase transition-colors shadow-md"
+        size="lg"
+        className="bg-primary hover:bg-primary/80 text-white"
       >
         Close
-      </button>
+      </RoundedButton>
     </div>
   )
 }

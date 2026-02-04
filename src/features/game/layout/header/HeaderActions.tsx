@@ -1,11 +1,11 @@
-import { SettingsMenu } from '../../../../components/ui'
+import { SettingsMenu, RoundedButton } from '../../../../components/ui'
 
 export function HeaderActions() {
   return (
     <div className="flex gap-2">
-      <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary text-textLight text-sm font-bold transition-all active:scale-95 shadow-md">
+      <RoundedButton className="min-w-[84px] h-10 bg-primary text-textLight active:scale-95 rounded-full">
         Save Game
-      </button>
+      </RoundedButton>
       <SettingsMenu />
     </div>
   )
