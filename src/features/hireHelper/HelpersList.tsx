@@ -4,9 +4,9 @@ export interface Helper {
   id: number
   emoji: string
   name: string
-  level: number
-  productivity: number
   hirePrice: number
+  level?: number
+  productivity?: number
 }
 
 interface HelpersListProps {
@@ -26,10 +26,9 @@ export function HelpersList({ helpers, onHire }: HelpersListProps) {
             <Worker
               emoji={helper.emoji}
               name={helper.name}
-              level={helper.level}
-              productivity={helper.productivity}
               upgradePrice={helper.hirePrice}
               onUpgrade={() => onHire(helper.id)}
+              showUpgradeButton={false}
             />
             <div className="ml-4">
               <button
