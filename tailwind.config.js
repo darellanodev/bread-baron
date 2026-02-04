@@ -18,6 +18,8 @@ export default {
         cardDark: '#2a2418',
         deepDark: '#1a150d',
         borderDark: '#3a3121',
+        textDark: '#fdf5e6',
+        textDarkSecondary: '#d6d2cb',
         // Brown/Wood colors (for bakery)
         brownDark: '#8b4513',
         brownDarker: '#5e2f0d',

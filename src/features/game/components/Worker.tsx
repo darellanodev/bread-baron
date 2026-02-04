@@ -24,7 +24,9 @@ export function Worker({
       </div>
       <div className="flex-1 flex flex-col gap-1">
         <div className="flex justify-between items-center">
-          <h4 className="font-bold text-sm">{name}</h4>
+          <h4 className="font-bold text-sm text-textLight dark:text-textDark">
+            {name}
+          </h4>
           {level && (
             <span className="bg-primary text-textLight text-[10px] px-2 py-0.5 rounded-full font-black">
               LVL {level}
@@ -32,14 +34,14 @@ export function Worker({
           )}
         </div>
         {productivity && (
-          <p className="text-xs text-textSecondary">
+          <p className="text-xs text-textSecondary dark:text-textDarkSecondary">
             +{productivity} breads/sec
           </p>
         )}
         {showUpgradeButton && upgradePrice && (
           <button
             onClick={onUpgrade}
-            className="mt-1 h-7 bg-white dark:bg-deepDark rounded-full text-[10px] font-bold border border-primary/20 hover:bg-primary/10 transition-colors"
+            className="mt-1 h-7 bg-white dark:bg-deepDark rounded-full text-[10px] font-bold text-textLight dark:text-textDark border border-primary/20 hover:bg-primary/10 transition-colors"
           >
             Upgrade (${upgradePrice})
           </button>
