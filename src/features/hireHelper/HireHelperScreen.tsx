@@ -1,5 +1,5 @@
 import React from 'react'
-import DarkModeToggle from '../welcome/layout/DarkModeToggle'
+import DarkModeToggle from '../../components/ui/DarkModeToggle'
 import { HireHelperHeader } from './HireHelperHeader'
 import { HelpersList, Helper } from './HelpersList'
 import { HireHelperFooter } from './HireHelperFooter'

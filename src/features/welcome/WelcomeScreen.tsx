@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react'
-import {
-  DarkModeToggle,
-  WelcomeHeader,
-  WelcomeDescription,
-  WelcomeButton,
-} from './layout'
+import DarkModeToggle from '../../components/ui/DarkModeToggle'
+import { WelcomeHeader, WelcomeDescription, WelcomeButton } from './layout'
 
 export default function WelcomeScreen({ onStart }: { onStart?: () => void }) {
   const [isVisible, setIsVisible] = useState(false)
