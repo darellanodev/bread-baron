@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+import DarkModeToggle from '../welcome/layout/DarkModeToggle'
 import { HireHelperHeader } from './HireHelperHeader'
 import { HelpersList, Helper } from './HelpersList'
 import { HireHelperFooter } from './HireHelperFooter'
@@ -8,8 +9,6 @@ interface HireHelperScreenProps {
 }
 
 const HireHelperScreen: React.FC<HireHelperScreenProps> = ({ onClose }) => {
-  const [isDark, setIsDark] = useState(true)
-
   const helpers: Helper[] = [
     {
       id: 1,
@@ -42,25 +41,12 @@ const HireHelperScreen: React.FC<HireHelperScreenProps> = ({ onClose }) => {
   }
 
   return (
-    <div className={isDark ? 'dark' : ''}>
-      <div className="bg-bgSecondary dark:bg-bgDark min-h-screen flex items-center justify-center p-4">
-        <div className="w-full max-w-2xl bg-bgLight dark:bg-deepDark rounded-3xl shadow-2xl overflow-hidden border border-borderLight dark:border-borderDark flex flex-col h-[600px]">
-          <HireHelperHeader onClose={onClose} />
-          <HelpersList helpers={helpers} onHire={handleHire} />
-          <HireHelperFooter onClose={onClose} />
-        </div>
-
-        {/* Theme Toggle */}
-        <div className="fixed bottom-4 right-4 flex gap-2">
-          <button
-            onClick={() => setIsDark(!isDark)}
-            className="p-3 rounded-full bg-bgLight dark:bg-cardDark shadow-xl border border-borderLight dark:border-borderDark flex items-center justify-center"
-          >
-            <span className="material-icons text-textLight dark:text-primary">
-              brightness_4
-            </span>
-          </button>
-        </div>
+    <div className="bg-bgSecondary dark:bg-bgDark min-h-screen flex items-center justify-center p-4">
+      <DarkModeToggle />
+      <div className="w-full max-w-2xl bg-bgLight dark:bg-deepDark rounded-3xl shadow-2xl overflow-hidden border border-borderLight dark:border-borderDark flex flex-col h-[600px]">
+        <HireHelperHeader onClose={onClose} />
+        <HelpersList helpers={helpers} onHire={handleHire} />
+        <HireHelperFooter onClose={onClose} />
       </div>
     </div>
   )

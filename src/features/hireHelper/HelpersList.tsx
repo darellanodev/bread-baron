@@ -16,12 +16,12 @@ interface HelpersListProps {
 
 export function HelpersList({ helpers, onHire }: HelpersListProps) {
   return (
-    <div className="flex-grow bg-deepDark p-6 overflow-y-auto">
+    <div className="flex-grow bg-bgLight dark:bg-deepDark p-6 overflow-y-auto">
       <div className="space-y-4">
         {helpers.map((helper) => (
           <div
             key={helper.id}
-            className="flex items-center justify-between bg-cardDark/80 border border-borderDark/50 rounded-xl p-4 hover:bg-cardDark transition-colors"
+            className="flex items-center justify-between bg-bgLight dark:bg-cardDark border border-borderLight dark:border-borderDark rounded-xl p-4 hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
           >
             <Worker
               emoji={helper.emoji}
@@ -33,7 +33,7 @@ export function HelpersList({ helpers, onHire }: HelpersListProps) {
             <div className="ml-4">
               <button
                 onClick={() => onHire(helper.id)}
-                className="bg-primary hover:brownDark text-white px-6 py-2 rounded-md text-sm font-semibold transition-all shadow-lg"
+                className="bg-primary hover:bg-primary/80 text-white px-6 py-2 rounded-md text-sm font-semibold transition-all shadow-lg"
               >
                 Hire ${helper.hirePrice}
               </button>
