@@ -1,4 +1,5 @@
 // Barrel exports for UI components
 export { default as Button } from './Button'
-export { DropdownMenu, SettingsMenu } from './DropdownMenu'
+export { DropdownMenu } from './DropdownMenu'
+export { SettingsMenu } from './SettingsMenu'
 export { Switch } from './Switch'
