@@ -24,7 +24,7 @@ const HireHelperScreen: React.FC<HireHelperScreenProps> = ({ onClose }) => {
     },
     {
       id: 3,
-      emoji: '🧑‍🍳',
+      emoji: '🧑‍',
       name: 'Pastry Pro',
       hirePrice: 750,
     },

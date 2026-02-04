@@ -6,6 +6,7 @@ interface WorkerProps {
   upgradePrice?: number
   onUpgrade?: () => void
   showUpgradeButton?: boolean
+  showFrame?: boolean
 }
 
 export function Worker({
@@ -16,9 +17,12 @@ export function Worker({
   upgradePrice,
   onUpgrade,
   showUpgradeButton = true,
+  showFrame = true,
 }: WorkerProps) {
   return (
-    <div className="flex-none w-64 dough-card bg-bgLight dark:bg-cardDark rounded-xl p-3 flex gap-4 items-center">
+    <div
+      className={`flex-none w-64 p-3 flex gap-4 items-center ${showFrame ? 'dough-card bg-bgLight dark:bg-cardDark rounded-xl' : ''}`}
+    >
       <div className="size-14 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-3xl">
         {emoji}
       </div>

@@ -29,6 +29,7 @@ export function HelpersList({ helpers, onHire }: HelpersListProps) {
               upgradePrice={helper.hirePrice}
               onUpgrade={() => onHire(helper.id)}
               showUpgradeButton={false}
+              showFrame={false}
             />
             <div className="ml-4">
               <button
