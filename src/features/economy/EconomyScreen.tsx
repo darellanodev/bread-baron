@@ -1,4 +1,5 @@
 import React from 'react'
+import DarkModeToggle from '../../components/ui/DarkModeToggle'
 
 interface EconomyScreenProps {
   onClose: () => void
@@ -6,7 +7,8 @@ interface EconomyScreenProps {
 
 const EconomyScreen: React.FC<EconomyScreenProps> = ({ onClose }) => {
   return (
-    <div className="bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center p-4">
+    <div className="bg-bgSecondary dark:bg-bgDark min-h-screen flex items-center justify-center p-4">
+      <DarkModeToggle />
       {/* Mock Background Content (Simulating a game screen behind the modal) */}
       <div className="fixed inset-0 z-0 opacity-20 pointer-events-none overflow-hidden">
         <div className="grid grid-cols-6 gap-4 p-8">
@@ -24,32 +26,28 @@ const EconomyScreen: React.FC<EconomyScreenProps> = ({ onClose }) => {
       {/* Modal Backdrop Overlay */}
       <div
         onClick={onClose}
-        className="fixed inset-0 z-10 flex items-center justify-center p-6 md:p-12"
-        style={{
-          backgroundColor: 'rgba(16, 34, 22, 0.85)',
-          backdropFilter: 'blur(8px)',
-        }}
+        className="fixed inset-0 z-10 flex items-center justify-center p-6 md:p-12 bg-black/70 backdrop-blur-sm"
       >
         {/* Modal Container */}
         <div
           onClick={(e) => e.stopPropagation()}
-          className="bg-white dark:bg-[#162d1e] w-full max-w-[960px] max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-col border border-[#22492f]"
+          className="bg-bgLight dark:bg-deepDark w-full max-w-[960px] max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-col border border-borderLight dark:border-borderDark"
         >
           {/* Header */}
-          <header className="flex items-center justify-between px-8 py-5 border-b border-solid border-gray-200 dark:border-[#22492f]">
+          <header className="flex items-center justify-between px-8 py-5 border-b border-solid border-borderLight dark:border-borderDark">
             <div className="flex items-center gap-3">
               <div className="size-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
                 <span className="material-symbols-outlined">
                   account_balance_wallet
                 </span>
               </div>
-              <h2 className="text-gray-900 dark:text-white text-2xl font-bold leading-tight tracking-tight">
+              <h2 className="text-textLight dark:text-textDark text-2xl font-bold leading-tight tracking-tight">
                 Economy
               </h2>
             </div>
             <button
               onClick={onClose}
-              className="flex items-center justify-center rounded-full size-10 bg-gray-100 dark:bg-[#22492f] text-gray-600 dark:text-white hover:bg-red-500/20 hover:text-red-500 transition-colors"
+              className="flex items-center justify-center rounded-full size-10 bg-bgSecondary dark:bg-cardDark text-textSecondary dark:text-textDark hover:bg-red-500/20 hover:text-red-500 transition-colors"
             >
               <span className="material-symbols-outlined">close</span>
             </button>
@@ -60,11 +58,11 @@ const EconomyScreen: React.FC<EconomyScreenProps> = ({ onClose }) => {
             {/* PageHeading Style Section */}
             <div className="flex flex-wrap justify-between gap-4 mb-8">
               <div className="flex min-w-72 flex-col gap-1">
-                <p className="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+                <p className="text-textLight dark:text-textDark text-4xl font-black leading-tight tracking-[-0.033em]">
                   Overview
                 </p>
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-500 dark:text-[#90cba4] text-lg font-normal">
+                  <span className="text-textSecondary dark:text-textDarkSecondary text-lg font-normal">
                     Current Balance:
                   </span>
                   <span className="text-primary text-xl font-bold tracking-tight">
@@ -88,13 +86,13 @@ const EconomyScreen: React.FC<EconomyScreenProps> = ({ onClose }) => {
             </div>
 
             {/* Charts Section */}
-            <div className="bg-gray-50 dark:bg-[#102316] border border-gray-200 dark:border-[#22492f] rounded-xl p-6">
+            <div className="bg-bgSecondary dark:bg-cardDark border border-borderLight dark:border-borderDark rounded-xl p-6">
               <div className="flex flex-col gap-2 mb-6">
-                <p className="text-gray-700 dark:text-white text-base font-medium leading-normal">
+                <p className="text-textLight dark:text-textDark text-base font-medium leading-normal">
                   Wealth vs. Time
                 </p>
                 <div className="flex items-baseline gap-2">
-                  <p className="text-gray-900 dark:text-white tracking-tight text-[32px] font-bold leading-tight truncate">
+                  <p className="text-textLight dark:text-textDark tracking-tight text-[32px] font-bold leading-tight truncate">
                     $45,200
                   </p>
                   <p className="text-primary text-sm font-semibold">
@@ -144,17 +142,17 @@ const EconomyScreen: React.FC<EconomyScreenProps> = ({ onClose }) => {
                 </svg>
 
                 {/* X-Axis Labels */}
-                <div className="flex justify-around mt-4 border-t border-gray-200 dark:border-[#22492f] pt-4">
-                  <p className="text-gray-500 dark:text-[#90cba4] text-[11px] font-bold uppercase tracking-wider">
+                <div className="flex justify-around mt-4 border-t border-borderLight dark:border-borderDark pt-4">
+                  <p className="text-textSecondary dark:text-textDarkSecondary text-[11px] font-bold uppercase tracking-wider">
                     Day 1
                   </p>
-                  <p className="text-gray-500 dark:text-[#90cba4] text-[11px] font-bold uppercase tracking-wider">
+                  <p className="text-textSecondary dark:text-textDarkSecondary text-[11px] font-bold uppercase tracking-wider">
                     Day 10
                   </p>
-                  <p className="text-gray-500 dark:text-[#90cba4] text-[11px] font-bold uppercase tracking-wider">
+                  <p className="text-textSecondary dark:text-textDarkSecondary text-[11px] font-bold uppercase tracking-wider">
                     Day 20
                   </p>
-                  <p className="text-gray-500 dark:text-[#90cba4] text-[11px] font-bold uppercase tracking-wider">
+                  <p className="text-textSecondary dark:text-textDarkSecondary text-[11px] font-bold uppercase tracking-wider">
                     Day 30
                   </p>
                 </div>
@@ -163,16 +161,16 @@ const EconomyScreen: React.FC<EconomyScreenProps> = ({ onClose }) => {
 
             {/* Tooltip / Legend mock */}
             <div className="mt-6 grid grid-cols-2 gap-4">
-              <div className="p-4 rounded-lg bg-gray-50 dark:bg-[#1a3524] border border-gray-100 dark:border-[#22492f]">
-                <p className="text-xs text-gray-500 dark:text-[#90cba4] font-semibold uppercase">
+              <div className="p-4 rounded-lg bg-bgSecondary dark:bg-cardDark border border-borderLight dark:border-borderDark">
+                <p className="text-xs text-textSecondary dark:text-textDarkSecondary font-semibold uppercase">
                   Total Assets
                 </p>
-                <p className="text-lg font-bold text-gray-900 dark:text-white">
+                <p className="text-lg font-bold text-textLight dark:text-textDark">
                   $158,400
                 </p>
               </div>
-              <div className="p-4 rounded-lg bg-gray-50 dark:bg-[#1a3524] border border-gray-100 dark:border-[#22492f]">
-                <p className="text-xs text-gray-500 dark:text-[#90cba4] font-semibold uppercase">
+              <div className="p-4 rounded-lg bg-bgSecondary dark:bg-cardDark border border-borderLight dark:border-borderDark">
+                <p className="text-xs text-textSecondary dark:text-textDarkSecondary font-semibold uppercase">
                   Active Debt
                 </p>
                 <p className="text-lg font-bold text-red-500">$12,000</p>
@@ -181,21 +179,21 @@ const EconomyScreen: React.FC<EconomyScreenProps> = ({ onClose }) => {
           </div>
 
           {/* Footer Buttons */}
-          <footer className="p-6 border-t border-solid border-gray-200 dark:border-[#22492f] bg-gray-50 dark:bg-[#0d1c12]">
+          <footer className="p-6 border-t border-solid border-borderLight dark:border-borderDark bg-bgSecondary dark:bg-cardDark">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               {/* Actions */}
               <div className="flex flex-1 gap-3 w-full md:w-auto">
-                <button className="flex-1 md:flex-none min-w-[160px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-primary text-background-dark text-base font-bold transition-all hover:scale-[1.02] active:scale-95 shadow-[0_4px_14px_0_rgba(13,242,89,0.39)]">
+                <button className="flex-1 md:flex-none min-w-[160px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-primary text-textLight text-base font-bold transition-all hover:scale-[1.02] active:scale-95 shadow-[0_4px_14px_0_rgba(236,160,19,0.39)]">
                   <span className="truncate">Request Loan</span>
                 </button>
-                <button className="flex-1 md:flex-none min-w-[160px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-transparent border-2 border-[#22492f] text-gray-900 dark:text-white text-base font-bold transition-all hover:bg-white/5">
+                <button className="flex-1 md:flex-none min-w-[160px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-transparent border-2 border-borderLight dark:border-borderDark text-textLight dark:text-textDark text-base font-bold transition-all hover:bg-white/5">
                   <span className="truncate">Pay Loan</span>
                 </button>
               </div>
               {/* Close */}
               <button
                 onClick={onClose}
-                className="w-full md:w-auto min-w-[100px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-transparent text-gray-500 dark:text-gray-400 text-sm font-bold hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="w-full md:w-auto min-w-[100px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-transparent text-textSecondary dark:text-textDarkSecondary text-sm font-bold hover:text-textLight dark:hover:text-textDark transition-colors"
               >
                 <span className="truncate">Close</span>
               </button>
