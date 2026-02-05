@@ -6,12 +6,13 @@ import { WorkersPanel } from './layout/WorkersPanel'
 
 interface GameScreenProps {
   onHireHelper: () => void
+  onEconomy: () => void
 }
 
-export function GameScreen({ onHireHelper }: GameScreenProps) {
+export function GameScreen({ onHireHelper, onEconomy }: GameScreenProps) {
   return (
     <div className="bg-bgSecondary dark:bg-bgDark text-textLight dark:text-bgLight h-screen overflow-hidden flex flex-col font-sans">
-      <Header />
+      <Header onEconomy={onEconomy} />
       <main className="flex flex-1 overflow-hidden">
         <OrdersPanel />
         <BakeryPanel />
