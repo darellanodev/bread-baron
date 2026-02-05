@@ -1,5 +1,6 @@
 import React from 'react'
 import DarkModeToggle from '../../components/ui/DarkModeToggle'
+import { RoundedButton } from '../../components/ui/RoundedButton'
 
 interface EconomyScreenProps {
   onClose: () => void
@@ -183,12 +184,18 @@ const EconomyScreen: React.FC<EconomyScreenProps> = ({ onClose }) => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               {/* Actions */}
               <div className="flex flex-1 gap-3 w-full md:w-auto">
-                <button className="flex-1 md:flex-none min-w-[160px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-primary text-textLight text-base font-bold transition-all hover:scale-[1.02] active:scale-95 shadow-[0_4px_14px_0_rgba(236,160,19,0.39)]">
-                  <span className="truncate">Request Loan</span>
-                </button>
-                <button className="flex-1 md:flex-none min-w-[160px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-transparent border-2 border-borderLight dark:border-borderDark text-textLight dark:text-textDark text-base font-bold transition-all hover:bg-white/5">
-                  <span className="truncate">Pay Loan</span>
-                </button>
+                <RoundedButton
+                  className="flex-1 md:flex-none min-w-[160px] bg-primary text-textLight hover:scale-[1.02] active:scale-95 shadow-[0_4px_14px_0_rgba(236,160,19,0.39)]"
+                  size="md"
+                >
+                  Request Loan
+                </RoundedButton>
+                <RoundedButton
+                  className="flex-1 md:flex-none min-w-[160px] bg-transparent border-2 border-borderLight dark:border-borderDark text-textLight dark:text-textDark hover:bg-white/5"
+                  size="md"
+                >
+                  Pay Loan
+                </RoundedButton>
               </div>
               {/* Close */}
               <button
