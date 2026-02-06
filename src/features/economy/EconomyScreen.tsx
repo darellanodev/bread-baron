@@ -46,7 +46,7 @@ const EconomyScreen: React.FC<EconomyScreenProps> = ({ onClose }) => {
                 <p className="text-xs text-textSecondary dark:text-textDarkSecondary font-semibold uppercase">
                   Active Debt
                 </p>
-                <p className="text-lg font-bold text-red-500">$12,000</p>
+                <p className="text-lg font-bold text-red-500">30.000$</p>
               </div>
             </div>
           </div>
