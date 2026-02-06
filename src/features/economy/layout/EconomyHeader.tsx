@@ -12,9 +12,9 @@ export function EconomyHeader({ onClose }: EconomyHeaderProps) {
       </div>
       <button
         onClick={onClose}
-        className="flex items-center justify-center rounded-full size-10 bg-bgSecondary dark:bg-cardDark text-textSecondary dark:text-textDark hover:bg-red-500/20 hover:text-red-500 transition-colors"
+        className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:opacity-80 transition-opacity"
       >
-        <span className="material-symbols-outlined">close</span>
+        <span className="material-icons text-sm">X</span>
       </button>
     </header>
   )
