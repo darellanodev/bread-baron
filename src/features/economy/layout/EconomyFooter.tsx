@@ -1,4 +1,4 @@
-import { RoundedButton } from '../../components/ui/RoundedButton'
+import { RoundedButton } from '../../../components/ui/RoundedButton'
 
 interface EconomyFooterProps {
   onClose: () => void

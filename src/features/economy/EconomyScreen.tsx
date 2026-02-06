@@ -1,8 +1,6 @@
 import React from 'react'
 import DarkModeToggle from '../../components/ui/DarkModeToggle'
-import { EconomyHeader } from './EconomyHeader'
-import { EconomyChart } from './EconomyChart'
-import { EconomyFooter } from './EconomyFooter'
+import { EconomyHeader, EconomyChart, EconomyFooter } from './layout'
 
 interface EconomyScreenProps {
   onClose: () => void
