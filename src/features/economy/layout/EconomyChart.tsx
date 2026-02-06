@@ -2,14 +2,10 @@ export function EconomyChart() {
   return (
     <div className="bg-bgSecondary dark:bg-cardDark border border-borderLight dark:border-borderDark rounded-xl p-6">
       <div className="flex flex-col gap-2 mb-6">
-        <p className="text-textLight dark:text-textDark text-base font-medium leading-normal">
-          Wealth vs. Time
-        </p>
         <div className="flex items-baseline gap-2">
           <p className="text-textLight dark:text-textDark tracking-tight text-[32px] font-bold leading-tight truncate">
             $45,200
           </p>
-          <p className="text-primary text-sm font-semibold">+ $5,650 (30d)</p>
         </div>
       </div>
 
