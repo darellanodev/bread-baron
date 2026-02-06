@@ -3,6 +3,7 @@ import { create } from 'zustand'
 interface GameState {
   money: number
   currentDay: number
+  currentYear: number
   nextDay: () => void
   updateMoney: (amount: number) => void
   formatMoney: (amount: number) => string
@@ -11,12 +12,22 @@ interface GameState {
 export const useGameStore = create<GameState>((set) => ({
   money: 30000,
   currentDay: 1,
+  currentYear: 1,
 
   nextDay: () => {
-    set((state) => ({
-      currentDay: state.currentDay + 1,
-      money: state.money - 10,
-    }))
+    set((state) => {
+      if (state.currentDay >= 365) {
+        return {
+          currentDay: 1,
+          currentYear: state.currentYear + 1,
+          money: state.money - 10,
+        }
+      }
+      return {
+        currentDay: state.currentDay + 1,
+        money: state.money - 10,
+      }
+    })
   },
 
   updateMoney: (amount: number) => {
