@@ -1,5 +1,4 @@
 import React from 'react'
-import DarkModeToggle from '../../components/ui/DarkModeToggle'
 import { EconomyHeader, EconomyChart, EconomyFooter } from './layout'
 
 interface EconomyScreenProps {
@@ -9,8 +8,6 @@ interface EconomyScreenProps {
 const EconomyScreen: React.FC<EconomyScreenProps> = ({ onClose }) => {
   return (
     <div className="bg-bgSecondary dark:bg-bgDark min-h-[calc(100vh-64px)] flex items-center justify-center p-4">
-      <DarkModeToggle />
-
       {/* Screen Container */}
       <div className="bg-bgLight dark:bg-deepDark w-full max-w-[960px] max-h-[calc(100vh-100px)] overflow-hidden rounded-xl shadow-2xl flex flex-col border border-borderLight dark:border-borderDark">
         <EconomyHeader onClose={onClose} />
