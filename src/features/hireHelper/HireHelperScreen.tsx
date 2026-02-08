@@ -1,8 +1,11 @@
 import React from 'react'
 import DarkModeToggle from '../../components/ui/DarkModeToggle'
-import { HireHelperHeader } from './HireHelperHeader'
-import { HelpersList, Helper } from './HelpersList'
-import { HireHelperFooter } from './HireHelperFooter'
+import {
+  HireHelperHeader,
+  HelpersList,
+  Helper,
+  HireHelperFooter,
+} from './layout'
 
 interface HireHelperScreenProps {
   onClose: () => void

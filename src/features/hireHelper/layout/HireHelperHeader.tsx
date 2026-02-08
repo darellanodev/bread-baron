@@ -1,4 +1,4 @@
-import { WindowCloseButton } from '../../components/ui/WindowCloseButton'
+import { WindowCloseButton } from '../../../components/ui/WindowCloseButton'
 
 interface HireHelperHeaderProps {
   onClose: () => void

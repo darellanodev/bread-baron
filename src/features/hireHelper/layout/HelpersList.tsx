@@ -1,4 +1,4 @@
-import { Worker } from '../game/components/Worker'
+import { Worker } from '../../game/components/Worker'
 
 export interface Helper {
   id: number
