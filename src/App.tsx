@@ -12,7 +12,8 @@ function App() {
   >('welcome')
 
   const showHeader = screen !== 'welcome'
-  const showDayTimer = screen === 'game'
+  const showDayTimer =
+    screen === 'game' || screen === 'hireHelper' || screen === 'economy'
 
   return (
     <>
