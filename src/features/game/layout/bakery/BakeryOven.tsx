@@ -1,3 +1,5 @@
+import { ProductIndicator } from './ProductIndicator'
+
 export function BakeryOven() {
   return (
     <div className="relative group">
@@ -10,12 +12,7 @@ export function BakeryOven() {
         </div>
         <div className="absolute top-1/2 -right-4 w-4 h-24 bg-gray-400 rounded-full border-2 border-gray-600"></div>
       </div>
-      <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <span className="text-primary text-4xl transform -translate-y-4">
-          🥖
-        </span>
-        <span className="text-primary font-bold">+1 Bread</span>
-      </div>
+      <ProductIndicator />
     </div>
   )
 }
