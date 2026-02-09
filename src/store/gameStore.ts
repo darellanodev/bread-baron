@@ -23,6 +23,17 @@ interface AvailableHelper {
   productivity: number
 }
 
+interface Order {
+  id: string
+  difficulty: string
+  difficultyColor: string
+  title: string
+  price: number
+  progress: number
+  maxProgress: number
+  isInactive?: boolean
+}
+
 interface GameState {
   money: number
   currentDay: number
@@ -30,6 +41,7 @@ interface GameState {
   dailyMoneyHistory: DailyMoneyRecord[]
   workers: Worker[]
   availableHelpers: AvailableHelper[]
+  orders: Order[]
   maxWorkers: number
   bakingProgress: number
   showProduct: boolean
@@ -93,6 +105,36 @@ export const useGameStore = create<GameState>((set) => ({
   maxWorkers: 12,
   bakingProgress: 0,
   showProduct: false,
+  orders: [
+    {
+      id: '1',
+      difficulty: 'Medium',
+      difficultyColor: 'text-primary',
+      title: 'Rustic Bread Batch',
+      price: 150,
+      progress: 0,
+      maxProgress: 10,
+    },
+    {
+      id: '2',
+      difficulty: 'Hard',
+      difficultyColor: 'text-orange-600',
+      title: 'Gourmet Croissants',
+      price: 500,
+      progress: 0,
+      maxProgress: 25,
+    },
+    {
+      id: '3',
+      difficulty: 'Easy',
+      difficultyColor: 'text-green-500',
+      title: 'Daily Baguettes',
+      price: 40,
+      progress: 0,
+      maxProgress: 5,
+      isInactive: true,
+    },
+  ],
 
   nextDay: () => {
     set((state) => {

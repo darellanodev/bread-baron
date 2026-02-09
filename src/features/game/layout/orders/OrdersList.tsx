@@ -1,31 +1,23 @@
 import { OrderCard } from '../../components/OrderCard'
+import { useGameStore } from '../../../../store/gameStore'
 
 export function OrdersList() {
+  const { orders } = useGameStore()
+
   return (
     <div className="flex-1 overflow-y-auto px-4 pb-4 space-y-4">
-      <OrderCard
-        difficulty="Medium"
-        difficultyColor="text-primary"
-        title="Rustic Bread Batch"
-        price={150}
-        progress={0}
-        maxProgress={10}
-      />
-      <OrderCard
-        difficulty="Hard"
-        difficultyColor="text-orange-600"
-        title="Gourmet Croissants"
-        price={500}
-        progress={0}
-        maxProgress={25}
-      />
-      <OrderCard
-        difficulty="Easy"
-        difficultyColor="text-green-500"
-        title="Daily Baguettes"
-        price={40}
-        isInactive={true}
-      />
+      {orders.map((order) => (
+        <OrderCard
+          key={order.id}
+          difficulty={order.difficulty}
+          difficultyColor={order.difficultyColor}
+          title={order.title}
+          price={order.price}
+          progress={order.progress}
+          maxProgress={order.maxProgress}
+          isInactive={order.isInactive}
+        />
+      ))}
     </div>
   )
 }
