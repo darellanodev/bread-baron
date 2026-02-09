@@ -5,6 +5,7 @@ import { createTimeActions } from './actions/timeActions'
 import { createBakingActions } from './actions/bakingActions'
 import { createOrderActions } from './actions/orderActions'
 import { createWorkerActions } from './actions/workerActions'
+import { formatMoney } from '../utils/formatters'
 
 export const useGameStore = create<GameState>((set) => ({
   money: 30000,
@@ -29,12 +30,5 @@ export const useGameStore = create<GameState>((set) => ({
     }))
   },
 
-  formatMoney: (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(amount)
-  },
+  formatMoney,
 }))
