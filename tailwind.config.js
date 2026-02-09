@@ -27,6 +27,9 @@ export default {
         brownDeep: '#1a0f05',
         // Secondary text color
         textSecondary: '#897b61',
+        // Scrollbar colors
+        scrollbarLight: '#d6d2cb',
+        scrollbarDark: '#3a3121',
       },
     },
   },
