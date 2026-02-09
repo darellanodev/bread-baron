@@ -1,7 +1,9 @@
 import { ProductIndicator } from './ProductIndicator'
 import { OvenFire } from './OvenFire'
+import { useGameStore } from '../../../../store/gameStore'
 
 export function BakeryOven() {
+  const { showProduct } = useGameStore()
   return (
     <div className="relative group">
       <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
@@ -9,7 +11,7 @@ export function BakeryOven() {
         <OvenFire />
         <div className="absolute top-1/2 -right-4 w-4 h-24 bg-gray-400 rounded-full border-2 border-gray-600"></div>
       </div>
-      <ProductIndicator />
+      <ProductIndicator show={showProduct} />
     </div>
   )
 }

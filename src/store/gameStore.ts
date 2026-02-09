@@ -32,7 +32,9 @@ interface GameState {
   availableHelpers: AvailableHelper[]
   maxWorkers: number
   bakingProgress: number
+  showProduct: boolean
   increaseBakingProgress: () => void
+  hideProduct: () => void
   hireWorker: (helperId: string) => void
   upgradeWorker: (workerId: string) => void
   nextDay: () => void
@@ -90,6 +92,7 @@ export const useGameStore = create<GameState>((set) => ({
   ],
   maxWorkers: 12,
   bakingProgress: 0,
+  showProduct: false,
 
   nextDay: () => {
     set((state) => {
@@ -118,8 +121,23 @@ export const useGameStore = create<GameState>((set) => ({
   },
 
   increaseBakingProgress: () => {
-    set((state) => ({
-      bakingProgress: Math.min(state.bakingProgress + 10, 100),
+    set((state) => {
+      const newProgress = state.bakingProgress + 10
+      if (newProgress >= 100) {
+        return {
+          bakingProgress: 0,
+          showProduct: true,
+        }
+      }
+      return {
+        bakingProgress: newProgress,
+      }
+    })
+  },
+
+  hideProduct: () => {
+    set(() => ({
+      showProduct: false,
     }))
   },
 
