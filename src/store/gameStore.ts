@@ -14,14 +14,24 @@ interface Worker {
   upgradePrice: number
 }
 
+interface AvailableHelper {
+  id: string
+  emoji: string
+  name: string
+  hirePrice: number
+  level: number
+  productivity: number
+}
+
 interface GameState {
   money: number
   currentDay: number
   currentYear: number
   dailyMoneyHistory: DailyMoneyRecord[]
   workers: Worker[]
+  availableHelpers: AvailableHelper[]
   maxWorkers: number
-  hireWorker: (worker: Worker) => void
+  hireWorker: (helperId: string) => void
   upgradeWorker: (workerId: string) => void
   nextDay: () => void
   updateMoney: (amount: number) => void
@@ -34,6 +44,48 @@ export const useGameStore = create<GameState>((set) => ({
   currentYear: 1,
   dailyMoneyHistory: [],
   workers: [],
+  availableHelpers: [
+    {
+      id: '1',
+      emoji: '👩',
+      name: 'Apprentice Sue',
+      hirePrice: 150,
+      level: 1,
+      productivity: 1.2,
+    },
+    {
+      id: '2',
+      emoji: '👨',
+      name: 'Kneader Dan',
+      hirePrice: 400,
+      level: 1,
+      productivity: 2.5,
+    },
+    {
+      id: '3',
+      emoji: '👴',
+      name: 'Master Baker Joe',
+      hirePrice: 800,
+      level: 2,
+      productivity: 3.0,
+    },
+    {
+      id: '4',
+      emoji: '👩‍🍳',
+      name: 'Chef Maria',
+      hirePrice: 1200,
+      level: 3,
+      productivity: 4.2,
+    },
+    {
+      id: '5',
+      emoji: '🧑‍🍳',
+      name: 'Pastry Expert Tom',
+      hirePrice: 600,
+      level: 2,
+      productivity: 2.8,
+    },
+  ],
   maxWorkers: 12,
 
   nextDay: () => {
@@ -62,11 +114,34 @@ export const useGameStore = create<GameState>((set) => ({
     })
   },
 
-  hireWorker: (worker: Worker) => {
-    set((state) => ({
-      workers: [...state.workers, worker],
-      money: state.money - 500,
-    }))
+  hireWorker: (helperId: string) => {
+    set((state) => {
+      const helper = state.availableHelpers.find((h) => h.id === helperId)
+      if (
+        !helper ||
+        state.money < helper.hirePrice ||
+        state.workers.length >= state.maxWorkers
+      ) {
+        return state
+      }
+
+      const newWorker: Worker = {
+        id: helper.id,
+        emoji: helper.emoji,
+        name: helper.name,
+        level: helper.level,
+        productivity: helper.productivity,
+        upgradePrice: Math.floor(helper.hirePrice * 1.5),
+      }
+
+      return {
+        workers: [...state.workers, newWorker],
+        availableHelpers: state.availableHelpers.filter(
+          (h) => h.id !== helperId,
+        ),
+        money: state.money - helper.hirePrice,
+      }
+    })
   },
 
   upgradeWorker: (workerId: string) => {
