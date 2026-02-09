@@ -1,4 +1,4 @@
-import breadBaronImg from '../../../assets/bread_baron.png'
+import breadBaronImg from '../../../assets/bread_baron_circle.png'
 
 export default function WelcomeHeader() {
   return (
