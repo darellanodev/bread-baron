@@ -31,6 +31,8 @@ interface GameState {
   workers: Worker[]
   availableHelpers: AvailableHelper[]
   maxWorkers: number
+  bakingProgress: number
+  increaseBakingProgress: () => void
   hireWorker: (helperId: string) => void
   upgradeWorker: (workerId: string) => void
   nextDay: () => void
@@ -87,6 +89,7 @@ export const useGameStore = create<GameState>((set) => ({
     },
   ],
   maxWorkers: 12,
+  bakingProgress: 0,
 
   nextDay: () => {
     set((state) => {
@@ -112,6 +115,12 @@ export const useGameStore = create<GameState>((set) => ({
         dailyMoneyHistory: updatedHistory,
       }
     })
+  },
+
+  increaseBakingProgress: () => {
+    set((state) => ({
+      bakingProgress: Math.min(state.bakingProgress + 10, 100),
+    }))
   },
 
   hireWorker: (helperId: string) => {
