@@ -8,7 +8,7 @@ export function OrdersList() {
         difficultyColor="text-primary"
         title="Rustic Bread Batch"
         price={150}
-        progress={7}
+        progress={0}
         maxProgress={10}
       />
       <OrderCard
@@ -16,7 +16,7 @@ export function OrdersList() {
         difficultyColor="text-orange-600"
         title="Gourmet Croissants"
         price={500}
-        progress={2}
+        progress={0}
         maxProgress={25}
       />
       <OrderCard
