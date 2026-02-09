@@ -47,6 +47,8 @@ interface GameState {
   showProduct: boolean
   increaseBakingProgress: () => void
   hideProduct: () => void
+  updateOrderProgress: (orderId: string) => void
+  completeOrder: (orderId: string) => void
   hireWorker: (helperId: string) => void
   upgradeWorker: (workerId: string) => void
   nextDay: () => void
@@ -166,6 +168,28 @@ export const useGameStore = create<GameState>((set) => ({
     set((state) => {
       const newProgress = state.bakingProgress + 10
       if (newProgress >= 100) {
+        const firstOrder = state.orders[0]
+        if (firstOrder && !firstOrder.isInactive) {
+          const newOrderProgress = firstOrder.progress + 1
+
+          if (newOrderProgress >= firstOrder.maxProgress) {
+            return {
+              bakingProgress: 0,
+              showProduct: true,
+              orders: state.orders.slice(1),
+              money: state.money + firstOrder.price,
+            }
+          } else {
+            return {
+              bakingProgress: 0,
+              showProduct: true,
+              orders: [
+                { ...firstOrder, progress: newOrderProgress },
+                ...state.orders.slice(1),
+              ],
+            }
+          }
+        }
         return {
           bakingProgress: 0,
           showProduct: true,
@@ -181,6 +205,29 @@ export const useGameStore = create<GameState>((set) => ({
     set(() => ({
       showProduct: false,
     }))
+  },
+
+  updateOrderProgress: (orderId: string) => {
+    set((state) => ({
+      orders: state.orders.map((order) =>
+        order.id === orderId
+          ? { ...order, progress: order.progress + 1 }
+          : order,
+      ),
+    }))
+  },
+
+  completeOrder: (orderId: string) => {
+    set((state) => {
+      const order = state.orders.find((o) => o.id === orderId)
+      if (order) {
+        return {
+          orders: state.orders.filter((o) => o.id !== orderId),
+          money: state.money + order.price,
+        }
+      }
+      return state
+    })
   },
 
   hireWorker: (helperId: string) => {
