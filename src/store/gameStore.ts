@@ -5,11 +5,24 @@ interface DailyMoneyRecord {
   money: number
 }
 
+interface Worker {
+  id: string
+  emoji: string
+  name: string
+  level: number
+  productivity: number
+  upgradePrice: number
+}
+
 interface GameState {
   money: number
   currentDay: number
   currentYear: number
   dailyMoneyHistory: DailyMoneyRecord[]
+  workers: Worker[]
+  maxWorkers: number
+  hireWorker: (worker: Worker) => void
+  upgradeWorker: (workerId: string) => void
   nextDay: () => void
   updateMoney: (amount: number) => void
   formatMoney: (amount: number) => string
@@ -20,6 +33,8 @@ export const useGameStore = create<GameState>((set) => ({
   currentDay: 1,
   currentYear: 1,
   dailyMoneyHistory: [],
+  workers: [],
+  maxWorkers: 12,
 
   nextDay: () => {
     set((state) => {
@@ -45,6 +60,28 @@ export const useGameStore = create<GameState>((set) => ({
         dailyMoneyHistory: updatedHistory,
       }
     })
+  },
+
+  hireWorker: (worker: Worker) => {
+    set((state) => ({
+      workers: [...state.workers, worker],
+      money: state.money - 500,
+    }))
+  },
+
+  upgradeWorker: (workerId: string) => {
+    set((state) => ({
+      workers: state.workers.map((worker) =>
+        worker.id === workerId
+          ? {
+              ...worker,
+              level: worker.level + 1,
+              productivity: worker.productivity * 1.2,
+              upgradePrice: Math.floor(worker.upgradePrice * 1.5),
+            }
+          : worker,
+      ),
+    }))
   },
 
   updateMoney: (amount: number) => {

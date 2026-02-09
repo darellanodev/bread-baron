@@ -1,10 +1,12 @@
 import { Worker } from '../../components/Worker'
+import { useGameStore } from '../../../../store/gameStore'
 
 interface WorkersListProps {
   onHireHelper: () => void
 }
 
 export function WorkersList({ onHireHelper }: WorkersListProps) {
+  const { workers, maxWorkers } = useGameStore()
   return (
     <div className="flex-1 flex flex-col h-full py-4 overflow-hidden">
       <div className="flex justify-between items-center mb-4">
@@ -13,24 +15,20 @@ export function WorkersList({ onHireHelper }: WorkersListProps) {
           Production Staff
         </h3>
         <span className="text-sm font-bold text-textSecondary">
-          Hired: 4/12
+          Hired: {workers.length}/{maxWorkers}
         </span>
       </div>
       <div className="flex gap-4 overflow-x-auto pb-2 scroll-smooth">
-        <Worker
-          emoji="👩"
-          name="Apprentice Sue"
-          level={3}
-          productivity={1.2}
-          upgradePrice={150}
-        />
-        <Worker
-          emoji="👨"
-          name="Kneader Dan"
-          level={1}
-          productivity={2.5}
-          upgradePrice={400}
-        />
+        {workers.map((worker) => (
+          <Worker
+            key={worker.id}
+            emoji={worker.emoji}
+            name={worker.name}
+            level={worker.level}
+            productivity={worker.productivity}
+            upgradePrice={worker.upgradePrice}
+          />
+        ))}
         <div
           onClick={onHireHelper}
           className="flex-none w-48 border-4 border-dashed border-borderLight dark:border-borderDark rounded-xl flex flex-col items-center justify-center p-4 hover:border-primary transition-colors cursor-pointer group"
