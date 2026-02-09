@@ -53,3 +53,7 @@ export interface GameState {
   updateMoney: (amount: number) => void
   formatMoney: (amount: number) => string
 }
+
+import type { StoreApi } from 'zustand'
+
+export type SetState<T> = StoreApi<T>['setState']
