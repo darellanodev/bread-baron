@@ -10,11 +10,12 @@ export function MarketCustomers() {
         Customers in Queue ({customers.length})
       </p>
       <div className="flex flex-col gap-3">
-        {customers.map((customer) => (
+        {customers.map((customer, index) => (
           <Customer
             key={customer.id}
             name={customer.name}
-            wants={customer.wants}
+            orders={customer.orders}
+            isActive={index === 0}
           />
         ))}
       </div>

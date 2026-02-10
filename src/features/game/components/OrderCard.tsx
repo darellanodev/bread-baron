@@ -1,6 +1,7 @@
 import { ProgressBar } from '../../../components/ui/ProgressBar'
 
 interface OrderCardProps {
+  customerName?: string
   difficulty: string
   difficultyColor: string
   title: string
@@ -13,6 +14,7 @@ interface OrderCardProps {
 }
 
 export function OrderCard({
+  customerName,
   difficulty,
   difficultyColor,
   title,
@@ -29,6 +31,11 @@ export function OrderCard({
     >
       <div className="flex justify-between items-start">
         <div>
+          {customerName && (
+            <p className="text-xs font-bold text-textSecondary uppercase tracking-widest">
+              From: {customerName}
+            </p>
+          )}
           <p
             className={`${difficultyColor} text-xs font-bold uppercase tracking-widest`}
           >

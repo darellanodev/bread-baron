@@ -1,10 +1,6 @@
 import { create } from 'zustand'
 import type { GameState } from './types'
-import {
-  initialAvailableHelpers,
-  initialOrders,
-  initialCustomers,
-} from '../data/gameData'
+import { initialAvailableHelpers, initialCustomers } from '../data/gameData'
 import { createTimeActions } from './actions/timeActions'
 import { createBakingActions } from './actions/bakingActions'
 import { createOrderActions } from './actions/orderActions'
@@ -21,7 +17,6 @@ export const useGameStore = create<GameState>((set) => ({
   maxWorkers: 12,
   bakingProgress: 0,
   showProduct: false,
-  orders: initialOrders,
   customers: initialCustomers,
   isPaused: false,
   totalProductsCreated: 0,

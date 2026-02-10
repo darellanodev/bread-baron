@@ -2,13 +2,16 @@ import { OrderCard } from '../../components/OrderCard'
 import { useGameStore } from '../../../../store/gameStore'
 
 export function OrdersList() {
-  const { orders, prioritizeOrder } = useGameStore()
+  const { customers, prioritizeOrder } = useGameStore()
+  const currentCustomer = customers[0]
+  const orders = currentCustomer?.orders || []
 
   return (
     <div className="flex-1 overflow-y-auto px-4 pb-4 space-y-4">
       {orders.map((order) => (
         <OrderCard
           key={order.id}
+          customerName={currentCustomer?.name}
           difficulty={order.difficulty}
           difficultyColor={order.difficultyColor}
           title={order.title}

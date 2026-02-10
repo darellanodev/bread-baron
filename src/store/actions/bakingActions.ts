@@ -5,14 +5,23 @@ export const createBakingActions = (set: SetState<GameState>) => ({
     set((state) => {
       // Don't allow progress when game is paused
       if (state.isPaused) return state
+
+      // Get current customer and their orders
+      const currentCustomer = state.customers[0]
+      if (!currentCustomer || currentCustomer.orders.length === 0) {
+        return state
+      }
+
       const newProgress = state.bakingProgress + 10
       if (newProgress >= 100) {
+        const customerOrders = currentCustomer.orders
+
         // Find prioritized order, or use the first one if none is prioritized
-        const prioritizedOrder = state.orders.find(
+        const prioritizedOrder = customerOrders.find(
           (order) => order.isPrioritized && !order.isInactive,
         )
-        const targetOrder = prioritizedOrder || state.orders[0]
-        const targetOrderIndex = state.orders.findIndex(
+        const targetOrder = prioritizedOrder || customerOrders[0]
+        const targetOrderIndex = customerOrders.findIndex(
           (order) => order.id === targetOrder?.id,
         )
 
@@ -20,26 +29,55 @@ export const createBakingActions = (set: SetState<GameState>) => ({
           const newOrderProgress = targetOrder.progress + 1
 
           if (newOrderProgress >= targetOrder.maxProgress) {
-            const updatedOrders = state.orders.filter(
+            // Remove completed order from current customer
+            const updatedOrders = customerOrders.filter(
               (_, index) => index !== targetOrderIndex,
             )
-            return {
-              bakingProgress: 0,
-              showProduct: true,
-              orders: updatedOrders,
-              money: state.money + targetOrder.price,
-              totalProductsCreated: state.totalProductsCreated + 1,
+
+            // Check if customer has no more orders
+            if (updatedOrders.length === 0) {
+              // Remove the customer and move to the next one
+              const updatedCustomers = state.customers.slice(1)
+              return {
+                bakingProgress: 0,
+                showProduct: true,
+                customers: updatedCustomers,
+                money: state.money + targetOrder.price,
+                totalProductsCreated: state.totalProductsCreated + 1,
+              }
+            } else {
+              // Update current customer's orders
+              const updatedCustomers = [...state.customers]
+              updatedCustomers[0] = {
+                ...currentCustomer,
+                orders: updatedOrders,
+              }
+              return {
+                bakingProgress: 0,
+                showProduct: true,
+                customers: updatedCustomers,
+                money: state.money + targetOrder.price,
+                totalProductsCreated: state.totalProductsCreated + 1,
+              }
             }
           } else {
-            const updatedOrders = [...state.orders]
+            // Update order progress
+            const updatedOrders = [...customerOrders]
             updatedOrders[targetOrderIndex] = {
               ...targetOrder,
               progress: newOrderProgress,
             }
+
+            const updatedCustomers = [...state.customers]
+            updatedCustomers[0] = {
+              ...currentCustomer,
+              orders: updatedOrders,
+            }
+
             return {
               bakingProgress: 0,
               showProduct: true,
-              orders: updatedOrders,
+              customers: updatedCustomers,
               totalProductsCreated: state.totalProductsCreated + 1,
             }
           }

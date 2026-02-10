@@ -62,32 +62,61 @@ export const initialOrders: Order[] = [
     progress: 0,
     maxProgress: 25,
   },
-  {
-    id: '3',
-    difficulty: 'Easy',
-    difficultyColor: 'text-green-500',
-    title: 'Daily Baguettes',
-    price: 40,
-    progress: 0,
-    maxProgress: 5,
-    isInactive: true,
-  },
 ]
 
 export const initialCustomers: Customer[] = [
   {
     id: '1',
     name: 'The Mayor',
-    wants: '5x Rustic Bread',
+    orders: [
+      {
+        id: 'c1-1',
+        difficulty: 'Medium',
+        difficultyColor: 'text-primary',
+        title: 'Rustic Bread Batch',
+        price: 150,
+        progress: 0,
+        maxProgress: 10,
+      },
+      {
+        id: 'c1-2',
+        difficulty: 'Hard',
+        difficultyColor: 'text-orange-600',
+        title: 'Gourmet Croissants',
+        price: 500,
+        progress: 0,
+        maxProgress: 25,
+      },
+    ],
   },
   {
     id: '2',
     name: 'Construction Worker',
-    wants: '2x Croissants',
+    orders: [
+      {
+        id: 'c2-1',
+        difficulty: 'Medium',
+        difficultyColor: 'text-primary',
+        title: 'Rustic Bread Batch',
+        price: 150,
+        progress: 0,
+        maxProgress: 10,
+      },
+    ],
   },
   {
     id: '3',
     name: 'Village Baker',
-    wants: '10x Dough Bags',
+    orders: [
+      {
+        id: 'c3-1',
+        difficulty: 'Hard',
+        difficultyColor: 'text-orange-600',
+        title: 'Gourmet Croissants',
+        price: 500,
+        progress: 0,
+        maxProgress: 25,
+      },
+    ],
   },
 ]
