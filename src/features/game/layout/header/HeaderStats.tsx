@@ -78,7 +78,6 @@ export function HeaderStats({ onEconomy }: HeaderStatsProps) {
         <Stat icon="💰" value={formatMoney(money)} />
       </button>
       <Stat icon="📅" value={formattedDate} />
-      <Stat icon="⚡" value="14.5 P/s" />
       <Stat icon="🥖" value={`${formatNumber(totalProductsCreated)} Baked`} />
     </div>
   )
