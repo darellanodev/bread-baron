@@ -35,7 +35,7 @@ export const initialAvailableHelpers: AvailableHelper[] = [
   },
   {
     id: '5',
-    emoji: '🧑‍🍳',
+    emoji: '🧑',
     name: 'Tom',
     hirePrice: 600,
     level: 1,
