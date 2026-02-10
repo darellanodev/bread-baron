@@ -44,6 +44,7 @@ export interface GameState {
   maxWorkers: number
   bakingProgress: number
   showProduct: boolean
+  isPaused: boolean
   increaseBakingProgress: () => void
   hideProduct: () => void
   updateOrderProgress: (orderId: string) => void
@@ -52,6 +53,7 @@ export interface GameState {
   hireWorker: (helperId: string) => void
   upgradeWorker: (workerId: string) => void
   nextDay: () => void
+  togglePause: () => void
   updateMoney: (amount: number) => void
   formatMoney: (amount: number) => string
 }

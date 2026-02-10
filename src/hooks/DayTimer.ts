@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useGameStore } from '../store/gameStore'
 
 export function DayTimer() {
-  const { nextDay } = useGameStore()
+  const { nextDay, isPaused } = useGameStore()
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -10,7 +10,7 @@ export function DayTimer() {
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [nextDay])
+  }, [nextDay, isPaused])
 
   return null
 }

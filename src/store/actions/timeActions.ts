@@ -4,6 +4,8 @@ import type { SetState } from '../types'
 export const createTimeActions = (set: SetState<GameState>) => ({
   nextDay: () => {
     set((state) => {
+      // Don't advance days when game is paused
+      if (state.isPaused) return state
       const newRecord = { day: state.currentDay, money: state.money }
 
       if (state.currentDay >= 365) {

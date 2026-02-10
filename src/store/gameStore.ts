@@ -18,6 +18,7 @@ export const useGameStore = create<GameState>((set) => ({
   bakingProgress: 0,
   showProduct: false,
   orders: initialOrders,
+  isPaused: false,
 
   ...createTimeActions(set),
   ...createBakingActions(set),
@@ -27,6 +28,12 @@ export const useGameStore = create<GameState>((set) => ({
   updateMoney: (amount: number) => {
     set((state) => ({
       money: state.money + amount,
+    }))
+  },
+
+  togglePause: () => {
+    set((state) => ({
+      isPaused: !state.isPaused,
     }))
   },
 
