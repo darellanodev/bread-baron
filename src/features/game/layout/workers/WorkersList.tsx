@@ -62,7 +62,6 @@ export function WorkersList({ onHireHelper }: WorkersListProps) {
           <p className="text-xs font-bold text-textSecondary group-hover:text-primary">
             Hire Helper
           </p>
-          <p className="text-sm font-black text-green-500">$500</p>
         </div>
       </div>
     </div>
