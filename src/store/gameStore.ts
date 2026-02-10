@@ -19,6 +19,7 @@ export const useGameStore = create<GameState>((set) => ({
   showProduct: false,
   orders: initialOrders,
   isPaused: false,
+  totalProductsCreated: 0,
 
   ...createTimeActions(set),
   ...createBakingActions(set),

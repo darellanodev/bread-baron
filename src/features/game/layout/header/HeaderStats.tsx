@@ -55,8 +55,20 @@ const formatDate = (day: number, year: number): string => {
   return `${remainingDay} ${monthName} ${actualYear}`
 }
 
+// Format large numbers (e.g., 1200000 -> 1.2M)
+const formatNumber = (num: number): string => {
+  if (num >= 1_000_000) {
+    return `${(num / 1_000_000).toFixed(1)}M`
+  }
+  if (num >= 1_000) {
+    return `${(num / 1_000).toFixed(1)}K`
+  }
+  return num.toString()
+}
+
 export function HeaderStats({ onEconomy }: HeaderStatsProps) {
-  const { money, currentDay, currentYear, formatMoney } = useGameStore()
+  const { money, currentDay, currentYear, formatMoney, totalProductsCreated } =
+    useGameStore()
 
   const formattedDate = formatDate(currentDay, currentYear)
 
@@ -67,7 +79,7 @@ export function HeaderStats({ onEconomy }: HeaderStatsProps) {
       </button>
       <Stat icon="📅" value={formattedDate} />
       <Stat icon="⚡" value="14.5 P/s" />
-      <Stat icon="🥖" value="1.2M Baked" />
+      <Stat icon="🥖" value={`${formatNumber(totalProductsCreated)} Baked`} />
     </div>
   )
 }

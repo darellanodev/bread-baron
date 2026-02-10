@@ -28,6 +28,7 @@ export const createBakingActions = (set: SetState<GameState>) => ({
               showProduct: true,
               orders: updatedOrders,
               money: state.money + targetOrder.price,
+              totalProductsCreated: state.totalProductsCreated + 1,
             }
           } else {
             const updatedOrders = [...state.orders]
@@ -39,12 +40,14 @@ export const createBakingActions = (set: SetState<GameState>) => ({
               bakingProgress: 0,
               showProduct: true,
               orders: updatedOrders,
+              totalProductsCreated: state.totalProductsCreated + 1,
             }
           }
         }
         return {
           bakingProgress: 0,
           showProduct: true,
+          totalProductsCreated: state.totalProductsCreated + 1,
         }
       }
       return {

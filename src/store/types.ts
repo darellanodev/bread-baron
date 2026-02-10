@@ -45,6 +45,7 @@ export interface GameState {
   bakingProgress: number
   showProduct: boolean
   isPaused: boolean
+  totalProductsCreated: number
   increaseBakingProgress: () => void
   hideProduct: () => void
   updateOrderProgress: (orderId: string) => void
