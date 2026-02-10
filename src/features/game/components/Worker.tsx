@@ -39,7 +39,7 @@ export function Worker({
         </div>
         {productivity && (
           <p className="text-xs text-textSecondary dark:text-textDarkSecondary">
-            +{productivity} breads/sec
+            +{productivity} products/sec
           </p>
         )}
         {showUpgradeButton && upgradePrice && (

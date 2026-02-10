@@ -14,6 +14,7 @@ export function HelpersList() {
             <Worker
               emoji={helper.emoji}
               name={helper.name}
+              productivity={helper.productivity}
               upgradePrice={helper.hirePrice}
               onUpgrade={() => hireWorker(helper.id)}
               showUpgradeButton={false}
