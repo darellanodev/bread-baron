@@ -30,6 +30,7 @@ export interface Order {
   progress: number
   maxProgress: number
   isInactive?: boolean
+  isPrioritized?: boolean
 }
 
 export interface GameState {
@@ -47,6 +48,7 @@ export interface GameState {
   hideProduct: () => void
   updateOrderProgress: (orderId: string) => void
   completeOrder: (orderId: string) => void
+  prioritizeOrder: (orderId: string) => void
   hireWorker: (helperId: string) => void
   upgradeWorker: (workerId: string) => void
   nextDay: () => void

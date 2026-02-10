@@ -5,25 +5,38 @@ export const createBakingActions = (set: SetState<GameState>) => ({
     set((state) => {
       const newProgress = state.bakingProgress + 10
       if (newProgress >= 100) {
-        const firstOrder = state.orders[0]
-        if (firstOrder && !firstOrder.isInactive) {
-          const newOrderProgress = firstOrder.progress + 1
+        // Find prioritized order, or use the first one if none is prioritized
+        const prioritizedOrder = state.orders.find(
+          (order) => order.isPrioritized && !order.isInactive,
+        )
+        const targetOrder = prioritizedOrder || state.orders[0]
+        const targetOrderIndex = state.orders.findIndex(
+          (order) => order.id === targetOrder?.id,
+        )
 
-          if (newOrderProgress >= firstOrder.maxProgress) {
+        if (targetOrder && !targetOrder.isInactive) {
+          const newOrderProgress = targetOrder.progress + 1
+
+          if (newOrderProgress >= targetOrder.maxProgress) {
+            const updatedOrders = state.orders.filter(
+              (_, index) => index !== targetOrderIndex,
+            )
             return {
               bakingProgress: 0,
               showProduct: true,
-              orders: state.orders.slice(1),
-              money: state.money + firstOrder.price,
+              orders: updatedOrders,
+              money: state.money + targetOrder.price,
             }
           } else {
+            const updatedOrders = [...state.orders]
+            updatedOrders[targetOrderIndex] = {
+              ...targetOrder,
+              progress: newOrderProgress,
+            }
             return {
               bakingProgress: 0,
               showProduct: true,
-              orders: [
-                { ...firstOrder, progress: newOrderProgress },
-                ...state.orders.slice(1),
-              ],
+              orders: updatedOrders,
             }
           }
         }

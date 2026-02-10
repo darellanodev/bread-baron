@@ -8,6 +8,7 @@ interface OrderCardProps {
   progress?: number
   maxProgress?: number
   isInactive?: boolean
+  isPrioritized?: boolean
   onPrioritize?: () => void
 }
 
@@ -19,6 +20,7 @@ export function OrderCard({
   progress,
   maxProgress = 10,
   isInactive = false,
+  isPrioritized = false,
   onPrioritize,
 }: OrderCardProps) {
   return (
@@ -46,9 +48,13 @@ export function OrderCard({
           />
           <button
             onClick={onPrioritize}
-            className="flex items-center justify-center gap-2 w-full rounded-full h-9 bg-primary/10 text-primary font-bold text-sm hover:bg-primary hover:text-white transition-all"
+            className={`flex items-center justify-center gap-2 w-full rounded-full h-9 font-bold text-sm transition-all ${
+              isPrioritized
+                ? 'bg-primary text-white border-2 border-primary'
+                : 'bg-primary/10 text-primary hover:bg-primary hover:text-white'
+            }`}
           >
-            ⭐ Prioritize
+            ⭐ {isPrioritized ? 'Prioritized' : 'Prioritize'}
           </button>
         </>
       ) : (

@@ -2,7 +2,7 @@ import { OrderCard } from '../../components/OrderCard'
 import { useGameStore } from '../../../../store/gameStore'
 
 export function OrdersList() {
-  const { orders } = useGameStore()
+  const { orders, prioritizeOrder } = useGameStore()
 
   return (
     <div className="flex-1 overflow-y-auto px-4 pb-4 space-y-4">
@@ -16,6 +16,8 @@ export function OrdersList() {
           progress={order.progress}
           maxProgress={order.maxProgress}
           isInactive={order.isInactive}
+          isPrioritized={order.isPrioritized}
+          onPrioritize={() => prioritizeOrder(order.id)}
         />
       ))}
     </div>

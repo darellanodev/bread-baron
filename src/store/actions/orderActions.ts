@@ -23,4 +23,14 @@ export const createOrderActions = (set: SetState<GameState>) => ({
       return state
     })
   },
+
+  prioritizeOrder: (orderId: string) => {
+    set((state) => ({
+      orders: state.orders.map((order) =>
+        order.id === orderId
+          ? { ...order, isPrioritized: !order.isPrioritized }
+          : { ...order, isPrioritized: false },
+      ),
+    }))
+  },
 })
