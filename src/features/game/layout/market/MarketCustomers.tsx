@@ -15,6 +15,7 @@ export function MarketCustomers() {
             key={customer.id}
             name={customer.name}
             orders={customer.orders}
+            totalOrders={customer.totalOrders}
             isActive={index === 0}
           />
         ))}

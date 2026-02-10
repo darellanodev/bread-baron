@@ -3,16 +3,20 @@ import type { Order } from '../../../store/types'
 interface CustomerProps {
   name: string
   orders: Order[]
+  totalOrders: number
   isActive?: boolean
 }
 
-export function Customer({ name, orders, isActive = false }: CustomerProps) {
-  const totalOrders = orders.length
-  const completedOrders = orders.filter(
-    (o) => o.progress >= o.maxProgress,
-  ).length
+export function Customer({
+  name,
+  orders,
+  totalOrders,
+  isActive = false,
+}: CustomerProps) {
+  // Calculate completed orders as: total - remaining
+  const completedOrders = totalOrders - orders.length
   const progressText =
-    totalOrders > 0
+    orders.length > 0
       ? `${completedOrders}/${totalOrders} orders completed`
       : 'All orders completed'
 

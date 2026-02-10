@@ -68,6 +68,7 @@ export const initialCustomers: Customer[] = [
   {
     id: '1',
     name: 'The Mayor',
+    totalOrders: 2,
     orders: [
       {
         id: 'c1-1',
@@ -92,6 +93,7 @@ export const initialCustomers: Customer[] = [
   {
     id: '2',
     name: 'Construction Worker',
+    totalOrders: 1,
     orders: [
       {
         id: 'c2-1',
@@ -107,6 +109,7 @@ export const initialCustomers: Customer[] = [
   {
     id: '3',
     name: 'Village Baker',
+    totalOrders: 1,
     orders: [
       {
         id: 'c3-1',

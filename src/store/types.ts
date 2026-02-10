@@ -37,6 +37,7 @@ export interface Customer {
   id: string
   name: string
   orders: Order[]
+  totalOrders: number
 }
 
 export interface GameState {
