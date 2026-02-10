@@ -33,6 +33,12 @@ export interface Order {
   isPrioritized?: boolean
 }
 
+export interface Customer {
+  id: string
+  name: string
+  wants: string
+}
+
 export interface GameState {
   money: number
   currentDay: number
@@ -41,6 +47,7 @@ export interface GameState {
   workers: Worker[]
   availableHelpers: AvailableHelper[]
   orders: Order[]
+  customers: Customer[]
   maxWorkers: number
   bakingProgress: number
   showProduct: boolean

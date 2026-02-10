@@ -1,4 +1,4 @@
-import type { AvailableHelper, Order } from '../store/types'
+import type { AvailableHelper, Order, Customer } from '../store/types'
 
 export const initialAvailableHelpers: AvailableHelper[] = [
   {
@@ -71,5 +71,23 @@ export const initialOrders: Order[] = [
     progress: 0,
     maxProgress: 5,
     isInactive: true,
+  },
+]
+
+export const initialCustomers: Customer[] = [
+  {
+    id: '1',
+    name: 'The Mayor',
+    wants: '5x Rustic Bread',
+  },
+  {
+    id: '2',
+    name: 'Construction Worker',
+    wants: '2x Croissants',
+  },
+  {
+    id: '3',
+    name: 'Village Baker',
+    wants: '10x Dough Bags',
   },
 ]
