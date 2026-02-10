@@ -28,6 +28,23 @@ const getLastDaysData = (
   return data.slice(-days)
 }
 
+// Calculate Y-axis domain based on data range
+const calculateYDomain = (data: Array<{ money: number }>) => {
+  if (data.length === 0) return [0, 50000]
+
+  const values = data.map((d) => d.money)
+  const min = Math.min(...values)
+  const max = Math.max(...values)
+  const range = max - min
+
+  // Add 10% margin on both sides for better visualization
+  const margin = range * 0.1 || 1000 // Minimum margin of $1000
+  const domainMin = Math.max(0, min - margin) // Don't go below 0
+  const domainMax = max + margin
+
+  return [domainMin, domainMax]
+}
+
 export function EconomyChart() {
   const {
     dailyMoneyHistory,
@@ -37,6 +54,9 @@ export function EconomyChart() {
 
   // Get last 30 days of data
   const chartData = getLastDaysData(dailyMoneyHistory, 30)
+
+  // Calculate Y-axis domain for better visualization
+  const yDomain = calculateYDomain(chartData)
 
   // If no data, show empty state
   if (chartData.length === 0) {
@@ -69,6 +89,17 @@ export function EconomyChart() {
       </div>
 
       {/* Chart */}
+      {/* Range indicator */}
+      {chartData.length > 1 && (
+        <div className="mb-3 flex items-center justify-between text-xs text-textSecondary dark:text-textDarkSecondary">
+          <span>
+            Range: {formatMoney(yDomain[0] as number)} -{' '}
+            {formatMoney(yDomain[1] as number)}
+          </span>
+          <span>Focused view • Adjusted scale</span>
+        </div>
+      )}
+
       <div className="w-full h-[280px]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
@@ -94,6 +125,7 @@ export function EconomyChart() {
               tickFormatter={(value) => `D${value}`}
             />
             <YAxis
+              domain={yDomain}
               stroke="currentColor"
               strokeOpacity={0.5}
               tick={{
