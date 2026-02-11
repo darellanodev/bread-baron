@@ -9,7 +9,7 @@ interface IndustryScreenProps {
 const STAGE_EMOJIS = ['🏠', '🏪', '🏢', '🏭', '🌍']
 
 export function IndustryScreen({ onClose }: IndustryScreenProps) {
-  const { ovenLevel, maxWorkers, money, upgradeOven } = useGameStore()
+  const { ovenLevel, money, upgradeOven } = useGameStore()
   const currentLevelIndex = ovenLevel - 1
 
   const formatUpgradePrice = (price: number): string => {
@@ -93,6 +93,9 @@ export function IndustryScreen({ onClose }: IndustryScreenProps) {
                       <p className="text-xs text-textSecondary dark:text-textDarkSecondary mt-1">
                         Level {level.level}
                       </p>
+                      <p className="text-xs text-textSecondary dark:text-textDarkSecondary mt-1">
+                        Max workers: {level.maxWorkers}
+                      </p>
                       {isCurrent && (
                         <div className="mt-2 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">
                           CURRENT
@@ -130,39 +133,6 @@ export function IndustryScreen({ onClose }: IndustryScreenProps) {
                   </div>
                 )
               })}
-            </div>
-          </div>
-
-          {/* Current Status */}
-          <div className="bg-bgSecondary dark:bg-cardDark border border-borderLight dark:border-borderDark rounded-xl p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4 text-textLight dark:text-textDark">
-              Current Status
-            </h2>
-            <div className="grid grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">
-                  {ovenLevel}
-                </div>
-                <div className="text-sm text-textSecondary dark:text-textDarkSecondary">
-                  Industry Level
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">
-                  {maxWorkers}
-                </div>
-                <div className="text-sm text-textSecondary dark:text-textDarkSecondary">
-                  Max Workers
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">
-                  {STAGE_EMOJIS[currentLevelIndex]}
-                </div>
-                <div className="text-sm text-textSecondary dark:text-textDarkSecondary">
-                  {INDUSTRY_LEVELS[currentLevelIndex].name}
-                </div>
-              </div>
             </div>
           </div>
         </main>
