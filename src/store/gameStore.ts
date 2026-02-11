@@ -6,7 +6,10 @@ import { createBakingActions } from './actions/bakingActions'
 import { createOrderActions } from './actions/orderActions'
 import { createWorkerActions } from './actions/workerActions'
 import { createPromotionActions } from './actions/promotionActions'
-import { createIndustryActions } from './actions/industryActions'
+import {
+  createIndustryActions,
+  INDUSTRY_LEVELS,
+} from './actions/industryActions'
 import { formatMoney } from '../utils/formatters'
 
 export const useGameStore = create<GameState>((set) => ({
@@ -16,7 +19,7 @@ export const useGameStore = create<GameState>((set) => ({
   dailyMoneyHistory: [],
   workers: [],
   availableHelpers: initialAvailableHelpers,
-  maxWorkers: 12,
+  maxWorkers: INDUSTRY_LEVELS[0].maxWorkers,
   ovenLevel: 1,
   bakingProgress: 0,
   showProduct: false,
