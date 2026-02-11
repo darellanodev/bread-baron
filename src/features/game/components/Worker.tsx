@@ -23,7 +23,7 @@ export function Worker({
 }: WorkerProps) {
   return (
     <div
-      className={`flex-none w-64 p-3 flex gap-4 items-center transition-all duration-200 ${showFrame ? `dough-card bg-bgLight dark:bg-cardDark rounded-xl` : ''} ${isWorking ? 'scale-105 ring-2 ring-primary animate-pulse' : ''}`}
+      className={`flex-none w-64 p-3 flex gap-4 items-center transition-all duration-200 ${showFrame ? `dough-card bg-bgLight dark:bg-cardDark rounded-xl` : ''}`}
     >
       <div
         className={`size-14 rounded-full flex items-center justify-center shrink-0 text-3xl transition-colors ${isWorking ? 'bg-primary/40' : 'bg-primary/20'}`}
