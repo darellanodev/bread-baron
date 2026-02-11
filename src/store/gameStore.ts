@@ -13,7 +13,7 @@ import {
 import { formatMoney } from '../utils/formatters'
 
 export const useGameStore = create<GameState>((set) => ({
-  money: 30000000,
+  money: 30000,
   currentDay: 1,
   currentYear: 1,
   dailyMoneyHistory: [],
