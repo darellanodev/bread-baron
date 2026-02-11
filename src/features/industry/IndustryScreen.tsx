@@ -1,151 +1,20 @@
-import { useGameStore } from '../../store/gameStore'
-import { INDUSTRY_LEVELS } from '../../store/actions/industryActions'
-import Button from '../../components/ui/Button'
+import { IndustryHeader, IndustryMap, IndustryFooter } from './layout'
 
 interface IndustryScreenProps {
   onClose: () => void
 }
 
-const STAGE_EMOJIS = ['🏠', '🏪', '🏢', '🏭', '🌍']
-
 export function IndustryScreen({ onClose }: IndustryScreenProps) {
-  const { ovenLevel, money, upgradeOven } = useGameStore()
-  const currentLevelIndex = ovenLevel - 1
-
-  const formatUpgradePrice = (price: number): string => {
-    if (price >= 1000000) {
-      return `$${(price / 1000000).toFixed(0)}M`
-    } else if (price >= 1000) {
-      return `$${(price / 1000).toFixed(0)}K`
-    }
-    return `$${price}`
-  }
-
   return (
     <div className="bg-bgSecondary dark:bg-bgDark min-h-[calc(100vh-64px)] flex items-center justify-center p-4">
       <div className="bg-bgLight dark:bg-deepDark w-full max-w-4xl max-h-[calc(100vh-100px)] overflow-hidden rounded-xl shadow-2xl flex flex-col border border-borderLight dark:border-borderDark">
-        {/* Header */}
-        <div className="bg-bgLight dark:bg-cardDark p-6 flex items-center justify-between border-b border-borderLight dark:border-borderDark">
-          <h1 className="text-primary dark:text-primary font-bold tracking-widest text-xl uppercase flex-grow text-center">
-            🏭 Bakery Industry Evolution
-          </h1>
-          <button
-            onClick={onClose}
-            className="text-textSecondary hover:text-primary transition-colors text-2xl font-bold"
-          >
-            ✕
-          </button>
-        </div>
+        <IndustryHeader onClose={onClose} />
 
-        {/* Content */}
         <main className="flex-1 overflow-y-auto p-12">
-          {/* Stages Line */}
-          <div className="relative mb-16">
-            {/* Connection Line */}
-            <div className="absolute top-12 left-24 right-24 h-1 bg-borderLight dark:bg-borderDark rounded-full"></div>
-
-            {/* Progress Line */}
-            <div
-              className="absolute top-12 left-24 h-1 bg-primary rounded-full transition-all duration-500"
-              style={{ width: `${(currentLevelIndex / 4) * (100 - 12)}%` }}
-            ></div>
-
-            {/* Stages */}
-            <div className="relative flex justify-between items-start px-16">
-              {INDUSTRY_LEVELS.map((level, index) => {
-                const isCompleted = index < currentLevelIndex
-                const isCurrent = index === currentLevelIndex
-                const isLocked = index > currentLevelIndex
-
-                return (
-                  <div
-                    key={level.level}
-                    className="flex flex-col items-center w-32"
-                  >
-                    {/* Stage Node */}
-                    <div
-                      className={`
-                        relative w-24 h-24 rounded-full flex items-center justify-center text-4xl
-                        transition-all duration-300
-                        ${
-                          isCompleted
-                            ? 'bg-primary shadow-lg'
-                            : isCurrent
-                              ? 'bg-primary shadow-lg shadow-primary/50 ring-4 ring-primary/30 animate-pulse'
-                              : 'bg-gray-300 dark:bg-gray-600 opacity-50'
-                        }
-                      `}
-                    >
-                      {isLocked ? '🔒' : STAGE_EMOJIS[index]}
-                    </div>
-
-                    {/* Stage Info */}
-                    <div className="mt-4 text-center">
-                      <h3
-                        className={`font-bold text-sm ${
-                          isCurrent
-                            ? 'text-primary'
-                            : 'text-textLight dark:text-textDark'
-                        }`}
-                      >
-                        {level.name}
-                      </h3>
-                      <p className="text-xs text-textSecondary dark:text-textDarkSecondary mt-1">
-                        Level {level.level}
-                      </p>
-                      <p className="text-xs text-textSecondary dark:text-textDarkSecondary mt-1">
-                        Max workers: {level.maxWorkers}
-                      </p>
-                      {isCurrent && (
-                        <div className="mt-2 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">
-                          CURRENT
-                        </div>
-                      )}
-
-                      {/* Upgrade Button - Only show for current level */}
-                      {isCurrent && (
-                        <div className="mt-3">
-                          {index < INDUSTRY_LEVELS.length - 1 ? (
-                            <Button
-                              onClick={upgradeOven}
-                              disabled={
-                                money < INDUSTRY_LEVELS[index + 1].upgradePrice
-                              }
-                              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                                money >= INDUSTRY_LEVELS[index + 1].upgradePrice
-                                  ? 'bg-brownDark text-white hover:bg-brownDarker'
-                                  : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
-                              }`}
-                            >
-                              Upgrade{' '}
-                              {formatUpgradePrice(
-                                INDUSTRY_LEVELS[index + 1].upgradePrice,
-                              )}
-                            </Button>
-                          ) : (
-                            <div className="px-3 py-1.5 text-xs font-bold text-gray-400 dark:text-gray-500">
-                              MAX LEVEL
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
+          <IndustryMap />
         </main>
 
-        {/* Footer */}
-        <div className="bg-bgLight dark:bg-cardDark p-6 border-t border-borderLight dark:border-borderDark flex justify-center">
-          <button
-            onClick={onClose}
-            className="px-8 py-3 bg-brownDark text-white font-bold rounded-xl hover:bg-brownDarker transition-colors"
-          >
-            Back to Bakery
-          </button>
-        </div>
+        <IndustryFooter onClose={onClose} />
       </div>
     </div>
   )
