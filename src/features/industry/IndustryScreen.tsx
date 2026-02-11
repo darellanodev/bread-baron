@@ -1,5 +1,6 @@
 import { useGameStore } from '../../store/gameStore'
 import { INDUSTRY_LEVELS } from '../../store/actions/industryActions'
+import Button from '../../components/ui/Button'
 
 interface IndustryScreenProps {
   onClose: () => void
@@ -8,8 +9,17 @@ interface IndustryScreenProps {
 const STAGE_EMOJIS = ['🏠', '🏪', '🏢', '🏭', '🌍']
 
 export function IndustryScreen({ onClose }: IndustryScreenProps) {
-  const { ovenLevel, maxWorkers } = useGameStore()
+  const { ovenLevel, maxWorkers, money, upgradeOven } = useGameStore()
   const currentLevelIndex = ovenLevel - 1
+
+  const formatUpgradePrice = (price: number): string => {
+    if (price >= 1000000) {
+      return `$${(price / 1000000).toFixed(0)}M`
+    } else if (price >= 1000) {
+      return `$${(price / 1000).toFixed(0)}K`
+    }
+    return `$${price}`
+  }
 
   return (
     <div className="bg-bgSecondary dark:bg-bgDark min-h-[calc(100vh-64px)] flex items-center justify-center p-4">
@@ -86,6 +96,34 @@ export function IndustryScreen({ onClose }: IndustryScreenProps) {
                       {isCurrent && (
                         <div className="mt-2 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">
                           CURRENT
+                        </div>
+                      )}
+
+                      {/* Upgrade Button - Only show for current level */}
+                      {isCurrent && (
+                        <div className="mt-3">
+                          {index < INDUSTRY_LEVELS.length - 1 ? (
+                            <Button
+                              onClick={upgradeOven}
+                              disabled={
+                                money < INDUSTRY_LEVELS[index + 1].upgradePrice
+                              }
+                              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                                money >= INDUSTRY_LEVELS[index + 1].upgradePrice
+                                  ? 'bg-brownDark text-white hover:bg-brownDarker'
+                                  : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+                              }`}
+                            >
+                              Upgrade{' '}
+                              {formatUpgradePrice(
+                                INDUSTRY_LEVELS[index + 1].upgradePrice,
+                              )}
+                            </Button>
+                          ) : (
+                            <div className="px-3 py-1.5 text-xs font-bold text-gray-400 dark:text-gray-500">
+                              MAX LEVEL
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
