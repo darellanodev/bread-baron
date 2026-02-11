@@ -1,4 +1,13 @@
-import type { GameState, Worker, SetState } from '../types'
+import type { GameState, Worker, SetState, AvailableHelper } from '../types'
+import {
+  workerNames,
+  workerEmojis,
+  workerProductivityRange,
+  workerPriceRange,
+} from '../../data/gameData'
+
+// Variable global para IDs secuenciales de workers
+let nextWorkerId = 6
 
 export const createWorkerActions = (set: SetState<GameState>) => ({
   hireWorker: (helperId: string, contractDuration: number) => {
@@ -48,5 +57,56 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
           : worker,
       ),
     }))
+  },
+
+  postJobOffer: () => {
+    set((state) => {
+      // Verificar que no haya workers disponibles y que haya suficiente dinero
+      if (state.availableHelpers.length > 0 || state.money < 500) {
+        return state
+      }
+
+      // Generar número aleatorio de workers (3-6)
+      const numWorkers = Math.floor(Math.random() * 4) + 3
+      const newHelpers: AvailableHelper[] = []
+
+      for (let i = 0; i < numWorkers; i++) {
+        // Seleccionar nombre aleatorio
+        const nameIndex = Math.floor(Math.random() * workerNames.length)
+        const workerName = workerNames[nameIndex]
+
+        // Seleccionar emoji aleatorio
+        const emojiIndex = Math.floor(Math.random() * workerEmojis.length)
+        const workerEmoji = workerEmojis[emojiIndex]
+
+        // Generar productividad aleatoria
+        const productivity =
+          Math.random() *
+            (workerProductivityRange.max - workerProductivityRange.min) +
+          workerProductivityRange.min
+
+        // Generar precio aleatorio
+        const hirePricePerMonth = Math.floor(
+          Math.random() * (workerPriceRange.max - workerPriceRange.min) +
+            workerPriceRange.min,
+        )
+
+        newHelpers.push({
+          id: String(nextWorkerId),
+          name: workerName,
+          emoji: workerEmoji,
+          hirePricePerMonth,
+          level: 1,
+          productivity: Math.round(productivity * 10) / 10,
+        })
+
+        nextWorkerId++
+      }
+
+      return {
+        availableHelpers: newHelpers,
+        money: state.money - 500,
+      }
+    })
   },
 })

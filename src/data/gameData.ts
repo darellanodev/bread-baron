@@ -213,3 +213,45 @@ export const orderTypes: Omit<Order, 'id' | 'progress'>[] = [
     maxProgress: 45,
   },
 ]
+
+// Nombres de workers disponibles para generación dinámica
+export const workerNames = [
+  'Alex',
+  'Sarah',
+  'Mike',
+  'Emma',
+  'David',
+  'Lisa',
+  'John',
+  'Anna',
+  'Tom',
+  'Julia',
+  'Chris',
+  'Sue',
+  'Dan',
+  'Joe',
+  'Maria',
+  'Robert',
+  'Jennifer',
+  'Michael',
+  'Laura',
+  'Kevin',
+]
+
+// Emojis disponibles para workers
+export const workerEmojis = [
+  '👨',
+  '👩',
+  '🧑',
+  '👴',
+  '👵',
+  '👨‍🍳',
+  '👩‍🍳',
+  '🧑‍🍳',
+  '👨‍🌾',
+  '👩‍🌾',
+]
+
+// Rangos de productividad y precios para workers aleatorios
+export const workerProductivityRange = { min: 1.0, max: 5.0 }
+export const workerPriceRange = { min: 100, max: 1500 }

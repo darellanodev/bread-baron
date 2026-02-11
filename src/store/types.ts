@@ -67,6 +67,7 @@ export interface GameState {
   updateMoney: (amount: number) => void
   formatMoney: (amount: number) => string
   launchPromotion: () => void
+  postJobOffer: () => void
 }
 
 import type { StoreApi } from 'zustand'
