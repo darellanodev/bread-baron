@@ -5,6 +5,7 @@ import { createTimeActions } from './actions/timeActions'
 import { createBakingActions } from './actions/bakingActions'
 import { createOrderActions } from './actions/orderActions'
 import { createWorkerActions } from './actions/workerActions'
+import { createPromotionActions } from './actions/promotionActions'
 import { formatMoney } from '../utils/formatters'
 
 export const useGameStore = create<GameState>((set) => ({
@@ -25,6 +26,7 @@ export const useGameStore = create<GameState>((set) => ({
   ...createBakingActions(set),
   ...createOrderActions(set),
   ...createWorkerActions(set),
+  ...createPromotionActions(set),
 
   updateMoney: (amount: number) => {
     set((state) => ({

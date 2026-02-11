@@ -66,6 +66,7 @@ export interface GameState {
   togglePause: () => void
   updateMoney: (amount: number) => void
   formatMoney: (amount: number) => string
+  launchPromotion: () => void
 }
 
 import type { StoreApi } from 'zustand'

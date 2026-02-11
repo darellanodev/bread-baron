@@ -123,3 +123,93 @@ export const initialCustomers: Customer[] = [
     ],
   },
 ]
+
+// Nombres de customers adicionales para generación dinámica
+export const customerNames = [
+  'Tourist',
+  'Local Resident',
+  'Business Owner',
+  'Food Critic',
+  'Event Planner',
+  'School Teacher',
+  'Office Worker',
+  'Grandmother',
+  'College Student',
+  'Chef',
+  'Restaurant Owner',
+  'Hotel Manager',
+]
+
+// Tipos de órdenes posibles para generación dinámica
+export const orderTypes: Omit<Order, 'id' | 'progress'>[] = [
+  {
+    difficulty: 'Easy',
+    difficultyColor: 'text-green-600',
+    title: 'Simple Muffins',
+    price: 80,
+    maxProgress: 5,
+  },
+  {
+    difficulty: 'Easy',
+    difficultyColor: 'text-green-600',
+    title: 'Plain Bagels',
+    price: 100,
+    maxProgress: 6,
+  },
+  {
+    difficulty: 'Medium',
+    difficultyColor: 'text-primary',
+    title: 'Rustic Bread Batch',
+    price: 150,
+    maxProgress: 10,
+  },
+  {
+    difficulty: 'Medium',
+    difficultyColor: 'text-primary',
+    title: 'Cinnamon Rolls',
+    price: 200,
+    maxProgress: 12,
+  },
+  {
+    difficulty: 'Medium',
+    difficultyColor: 'text-primary',
+    title: 'Chocolate Cookies',
+    price: 180,
+    maxProgress: 11,
+  },
+  {
+    difficulty: 'Hard',
+    difficultyColor: 'text-orange-600',
+    title: 'Gourmet Croissants',
+    price: 500,
+    maxProgress: 25,
+  },
+  {
+    difficulty: 'Hard',
+    difficultyColor: 'text-orange-600',
+    title: 'Wedding Cake',
+    price: 800,
+    maxProgress: 30,
+  },
+  {
+    difficulty: 'Hard',
+    difficultyColor: 'text-orange-600',
+    title: 'Artisan Sourdough',
+    price: 600,
+    maxProgress: 28,
+  },
+  {
+    difficulty: 'Expert',
+    difficultyColor: 'text-red-600',
+    title: 'Macaron Collection',
+    price: 1200,
+    maxProgress: 40,
+  },
+  {
+    difficulty: 'Expert',
+    difficultyColor: 'text-red-600',
+    title: 'Royal Pastries',
+    price: 1500,
+    maxProgress: 45,
+  },
+]
