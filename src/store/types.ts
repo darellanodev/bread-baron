@@ -50,6 +50,7 @@ export interface GameState {
   workers: Worker[]
   availableHelpers: AvailableHelper[]
   customers: Customer[]
+  ovenLevel: number
   maxWorkers: number
   bakingProgress: number
   showProduct: boolean
@@ -68,6 +69,7 @@ export interface GameState {
   formatMoney: (amount: number) => string
   launchPromotion: () => void
   postJobOffer: () => void
+  upgradeOven: () => void
 }
 
 import type { StoreApi } from 'zustand'
