@@ -2,12 +2,24 @@ import { Worker } from '../../game/components/Worker'
 import { useGameStore } from '../../../store/gameStore'
 
 export function HelpersList() {
-  const { availableHelpers, hireWorker, money } = useGameStore()
+  const { availableHelpers, hireWorker, money, workers, maxWorkers } =
+    useGameStore()
 
   const contractOptions = [1, 2, 3]
+  const hasReachedMaxWorkers = workers.length >= maxWorkers
 
   return (
     <div className="flex-grow bg-bgLight dark:bg-deepDark p-6 overflow-y-auto">
+      {hasReachedMaxWorkers && (
+        <div className="mb-4 p-4 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-700 rounded-xl text-center">
+          <p className="text-red-700 dark:text-red-300 font-semibold">
+            Maximum workers reached: {workers.length}/{maxWorkers}
+          </p>
+          <p className="text-sm text-red-600 dark:text-red-400 mt-1">
+            Upgrade your industry to hire more workers
+          </p>
+        </div>
+      )}
       <div className="space-y-4">
         {availableHelpers.map((helper) => (
           <div
@@ -27,6 +39,7 @@ export function HelpersList() {
               {contractOptions.map((months) => {
                 const totalPrice = helper.hirePricePerMonth * months
                 const canAfford = money >= totalPrice
+                const canHire = canAfford && !hasReachedMaxWorkers
                 return (
                   <div key={months} className="flex flex-col items-center">
                     <span className="text-xs text-textSecondary mb-1">
@@ -34,9 +47,9 @@ export function HelpersList() {
                     </span>
                     <button
                       onClick={() => hireWorker(helper.id, months)}
-                      disabled={!canAfford}
+                      disabled={!canHire}
                       className={`px-4 py-2 rounded-md text-sm font-semibold transition-all shadow-lg ${
-                        canAfford
+                        canHire
                           ? 'bg-primary hover:bg-primary/80 text-white'
                           : 'bg-gray-400 text-gray-200 cursor-not-allowed'
                       }`}
