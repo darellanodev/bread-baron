@@ -8,6 +8,7 @@ interface WorkerProps {
   showUpgradeButton?: boolean
   showFrame?: boolean
   isWorking?: boolean
+  daysRemaining?: number
 }
 
 export function Worker({
@@ -20,6 +21,7 @@ export function Worker({
   showUpgradeButton = true,
   showFrame = true,
   isWorking = false,
+  daysRemaining,
 }: WorkerProps) {
   return (
     <div
@@ -44,6 +46,13 @@ export function Worker({
         {productivity && (
           <p className="text-xs text-textSecondary dark:text-textDarkSecondary">
             +{productivity} products/sec
+          </p>
+        )}
+        {daysRemaining !== undefined && (
+          <p
+            className={`text-xs font-bold ${daysRemaining <= 5 ? 'text-red-500' : 'text-textSecondary dark:text-textDarkSecondary'}`}
+          >
+            {daysRemaining} days left
           </p>
         )}
         {showUpgradeButton && upgradePrice && (

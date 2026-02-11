@@ -91,6 +91,7 @@ export function WorkersList({ onHireHelper }: WorkersListProps) {
             productivity={worker.productivity}
             upgradePrice={worker.upgradePrice}
             isWorking={workingWorkers.has(worker.id)}
+            daysRemaining={worker.daysRemaining}
           />
         ))}
         <div

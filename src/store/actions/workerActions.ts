@@ -1,12 +1,14 @@
 import type { GameState, Worker, SetState } from '../types'
 
 export const createWorkerActions = (set: SetState<GameState>) => ({
-  hireWorker: (helperId: string) => {
+  hireWorker: (helperId: string, contractDuration: number) => {
     set((state) => {
       const helper = state.availableHelpers.find((h) => h.id === helperId)
+      if (!helper) return state
+
+      const totalPrice = helper.hirePricePerMonth * contractDuration
       if (
-        !helper ||
-        state.money < helper.hirePrice ||
+        state.money < totalPrice ||
         state.workers.length >= state.maxWorkers
       ) {
         return state
@@ -18,7 +20,9 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
         name: helper.name,
         level: helper.level,
         productivity: helper.productivity,
-        upgradePrice: Math.floor(helper.hirePrice * 1.5),
+        upgradePrice: Math.floor(helper.hirePricePerMonth * 1.5),
+        contractDuration,
+        daysRemaining: contractDuration * 30,
       }
 
       return {
@@ -26,7 +30,7 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
         availableHelpers: state.availableHelpers.filter(
           (h) => h.id !== helperId,
         ),
-        money: state.money - helper.hirePrice,
+        money: state.money - totalPrice,
       }
     })
   },

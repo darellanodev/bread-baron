@@ -10,13 +10,15 @@ export interface Worker {
   level: number
   productivity: number
   upgradePrice: number
+  contractDuration: number
+  daysRemaining: number
 }
 
 export interface AvailableHelper {
   id: string
   emoji: string
   name: string
-  hirePrice: number
+  hirePricePerMonth: number
   level: number
   productivity: number
 }
@@ -58,7 +60,7 @@ export interface GameState {
   updateOrderProgress: (orderId: string) => void
   completeOrder: (orderId: string) => void
   prioritizeOrder: (orderId: string) => void
-  hireWorker: (helperId: string) => void
+  hireWorker: (helperId: string, contractDuration: number) => void
   upgradeWorker: (workerId: string) => void
   nextDay: () => void
   togglePause: () => void
