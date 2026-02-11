@@ -1,6 +1,6 @@
 import type { GameState, SetState } from '../types'
 
-// Configuración de niveles del horno/industria
+// Oven/industry level configuration
 export const INDUSTRY_LEVELS = [
   { level: 1, maxWorkers: 12, upgradePrice: 0, name: 'Home Kitchen' },
   {
@@ -20,14 +20,14 @@ export const createIndustryActions = (set: SetState<GameState>) => ({
       const currentLevel = state.ovenLevel
       const nextLevel = currentLevel + 1
 
-      // Verificar que no se exceda el nivel máximo
+      // Check that maximum level is not exceeded
       if (nextLevel > INDUSTRY_LEVELS.length) {
         return state
       }
 
       const levelConfig = INDUSTRY_LEVELS[nextLevel - 1]
 
-      // Verificar que tenga suficiente dinero
+      // Check that there is enough money
       if (state.money < levelConfig.upgradePrice) {
         return state
       }

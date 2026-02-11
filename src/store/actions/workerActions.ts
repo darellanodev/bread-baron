@@ -6,7 +6,7 @@ import {
   workerPriceRange,
 } from '../../data/gameData'
 
-// Variable global para IDs secuenciales de workers
+// Global variable for sequential worker IDs
 let nextWorkerId = 6
 
 export const createWorkerActions = (set: SetState<GameState>) => ({
@@ -61,31 +61,31 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
 
   postJobOffer: () => {
     set((state) => {
-      // Verificar que no haya workers disponibles y que haya suficiente dinero
+      // Check that no workers are available and that there is enough money
       if (state.availableHelpers.length > 0 || state.money < 500) {
         return state
       }
 
-      // Generar número aleatorio de workers (3-6)
+      // Generate random number of workers (3-6)
       const numWorkers = Math.floor(Math.random() * 4) + 3
       const newHelpers: AvailableHelper[] = []
 
       for (let i = 0; i < numWorkers; i++) {
-        // Seleccionar nombre aleatorio
+        // Select random name
         const nameIndex = Math.floor(Math.random() * workerNames.length)
         const workerName = workerNames[nameIndex]
 
-        // Seleccionar emoji aleatorio
+        // Select random emoji
         const emojiIndex = Math.floor(Math.random() * workerEmojis.length)
         const workerEmoji = workerEmojis[emojiIndex]
 
-        // Generar productividad aleatoria
+        // Generate random productivity
         const productivity =
           Math.random() *
             (workerProductivityRange.max - workerProductivityRange.min) +
           workerProductivityRange.min
 
-        // Generar precio aleatorio
+        // Generate random price
         const hirePricePerMonth = Math.floor(
           Math.random() * (workerPriceRange.max - workerPriceRange.min) +
             workerPriceRange.min,

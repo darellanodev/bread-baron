@@ -124,7 +124,7 @@ export const initialCustomers: Customer[] = [
   },
 ]
 
-// Nombres de customers adicionales para generación dinámica
+// Additional customer names for dynamic generation
 export const customerNames = [
   'Tourist',
   'Local Resident',
@@ -140,7 +140,7 @@ export const customerNames = [
   'Hotel Manager',
 ]
 
-// Tipos de órdenes posibles para generación dinámica
+// Possible order types for dynamic generation
 export const orderTypes: Omit<Order, 'id' | 'progress'>[] = [
   {
     difficulty: 'Easy',
@@ -214,7 +214,7 @@ export const orderTypes: Omit<Order, 'id' | 'progress'>[] = [
   },
 ]
 
-// Nombres de workers disponibles para generación dinámica
+// Available worker names for dynamic generation
 export const workerNames = [
   'Alex',
   'Sarah',
@@ -252,6 +252,6 @@ export const workerEmojis = [
   '👩‍🌾',
 ]
 
-// Rangos de productividad y precios para workers aleatorios
+// Productivity and price ranges for random workers
 export const workerProductivityRange = { min: 1.0, max: 5.0 }
 export const workerPriceRange = { min: 100, max: 1500 }
