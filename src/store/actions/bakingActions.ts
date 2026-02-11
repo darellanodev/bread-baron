@@ -1,7 +1,7 @@
 import type { GameState, SetState } from '../types'
 
 export const createBakingActions = (set: SetState<GameState>) => ({
-  increaseBakingProgress: () => {
+  increaseBakingProgress: (amount?: number) => {
     set((state) => {
       // Don't allow progress when game is paused
       if (state.isPaused) return state
@@ -12,7 +12,8 @@ export const createBakingActions = (set: SetState<GameState>) => ({
         return state
       }
 
-      const newProgress = state.bakingProgress + 10
+      const progressAmount = amount ?? 10
+      const newProgress = state.bakingProgress + progressAmount
       if (newProgress >= 100) {
         const customerOrders = currentCustomer.orders
 

@@ -54,9 +54,9 @@ export function WorkersList({ onHireHelper }: WorkersListProps) {
         setWorkingWorkers(new Set())
       }, 200)
 
-      // Process complete products
+      // Process complete products - workers add 1% progress each
       while (progressRef.current >= 1) {
-        increaseBakingProgress()
+        increaseBakingProgress(1)
         progressRef.current -= 1
       }
     }, 100)

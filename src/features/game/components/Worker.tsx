@@ -7,6 +7,7 @@ interface WorkerProps {
   onUpgrade?: () => void
   showUpgradeButton?: boolean
   showFrame?: boolean
+  isWorking?: boolean
 }
 
 export function Worker({
@@ -18,12 +19,15 @@ export function Worker({
   onUpgrade,
   showUpgradeButton = true,
   showFrame = true,
+  isWorking = false,
 }: WorkerProps) {
   return (
     <div
-      className={`flex-none w-64 p-3 flex gap-4 items-center transition-all duration-200 ${showFrame ? `dough-card bg-bgLight dark:bg-cardDark rounded-xl` : ''}`}
+      className={`flex-none w-64 p-3 flex gap-4 items-center transition-all duration-200 ${showFrame ? `dough-card bg-bgLight dark:bg-cardDark rounded-xl` : ''} ${isWorking ? 'scale-105 ring-2 ring-primary animate-pulse' : ''}`}
     >
-      <div className="size-14 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-3xl">
+      <div
+        className={`size-14 rounded-full flex items-center justify-center shrink-0 text-3xl transition-colors ${isWorking ? 'bg-primary/40' : 'bg-primary/20'}`}
+      >
         {emoji}
       </div>
       <div className="flex-1 flex flex-col gap-1">

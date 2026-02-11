@@ -6,7 +6,7 @@ export function WorkersButton() {
   return (
     <div className="flex-none">
       <button
-        onClick={increaseBakingProgress}
+        onClick={() => increaseBakingProgress(5)}
         disabled={isPaused}
         className={`size-32 rounded-full bg-primary border-8 border-white dark:border-cardDark shadow-2xl flex flex-col items-center justify-center text-white transition-all transform hover:scale-105 active:scale-90 active:shadow-inner group ${
           isPaused
