@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui'
+import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/gameStore'
 
 export function MarketPromotion() {
@@ -24,13 +24,11 @@ export function MarketPromotion() {
         fullWidth
         disabled={isDisabled}
         onClick={launchPromotion}
-        className={`font-extrabold text-lg rounded-xl shadow-[0_6px_0_#b47b00] active:shadow-none active:translate-y-[6px] transition-all ${
-          isDisabled
-            ? 'bg-gray-400 text-gray-200 cursor-not-allowed shadow-none'
-            : 'bg-primary text-white hover:bg-primary/90'
-        }`}
+        size="lg"
+        icon="📢"
+        className="font-extrabold"
       >
-        <>{'📢'} Launch Promotion! ($500)</>
+        Launch Promotion! ($500)
       </Button>
       <p className="text-center text-xs font-bold text-textSecondary mt-4">
         {getDisabledMessage()}

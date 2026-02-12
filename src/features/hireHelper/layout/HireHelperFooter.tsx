@@ -1,4 +1,4 @@
-import { RoundedButton } from '@/components/ui/RoundedButton'
+import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/gameStore'
 
 interface HireHelperFooterProps {
@@ -15,25 +15,18 @@ export function HireHelperFooter({ onClose }: HireHelperFooterProps) {
   return (
     <div className="bg-bgLight dark:bg-cardDark p-6 flex justify-center gap-4 border-t border-borderLight dark:border-borderDark">
       {showJobOfferButton && (
-        <RoundedButton
+        <Button
           onClick={hasEnoughMoney ? postJobOffer : undefined}
           size="lg"
-          className={`font-bold ${
-            hasEnoughMoney
-              ? 'bg-green-600 hover:bg-green-700 text-white cursor-pointer'
-              : 'bg-gray-400 text-gray-200 cursor-not-allowed'
-          }`}
+          disabled={!hasEnoughMoney}
+          className="font-bold bg-green-600 hover:bg-green-700 text-white"
         >
           Post Job Offer ($500)
-        </RoundedButton>
+        </Button>
       )}
-      <RoundedButton
-        onClick={onClose}
-        size="lg"
-        className="bg-primary hover:bg-primary/80 text-white"
-      >
+      <Button onClick={onClose} size="lg">
         Close
-      </RoundedButton>
+      </Button>
     </div>
   )
 }

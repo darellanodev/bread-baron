@@ -5,6 +5,7 @@ import {
 } from '@/features/game/layout/bakery'
 import { useGameStore } from '@/store/gameStore'
 import { INDUSTRY_LEVELS } from '@/store/actions/industryActions'
+import { Button } from '@/components/ui/Button'
 
 interface BakeryPanelProps {
   onOpenIndustry: () => void
@@ -24,21 +25,18 @@ export function BakeryPanel({ onOpenIndustry }: BakeryPanelProps) {
       <div className="z-10 flex flex-col h-full">
         <LevelDisplay />
         <div className="flex justify-center mb-4">
-          <button
+          <Button
             onClick={onOpenIndustry}
             disabled={isMaxLevel || !canAfford}
-            className={`px-6 py-2 rounded-full font-bold text-sm transition-all ${
-              isMaxLevel
-                ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-                : canAfford
-                  ? 'bg-primary text-white hover:bg-primary/80 shadow-lg'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
+            variant={isMaxLevel || !canAfford ? 'ghost' : 'primary'}
+            size="sm"
+            icon="🏭"
+            className="rounded-full"
           >
             {isMaxLevel
               ? 'MAX LEVEL REACHED'
-              : `🏭 Upgrade Industry ($${nextLevel!.upgradePrice.toLocaleString()})`}
-          </button>
+              : `Upgrade Industry ($${nextLevel!.upgradePrice.toLocaleString()})`}
+          </Button>
         </div>
         <div className="flex-1 flex flex-col items-center justify-center gap-12">
           <BakeryOven />

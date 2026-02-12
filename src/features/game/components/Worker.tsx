@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/Button'
+
 interface WorkerProps {
   emoji: string
   name: string
@@ -52,12 +54,14 @@ export function Worker({
           </p>
         )}
         {showUpgradeButton && upgradePrice && (
-          <button
+          <Button
             onClick={onUpgrade}
-            className="mt-1 h-7 bg-white dark:bg-deepDark rounded-full text-[10px] font-bold text-textLight dark:text-textDark border border-primary/20 hover:bg-primary/10 transition-colors"
+            size="sm"
+            variant="secondary"
+            className="mt-1 h-7 text-[10px] rounded-full"
           >
             Upgrade (${upgradePrice})
-          </button>
+          </Button>
         )}
       </div>
     </div>

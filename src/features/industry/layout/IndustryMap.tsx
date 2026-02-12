@@ -1,6 +1,6 @@
 import { useGameStore } from '@/store/gameStore'
 import { INDUSTRY_LEVELS } from '@/store/actions/industryActions'
-import Button from '@/components/ui/Button'
+import { Button } from '@/components/ui/Button'
 
 const STAGE_EMOJIS = ['🏠', '🏪', '🏢', '🏭', '🌍']
 
@@ -86,11 +86,12 @@ export function IndustryMap() {
                         disabled={
                           money < INDUSTRY_LEVELS[index + 1].upgradePrice
                         }
-                        className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                        size="sm"
+                        className={
                           money >= INDUSTRY_LEVELS[index + 1].upgradePrice
-                            ? 'bg-brownDark text-white hover:bg-brownDarker'
-                            : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
-                        }`}
+                            ? 'bg-brownDark hover:bg-brownDarker text-white text-xs'
+                            : 'text-xs'
+                        }
                       >
                         Upgrade{' '}
                         {formatUpgradePrice(

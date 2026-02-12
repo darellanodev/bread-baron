@@ -1,4 +1,5 @@
-import { SettingsMenu, RoundedButton } from '@/components/ui'
+import { SettingsMenu } from '@/components/ui'
+import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/gameStore'
 
 export function HeaderActions() {
@@ -6,13 +7,14 @@ export function HeaderActions() {
 
   return (
     <div className="flex gap-2">
-      <RoundedButton
+      <Button
         onClick={togglePause}
-        className="min-w-[84px] h-10 bg-primary text-textLight active:scale-95 rounded-full flex items-center justify-center gap-2"
+        size="sm"
+        icon={isPaused ? '▶️' : '⏸️'}
+        className="min-w-[84px] rounded-full"
       >
-        <span className="text-sm">{isPaused ? '▶️' : '⏸️'}</span>
-        <span>{isPaused ? 'Resume game' : 'Pause game'}</span>
-      </RoundedButton>
+        {isPaused ? 'Resume game' : 'Pause game'}
+      </Button>
       <SettingsMenu />
     </div>
   )

@@ -1,4 +1,5 @@
 import { ProgressBar } from '@/components/ui/ProgressBar'
+import { Button } from '@/components/ui/Button'
 
 interface OrderCardProps {
   customerName?: string
@@ -53,21 +54,27 @@ export function OrderCard({
             max={maxProgress}
             showFraction={true}
           />
-          <button
+          <Button
             onClick={onPrioritize}
-            className={`flex items-center justify-center gap-2 w-full rounded-full h-9 font-bold text-sm transition-all ${
-              isPrioritized
-                ? 'bg-primary text-white border-2 border-primary'
-                : 'bg-primary/10 text-primary hover:bg-primary hover:text-white'
-            }`}
+            fullWidth
+            size="sm"
+            variant={isPrioritized ? 'primary' : 'secondary'}
+            icon="⭐"
+            className="rounded-full"
           >
-            ⭐ {isPrioritized ? 'Prioritized' : 'Prioritize'}
-          </button>
+            {isPrioritized ? 'Prioritized' : 'Prioritize'}
+          </Button>
         </>
       ) : (
-        <button className="w-full rounded-full h-9 bg-bgLight dark:bg-deepDark text-textSecondary font-bold text-sm cursor-not-allowed">
+        <Button
+          fullWidth
+          size="sm"
+          variant="ghost"
+          disabled
+          className="rounded-full"
+        >
           Waiting for Dough...
-        </button>
+        </Button>
       )}
     </div>
   )

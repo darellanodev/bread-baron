@@ -1,11 +1,11 @@
-import { Button } from '@/components/ui'
+import { Button } from '@/components/ui/Button'
 
 export default function WelcomeButton({ onStart }: { onStart?: () => void }) {
   return (
     <div className="flex justify-center">
       <Button
         onClick={() => onStart?.()}
-        className="bg-primary hover:bg-amber-500 text-white font-display text-2xl md:text-3xl px-12 py-5 rounded-xl shadow-[0_6px_0_#8b4513] hover:shadow-[0_4px_0_#8b4513] active:shadow-none active:translate-y-1 transition-all duration-150 flex items-center gap-4"
+        size="xl"
         iconPosition="end"
         icon={
           <svg
@@ -22,6 +22,7 @@ export default function WelcomeButton({ onStart }: { onStart?: () => void }) {
             />
           </svg>
         }
+        className="font-display text-2xl md:text-3xl shadow-[0_6px_0_#8b4513] hover:shadow-[0_4px_0_#8b4513] active:shadow-none active:translate-y-1"
       >
         Start Kneading!
       </Button>

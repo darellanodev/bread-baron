@@ -1,5 +1,6 @@
 import { Worker } from '@/features/game/components/Worker'
 import { useGameStore } from '@/store/gameStore'
+import { Button } from '@/components/ui/Button'
 
 export function HelpersList() {
   const { availableHelpers, hireWorker, money, workers, maxWorkers } =
@@ -45,17 +46,14 @@ export function HelpersList() {
                     <span className="text-xs text-textSecondary mb-1">
                       {months} month{months > 1 ? 's' : ''}
                     </span>
-                    <button
+                    <Button
                       onClick={() => hireWorker(helper.id, months)}
                       disabled={!canHire}
-                      className={`px-4 py-2 rounded-md text-sm font-semibold transition-all shadow-lg ${
-                        canHire
-                          ? 'bg-primary hover:bg-primary/80 text-white'
-                          : 'bg-gray-400 text-gray-200 cursor-not-allowed'
-                      }`}
+                      size="sm"
+                      className="shadow-lg"
                     >
                       ${totalPrice}
-                    </button>
+                    </Button>
                   </div>
                 )
               })}
