@@ -1,3 +1,5 @@
+import { WindowCloseButton } from '../../../components/ui/WindowCloseButton'
+
 interface IndustryHeaderProps {
   onClose: () => void
 }
@@ -8,12 +10,7 @@ export function IndustryHeader({ onClose }: IndustryHeaderProps) {
       <h1 className="text-primary dark:text-primary font-bold tracking-widest text-xl uppercase flex-grow text-center">
         🏭 Bakery Industry Evolution
       </h1>
-      <button
-        onClick={onClose}
-        className="text-textSecondary hover:text-primary transition-colors text-2xl font-bold"
-      >
-        ✕
-      </button>
+      <WindowCloseButton onClose={onClose} />
     </div>
   )
 }
