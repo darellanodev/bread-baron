@@ -1,6 +1,6 @@
 import { Worker } from '../../components/Worker'
 import { useGameStore } from '../../../../store/gameStore'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 interface WorkersListProps {
   onHireHelper: () => void
@@ -9,7 +9,6 @@ interface WorkersListProps {
 export function WorkersList({ onHireHelper }: WorkersListProps) {
   const { workers, maxWorkers, increaseBakingProgress, isPaused } =
     useGameStore()
-  const [workingWorkers, setWorkingWorkers] = useState<Set<string>>(new Set())
   const progressRef = useRef(0)
 
   useEffect(() => {
@@ -44,15 +43,6 @@ export function WorkersList({ onHireHelper }: WorkersListProps) {
 
       // Add progress for this tick (100ms = 0.1s)
       progressRef.current += totalProductivity * 0.1
-
-      // Show working animation on all workers
-      const workerIds = new Set(workers.map((w) => w.id))
-      setWorkingWorkers(workerIds)
-
-      // Remove working animation after 200ms
-      setTimeout(() => {
-        setWorkingWorkers(new Set())
-      }, 200)
 
       // Process complete products - workers add 1% progress each
       while (progressRef.current >= 1) {
@@ -90,7 +80,6 @@ export function WorkersList({ onHireHelper }: WorkersListProps) {
             level={worker.level}
             productivity={worker.productivity}
             upgradePrice={worker.upgradePrice}
-            isWorking={workingWorkers.has(worker.id)}
             daysRemaining={worker.daysRemaining}
           />
         ))}
