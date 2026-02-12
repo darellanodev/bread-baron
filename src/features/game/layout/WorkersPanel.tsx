@@ -1,4 +1,4 @@
-import { WorkersButton, WorkersList } from './workers'
+import { WorkersButton, WorkersList } from '@/features/game/layout/workers'
 
 interface WorkersPanelProps {
   onHireHelper: () => void

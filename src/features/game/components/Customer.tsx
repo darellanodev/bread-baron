@@ -1,4 +1,4 @@
-import type { Order } from '../../../store/types'
+import type { Order } from '@/store/types'
 
 interface CustomerProps {
   name: string

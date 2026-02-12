@@ -1,5 +1,5 @@
-import { RoundedButton } from '../../../components/ui/RoundedButton'
-import { useGameStore } from '../../../store/gameStore'
+import { RoundedButton } from '@/components/ui/RoundedButton'
+import { useGameStore } from '@/store/gameStore'
 
 interface HireHelperFooterProps {
   onClose: () => void

@@ -1,6 +1,10 @@
-import { LevelDisplay, BakeryOven, BakingStatus } from './bakery'
-import { useGameStore } from '../../../store/gameStore'
-import { INDUSTRY_LEVELS } from '../../../store/actions/industryActions'
+import {
+  LevelDisplay,
+  BakeryOven,
+  BakingStatus,
+} from '@/features/game/layout/bakery'
+import { useGameStore } from '@/store/gameStore'
+import { INDUSTRY_LEVELS } from '@/store/actions/industryActions'
 
 interface BakeryPanelProps {
   onOpenIndustry: () => void

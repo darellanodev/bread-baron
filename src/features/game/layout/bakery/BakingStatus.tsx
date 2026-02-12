@@ -1,5 +1,5 @@
-import { ProgressBar } from '../../../../components/ui/ProgressBar'
-import { useGameStore } from '../../../../store/gameStore'
+import { ProgressBar } from '@/components/ui/ProgressBar'
+import { useGameStore } from '@/store/gameStore'
 
 export function BakingStatus() {
   const { bakingProgress } = useGameStore()

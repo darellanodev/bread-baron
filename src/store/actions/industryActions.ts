@@ -1,4 +1,4 @@
-import type { GameState, SetState } from '../types'
+import type { GameState, SetState } from '@/store/types'
 
 // Oven/industry level configuration
 export const INDUSTRY_LEVELS = [

@@ -1,5 +1,5 @@
-import { Worker } from '../../components/Worker'
-import { useGameStore } from '../../../../store/gameStore'
+import { Worker } from '@/features/game/components/Worker'
+import { useGameStore } from '@/store/gameStore'
 import { useEffect, useRef } from 'react'
 
 interface WorkersListProps {

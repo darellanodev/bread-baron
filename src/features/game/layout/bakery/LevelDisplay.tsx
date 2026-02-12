@@ -1,5 +1,5 @@
-import { useGameStore } from '../../../../store/gameStore'
-import { INDUSTRY_LEVELS } from '../../../../store/actions/industryActions'
+import { useGameStore } from '@/store/gameStore'
+import { INDUSTRY_LEVELS } from '@/store/actions/industryActions'
 
 export function LevelDisplay() {
   const { ovenLevel } = useGameStore()

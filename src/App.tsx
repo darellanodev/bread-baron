@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { WelcomeScreen } from './features/welcome/WelcomeScreen'
-import { GameScreen } from './features/game/GameScreen'
-import { HireHelperScreen } from './features/hireHelper/HireHelperScreen'
-import { EconomyScreen } from './features/economy/EconomyScreen'
-import { IndustryScreen } from './features/industry/IndustryScreen'
-import { DayTimer } from './hooks/DayTimer'
-import { Header } from './features/game/layout/Header'
+import { WelcomeScreen } from '@/features/welcome/WelcomeScreen'
+import { GameScreen } from '@/features/game/GameScreen'
+import { HireHelperScreen } from '@/features/hireHelper/HireHelperScreen'
+import { EconomyScreen } from '@/features/economy/EconomyScreen'
+import { IndustryScreen } from '@/features/industry/IndustryScreen'
+import { DayTimer } from '@/hooks/DayTimer'
+import { Header } from '@/features/game/layout/Header'
 
 function App() {
   const [screen, setScreen] = useState<

@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react'
-import DarkModeToggle from '../../components/ui/DarkModeToggle'
-import { WelcomeHeader, WelcomeDescription, WelcomeButton } from './layout'
+import DarkModeToggle from '@/components/ui/DarkModeToggle'
+import {
+  WelcomeHeader,
+  WelcomeDescription,
+  WelcomeButton,
+} from '@/features/welcome/layout'
 
 interface WelcomeScreenProps {
   onStart?: () => void

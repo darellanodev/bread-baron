@@ -1,5 +1,5 @@
-import { Customer } from '../../components/Customer'
-import { useGameStore } from '../../../../store/gameStore'
+import { Customer } from '@/features/game/components/Customer'
+import { useGameStore } from '@/store/gameStore'
 
 export function MarketCustomers() {
   const { customers } = useGameStore()

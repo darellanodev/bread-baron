@@ -1,10 +1,15 @@
-import type { GameState, Worker, SetState, AvailableHelper } from '../types'
+import type {
+  GameState,
+  Worker,
+  SetState,
+  AvailableHelper,
+} from '@/store/types'
 import {
   workerNames,
   workerEmojis,
   workerProductivityRange,
   workerPriceRange,
-} from '../../data/gameData'
+} from '@/data/gameData'
 
 // Global variable for sequential worker IDs
 let nextWorkerId = 6

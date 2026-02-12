@@ -1,5 +1,5 @@
-import type { GameState, Customer, Order, SetState } from '../types'
-import { customerNames, orderTypes } from '../../data/gameData'
+import type { GameState, Customer, Order, SetState } from '@/store/types'
+import { customerNames, orderTypes } from '@/data/gameData'
 
 let nextCustomerId = 4
 

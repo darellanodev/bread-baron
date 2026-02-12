@@ -1,5 +1,5 @@
-import { Worker } from '../../game/components/Worker'
-import { useGameStore } from '../../../store/gameStore'
+import { Worker } from '@/features/game/components/Worker'
+import { useGameStore } from '@/store/gameStore'
 
 export function HelpersList() {
   const { availableHelpers, hireWorker, money, workers, maxWorkers } =

@@ -7,7 +7,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
-import { useGameStore } from '../../../store/gameStore'
+import { useGameStore } from '@/store/gameStore'
 
 // Format money values (e.g., 45000 -> $45K)
 const formatMoney = (value: number): string => {

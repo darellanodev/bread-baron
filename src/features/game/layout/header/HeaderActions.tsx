@@ -1,5 +1,5 @@
-import { SettingsMenu, RoundedButton } from '../../../../components/ui'
-import { useGameStore } from '../../../../store/gameStore'
+import { SettingsMenu, RoundedButton } from '@/components/ui'
+import { useGameStore } from '@/store/gameStore'
 
 export function HeaderActions() {
   const { isPaused, togglePause } = useGameStore()

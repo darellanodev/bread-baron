@@ -1,6 +1,6 @@
-import { ProductIndicator } from './ProductIndicator'
-import { OvenFire } from './OvenFire'
-import { useGameStore } from '../../../../store/gameStore'
+import { ProductIndicator } from '@/features/game/layout/bakery/ProductIndicator'
+import { OvenFire } from '@/features/game/layout/bakery/OvenFire'
+import { useGameStore } from '@/store/gameStore'
 
 export function BakeryOven() {
   const { showProduct, isPaused } = useGameStore()

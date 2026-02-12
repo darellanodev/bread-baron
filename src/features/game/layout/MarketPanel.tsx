@@ -1,4 +1,8 @@
-import { MarketTitle, MarketCustomers, MarketPromotion } from './market'
+import {
+  MarketTitle,
+  MarketCustomers,
+  MarketPromotion,
+} from '@/features/game/layout/market'
 
 export function MarketPanel() {
   return (

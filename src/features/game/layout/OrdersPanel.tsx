@@ -1,4 +1,4 @@
-import { OrdersTitle, OrdersList } from './orders'
+import { OrdersTitle, OrdersList } from '@/features/game/layout/orders'
 
 export function OrdersPanel() {
   return (

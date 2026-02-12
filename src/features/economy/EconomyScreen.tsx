@@ -1,5 +1,9 @@
-import { ScreenContainer } from '../../components/ui/ScreenContainer'
-import { EconomyHeader, EconomyChart, EconomyFooter } from './layout'
+import { ScreenContainer } from '@/components/ui/ScreenContainer'
+import {
+  EconomyHeader,
+  EconomyChart,
+  EconomyFooter,
+} from '@/features/economy/layout'
 
 interface EconomyScreenProps {
   onClose: () => void

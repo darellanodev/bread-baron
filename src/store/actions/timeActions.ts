@@ -1,5 +1,5 @@
-import type { GameState } from '../types'
-import type { SetState } from '../types'
+import type { GameState } from '@/store/types'
+import type { SetState } from '@/store/types'
 
 export const createTimeActions = (set: SetState<GameState>) => ({
   nextDay: () => {

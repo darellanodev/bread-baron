@@ -1,5 +1,9 @@
-import { ScreenContainer } from '../../components/ui/ScreenContainer'
-import { HireHelperHeader, HelpersList, HireHelperFooter } from './layout'
+import { ScreenContainer } from '@/components/ui/ScreenContainer'
+import {
+  HireHelperHeader,
+  HelpersList,
+  HireHelperFooter,
+} from '@/features/hireHelper/layout'
 
 interface HireHelperScreenProps {
   onClose: () => void

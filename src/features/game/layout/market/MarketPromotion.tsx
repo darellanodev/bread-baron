@@ -1,5 +1,5 @@
-import { Button } from '../../../../components/ui'
-import { useGameStore } from '../../../../store/gameStore'
+import { Button } from '@/components/ui'
+import { useGameStore } from '@/store/gameStore'
 
 export function MarketPromotion() {
   const { customers, money, launchPromotion } = useGameStore()

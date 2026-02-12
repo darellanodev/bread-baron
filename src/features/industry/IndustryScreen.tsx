@@ -1,5 +1,9 @@
-import { ScreenContainer } from '../../components/ui/ScreenContainer'
-import { IndustryHeader, IndustryMap, IndustryFooter } from './layout'
+import { ScreenContainer } from '@/components/ui/ScreenContainer'
+import {
+  IndustryHeader,
+  IndustryMap,
+  IndustryFooter,
+} from '@/features/industry/layout'
 
 interface IndustryScreenProps {
   onClose: () => void

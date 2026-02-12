@@ -1,6 +1,6 @@
-import { useGameStore } from '../../../store/gameStore'
-import { INDUSTRY_LEVELS } from '../../../store/actions/industryActions'
-import Button from '../../../components/ui/Button'
+import { useGameStore } from '@/store/gameStore'
+import { INDUSTRY_LEVELS } from '@/store/actions/industryActions'
+import Button from '@/components/ui/Button'
 
 const STAGE_EMOJIS = ['🏠', '🏪', '🏢', '🏭', '🌍']
 

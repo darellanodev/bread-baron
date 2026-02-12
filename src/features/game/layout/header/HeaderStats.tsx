@@ -1,5 +1,5 @@
-import { Stat } from '../../components/Stat'
-import { useGameStore } from '../../../../store/gameStore'
+import { Stat } from '@/features/game/components/Stat'
+import { useGameStore } from '@/store/gameStore'
 
 interface HeaderStatsProps {
   onEconomy: () => void

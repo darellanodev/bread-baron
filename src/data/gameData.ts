@@ -1,4 +1,4 @@
-import type { AvailableHelper, Order, Customer } from '../store/types'
+import type { AvailableHelper, Order, Customer } from '@/store/types'
 
 export const initialAvailableHelpers: AvailableHelper[] = [
   {

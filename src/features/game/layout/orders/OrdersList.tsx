@@ -1,5 +1,5 @@
-import { OrderCard } from '../../components/OrderCard'
-import { useGameStore } from '../../../../store/gameStore'
+import { OrderCard } from '@/features/game/components/OrderCard'
+import { useGameStore } from '@/store/gameStore'
 
 export function OrdersList() {
   const { customers, prioritizeOrder } = useGameStore()

@@ -1,4 +1,4 @@
-import type { GameState, SetState } from '../types'
+import type { GameState, SetState } from '@/store/types'
 
 export const createOrderActions = (set: SetState<GameState>) => ({
   updateOrderProgress: (orderId: string) => {

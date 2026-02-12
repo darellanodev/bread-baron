@@ -1,16 +1,16 @@
 import { create } from 'zustand'
-import type { GameState } from './types'
-import { initialAvailableHelpers, initialCustomers } from '../data/gameData'
-import { createTimeActions } from './actions/timeActions'
-import { createBakingActions } from './actions/bakingActions'
-import { createOrderActions } from './actions/orderActions'
-import { createWorkerActions } from './actions/workerActions'
-import { createPromotionActions } from './actions/promotionActions'
+import type { GameState } from '@/store/types'
+import { initialAvailableHelpers, initialCustomers } from '@/data/gameData'
+import { createTimeActions } from '@/store/actions/timeActions'
+import { createBakingActions } from '@/store/actions/bakingActions'
+import { createOrderActions } from '@/store/actions/orderActions'
+import { createWorkerActions } from '@/store/actions/workerActions'
+import { createPromotionActions } from '@/store/actions/promotionActions'
 import {
   createIndustryActions,
   INDUSTRY_LEVELS,
-} from './actions/industryActions'
-import { formatMoney } from '../utils/formatters'
+} from '@/store/actions/industryActions'
+import { formatMoney } from '@/utils/formatters'
 
 export const useGameStore = create<GameState>((set) => ({
   money: 30000,

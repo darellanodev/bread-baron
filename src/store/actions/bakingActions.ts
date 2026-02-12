@@ -1,4 +1,4 @@
-import type { GameState, SetState } from '../types'
+import type { GameState, SetState } from '@/store/types'
 
 export const createBakingActions = (set: SetState<GameState>) => ({
   increaseBakingProgress: (amount?: number) => {
