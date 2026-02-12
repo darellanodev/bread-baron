@@ -1,6 +1,6 @@
-import { DropdownMenu } from '@components/ui/DropdownMenu'
-import { Switch } from '@components/ui/Switch'
-import { useDarkMode } from '@hooks/useDarkMode'
+import { DropdownMenu } from '@/components/ui/DropdownMenu'
+import { Switch } from '@/components/ui/Switch'
+import { useDarkMode } from '@/hooks/useDarkMode'
 
 export function SettingsMenu() {
   const { isDark, toggle } = useDarkMode()
