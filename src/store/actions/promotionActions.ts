@@ -1,5 +1,12 @@
 import type { GameState, Customer, Order, SetState } from '@/store/types'
 import { customerNames, orderTypes } from '@/data/gameData'
+import {
+  PROMOTION_COST,
+  MIN_CUSTOMERS_PER_PROMOTION,
+  MAX_CUSTOMERS_PER_PROMOTION,
+  MIN_ORDERS_PER_CUSTOMER,
+  MAX_ORDERS_PER_CUSTOMER,
+} from '@/constants/gameConstants'
 
 const getNextCustomerId = (state: GameState): number => {
   const allIds = state.customers
@@ -12,12 +19,15 @@ export const createPromotionActions = (set: SetState<GameState>) => ({
   launchPromotion: () => {
     set((state) => {
       // Check that there are no active customers and there is enough money
-      if (state.customers.length > 0 || state.money < 500) {
+      if (state.customers.length > 0 || state.money < PROMOTION_COST) {
         return state
       }
 
-      // Generate random number of customers (2-5)
-      const numCustomers = Math.floor(Math.random() * 4) + 2
+      // Generate random number of customers (MIN_CUSTOMERS_PER_PROMOTION to MAX_CUSTOMERS_PER_PROMOTION)
+      const customerRange =
+        MAX_CUSTOMERS_PER_PROMOTION - MIN_CUSTOMERS_PER_PROMOTION + 1
+      const numCustomers =
+        Math.floor(Math.random() * customerRange) + MIN_CUSTOMERS_PER_PROMOTION
       const newCustomers: Customer[] = []
       let nextCustomerId = getNextCustomerId(state)
 
@@ -26,8 +36,10 @@ export const createPromotionActions = (set: SetState<GameState>) => ({
         const nameIndex = Math.floor(Math.random() * customerNames.length)
         const customerName = customerNames[nameIndex]
 
-        // Generate random number of orders (1-4)
-        const numOrders = Math.floor(Math.random() * 4) + 1
+        // Generate random number of orders (MIN_ORDERS_PER_CUSTOMER to MAX_ORDERS_PER_CUSTOMER)
+        const orderRange = MAX_ORDERS_PER_CUSTOMER - MIN_ORDERS_PER_CUSTOMER + 1
+        const numOrders =
+          Math.floor(Math.random() * orderRange) + MIN_ORDERS_PER_CUSTOMER
         const orders: Order[] = []
 
         for (let j = 0; j < numOrders; j++) {
@@ -54,7 +66,7 @@ export const createPromotionActions = (set: SetState<GameState>) => ({
 
       return {
         customers: newCustomers,
-        money: state.money - 500,
+        money: state.money - PROMOTION_COST,
       }
     })
   },

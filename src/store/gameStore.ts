@@ -11,16 +11,22 @@ import {
   INDUSTRY_LEVELS,
 } from '@/store/actions/industryActions'
 import { formatMoney } from '@/utils/formatters'
+import {
+  INITIAL_MONEY,
+  INITIAL_DAY,
+  INITIAL_YEAR,
+  INITIAL_OVEN_LEVEL,
+} from '@/constants/gameConstants'
 
 export const useGameStore = create<GameState>((set) => ({
-  money: 30000,
-  currentDay: 1,
-  currentYear: 1,
+  money: INITIAL_MONEY,
+  currentDay: INITIAL_DAY,
+  currentYear: INITIAL_YEAR,
   dailyMoneyHistory: [],
   workers: [],
   availableHelpers: initialAvailableHelpers,
   maxWorkers: INDUSTRY_LEVELS[0].maxWorkers,
-  ovenLevel: 1,
+  ovenLevel: INITIAL_OVEN_LEVEL,
   bakingProgress: 0,
   showProduct: false,
   customers: initialCustomers,

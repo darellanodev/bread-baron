@@ -1,4 +1,8 @@
 import type { AvailableHelper, Order, Customer } from '@/store/types'
+import {
+  WORKER_PRODUCTIVITY_RANGE,
+  WORKER_PRICE_RANGE,
+} from '@/constants/gameConstants'
 
 export const initialAvailableHelpers: AvailableHelper[] = [
   {
@@ -253,5 +257,6 @@ export const workerEmojis = [
 ]
 
 // Productivity and price ranges for random workers
-export const workerProductivityRange = { min: 1.0, max: 5.0 }
-export const workerPriceRange = { min: 100, max: 1500 }
+// Re-export from constants for backwards compatibility
+export const workerProductivityRange = WORKER_PRODUCTIVITY_RANGE
+export const workerPriceRange = WORKER_PRICE_RANGE

@@ -1,4 +1,8 @@
 import type { GameState, SetState } from '@/store/types'
+import {
+  DEFAULT_BAKING_PROGRESS_INCREMENT,
+  BAKING_PROGRESS_THRESHOLD,
+} from '@/constants/gameConstants'
 
 export const createBakingActions = (set: SetState<GameState>) => ({
   increaseBakingProgress: (amount?: number) => {
@@ -12,9 +16,9 @@ export const createBakingActions = (set: SetState<GameState>) => ({
         return state
       }
 
-      const progressAmount = amount ?? 10
+      const progressAmount = amount ?? DEFAULT_BAKING_PROGRESS_INCREMENT
       const newProgress = state.bakingProgress + progressAmount
-      if (newProgress >= 100) {
+      if (newProgress >= BAKING_PROGRESS_THRESHOLD) {
         const customerOrders = currentCustomer.orders
 
         // Find prioritized order, or use the first one if none is prioritized

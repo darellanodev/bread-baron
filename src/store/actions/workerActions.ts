@@ -10,6 +10,14 @@ import {
   workerProductivityRange,
   workerPriceRange,
 } from '@/data/gameData'
+import {
+  JOB_OFFER_COST,
+  MIN_WORKERS_PER_OFFER,
+  MAX_WORKERS_PER_OFFER,
+  WORKER_UPGRADE_PRICE_MULTIPLIER,
+  WORKER_PRODUCTIVITY_INCREASE,
+  DAYS_PER_MONTH,
+} from '@/constants/gameConstants'
 
 const getNextWorkerId = (state: GameState): number => {
   const allIds = [
@@ -39,9 +47,11 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
         name: helper.name,
         level: helper.level,
         productivity: helper.productivity,
-        upgradePrice: Math.floor(helper.hirePricePerMonth * 1.5),
+        upgradePrice: Math.floor(
+          helper.hirePricePerMonth * WORKER_UPGRADE_PRICE_MULTIPLIER,
+        ),
         contractDuration,
-        daysRemaining: contractDuration * 30,
+        daysRemaining: contractDuration * DAYS_PER_MONTH,
       }
 
       return {
@@ -61,8 +71,10 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
           ? {
               ...worker,
               level: worker.level + 1,
-              productivity: worker.productivity * 1.2,
-              upgradePrice: Math.floor(worker.upgradePrice * 1.5),
+              productivity: worker.productivity * WORKER_PRODUCTIVITY_INCREASE,
+              upgradePrice: Math.floor(
+                worker.upgradePrice * WORKER_UPGRADE_PRICE_MULTIPLIER,
+              ),
             }
           : worker,
       ),
@@ -72,12 +84,14 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
   postJobOffer: () => {
     set((state) => {
       // Check that no workers are available and that there is enough money
-      if (state.availableHelpers.length > 0 || state.money < 500) {
+      if (state.availableHelpers.length > 0 || state.money < JOB_OFFER_COST) {
         return state
       }
 
-      // Generate random number of workers (3-6)
-      const numWorkers = Math.floor(Math.random() * 4) + 3
+      // Generate random number of workers (MIN_WORKERS_PER_OFFER to MAX_WORKERS_PER_OFFER)
+      const workerRange = MAX_WORKERS_PER_OFFER - MIN_WORKERS_PER_OFFER + 1
+      const numWorkers =
+        Math.floor(Math.random() * workerRange) + MIN_WORKERS_PER_OFFER
       const newHelpers: AvailableHelper[] = []
       let nextWorkerId = getNextWorkerId(state)
 
@@ -116,7 +130,7 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
 
       return {
         availableHelpers: newHelpers,
-        money: state.money - 500,
+        money: state.money - JOB_OFFER_COST,
       }
     })
   },

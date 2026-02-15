@@ -1,18 +1,7 @@
 import type { GameState, SetState } from '@/store/types'
+import { INDUSTRY_LEVELS, MAX_INDUSTRY_LEVEL } from '@/constants/gameConstants'
 
-// Oven/industry level configuration
-export const INDUSTRY_LEVELS = [
-  { level: 1, maxWorkers: 10, upgradePrice: 0, name: 'Home Kitchen' },
-  {
-    level: 2,
-    maxWorkers: 20,
-    upgradePrice: 200000,
-    name: 'Neighborhood Bakery',
-  },
-  { level: 3, maxWorkers: 40, upgradePrice: 500000, name: 'City Chain' },
-  { level: 4, maxWorkers: 80, upgradePrice: 1000000, name: 'Regional Empire' },
-  { level: 5, maxWorkers: 150, upgradePrice: 20000000, name: 'Global Brand' },
-]
+export { INDUSTRY_LEVELS }
 
 export const createIndustryActions = (set: SetState<GameState>) => ({
   upgradeOven: () => {
@@ -21,7 +10,7 @@ export const createIndustryActions = (set: SetState<GameState>) => ({
       const nextLevel = currentLevel + 1
 
       // Check that maximum level is not exceeded
-      if (nextLevel > INDUSTRY_LEVELS.length) {
+      if (nextLevel > MAX_INDUSTRY_LEVEL) {
         return state
       }
 

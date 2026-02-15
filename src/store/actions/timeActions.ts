@@ -1,5 +1,9 @@
 import type { GameState } from '@/store/types'
 import type { SetState } from '@/store/types'
+import {
+  DAYS_PER_YEAR,
+  DAILY_OPERATIONAL_COST,
+} from '@/constants/gameConstants'
 
 export const createTimeActions = (set: SetState<GameState>) => ({
   nextDay: () => {
@@ -17,15 +21,11 @@ export const createTimeActions = (set: SetState<GameState>) => ({
 
       const newRecord = { day: state.currentDay, money: state.money }
 
-      if (state.currentDay >= 365) {
-        console.log(
-          '[End of Year] Clearing dailyMoneyHistory:',
-          state.dailyMoneyHistory,
-        )
+      if (state.currentDay >= DAYS_PER_YEAR) {
         return {
           currentDay: 1,
           currentYear: state.currentYear + 1,
-          money: state.money - 10,
+          money: state.money - DAILY_OPERATIONAL_COST,
           dailyMoneyHistory: [],
           workers: updatedWorkers,
         }
@@ -33,7 +33,7 @@ export const createTimeActions = (set: SetState<GameState>) => ({
       const updatedHistory = [...state.dailyMoneyHistory, newRecord]
       return {
         currentDay: state.currentDay + 1,
-        money: state.money - 10,
+        money: state.money - DAILY_OPERATIONAL_COST,
         dailyMoneyHistory: updatedHistory,
         workers: updatedWorkers,
       }
