@@ -1,7 +1,12 @@
 import type { GameState, Customer, Order, SetState } from '@/store/types'
 import { customerNames, orderTypes } from '@/data/gameData'
 
-let nextCustomerId = 4
+const getNextCustomerId = (state: GameState): number => {
+  const allIds = state.customers
+    .map((c) => parseInt(c.id, 10))
+    .filter((id) => !isNaN(id))
+  return allIds.length > 0 ? Math.max(...allIds) + 1 : 1
+}
 
 export const createPromotionActions = (set: SetState<GameState>) => ({
   launchPromotion: () => {
@@ -14,6 +19,7 @@ export const createPromotionActions = (set: SetState<GameState>) => ({
       // Generate random number of customers (2-5)
       const numCustomers = Math.floor(Math.random() * 4) + 2
       const newCustomers: Customer[] = []
+      let nextCustomerId = getNextCustomerId(state)
 
       for (let i = 0; i < numCustomers; i++) {
         // Select random name

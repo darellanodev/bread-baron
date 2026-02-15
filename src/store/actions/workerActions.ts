@@ -11,8 +11,13 @@ import {
   workerPriceRange,
 } from '@/data/gameData'
 
-// Global variable for sequential worker IDs
-let nextWorkerId = 6
+const getNextWorkerId = (state: GameState): number => {
+  const allIds = [
+    ...state.workers.map((w) => parseInt(w.id, 10)),
+    ...state.availableHelpers.map((h) => parseInt(h.id, 10)),
+  ].filter((id) => !isNaN(id))
+  return allIds.length > 0 ? Math.max(...allIds) + 1 : 1
+}
 
 export const createWorkerActions = (set: SetState<GameState>) => ({
   hireWorker: (helperId: string, contractDuration: number) => {
@@ -74,6 +79,7 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
       // Generate random number of workers (3-6)
       const numWorkers = Math.floor(Math.random() * 4) + 3
       const newHelpers: AvailableHelper[] = []
+      let nextWorkerId = getNextWorkerId(state)
 
       for (let i = 0; i < numWorkers; i++) {
         // Select random name
