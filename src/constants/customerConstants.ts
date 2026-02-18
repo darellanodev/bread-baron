@@ -1,0 +1,5 @@
+export const PROMOTION_COST = 500
+export const MIN_CUSTOMERS_PER_PROMOTION = 2
+export const MAX_CUSTOMERS_PER_PROMOTION = 5
+export const MIN_ORDERS_PER_CUSTOMER = 1
+export const MAX_ORDERS_PER_CUSTOMER = 4

@@ -16,7 +16,7 @@ import {
   INITIAL_DAY,
   INITIAL_YEAR,
   INITIAL_OVEN_LEVEL,
-} from '@/constants/gameConstants'
+} from '@/constants/gameStateConstants'
 
 export const useGameStore = create<GameState>((set) => ({
   money: INITIAL_MONEY,

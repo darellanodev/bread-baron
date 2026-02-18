@@ -2,7 +2,7 @@ import type { AvailableHelper, Order, Customer } from '@/store/types'
 import {
   WORKER_PRODUCTIVITY_RANGE,
   WORKER_PRICE_RANGE,
-} from '@/constants/gameConstants'
+} from '@/constants/workerRangesConstants'
 
 export const initialAvailableHelpers: AvailableHelper[] = [
   {

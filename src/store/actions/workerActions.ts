@@ -17,7 +17,7 @@ import {
   WORKER_UPGRADE_PRICE_MULTIPLIER,
   WORKER_PRODUCTIVITY_INCREASE,
   DAYS_PER_MONTH,
-} from '@/constants/gameConstants'
+} from '@/constants/workerConstants'
 
 const getNextWorkerId = (state: GameState): number => {
   const allIds = [

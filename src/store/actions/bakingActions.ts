@@ -2,7 +2,7 @@ import type { GameState, SetState } from '@/store/types'
 import {
   DEFAULT_BAKING_PROGRESS_INCREMENT,
   BAKING_PROGRESS_THRESHOLD,
-} from '@/constants/gameConstants'
+} from '@/constants/bakingConstants'
 
 export const createBakingActions = (set: SetState<GameState>) => ({
   increaseBakingProgress: (amount?: number) => {

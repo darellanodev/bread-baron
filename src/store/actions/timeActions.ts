@@ -3,7 +3,7 @@ import type { SetState } from '@/store/types'
 import {
   DAYS_PER_YEAR,
   DAILY_OPERATIONAL_COST,
-} from '@/constants/gameConstants'
+} from '@/constants/timeConstants'
 
 export const createTimeActions = (set: SetState<GameState>) => ({
   nextDay: () => {

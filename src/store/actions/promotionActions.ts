@@ -6,7 +6,7 @@ import {
   MAX_CUSTOMERS_PER_PROMOTION,
   MIN_ORDERS_PER_CUSTOMER,
   MAX_ORDERS_PER_CUSTOMER,
-} from '@/constants/gameConstants'
+} from '@/constants/customerConstants'
 
 const getNextCustomerId = (state: GameState): number => {
   const allIds = state.customers

@@ -1,5 +1,8 @@
 import type { GameState, SetState } from '@/store/types'
-import { INDUSTRY_LEVELS, MAX_INDUSTRY_LEVEL } from '@/constants/gameConstants'
+import {
+  INDUSTRY_LEVELS,
+  MAX_INDUSTRY_LEVEL,
+} from '@/constants/industryConstants'
 
 export { INDUSTRY_LEVELS }
 
