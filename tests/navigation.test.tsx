@@ -16,4 +16,17 @@ describe('navigation', () => {
 
     expect(await screen.findByText(/Active Orders/i)).toBeInTheDocument()
   })
+
+  it('navigates to HireHelpersScreen when Hire Helper button is clicked', async () => {
+    render(<App />)
+
+    const startBtn = screen.getByText(/Start Kneading!/i)
+    const user = userEvent.setup()
+    await user.click(startBtn)
+
+    const hireHelperBtn = screen.getByText(/Hire Helper/i)
+    await user.click(hireHelperBtn)
+
+    expect(await screen.findByText(/HIRE A NEW HELPER/i)).toBeInTheDocument()
+  })
 })
