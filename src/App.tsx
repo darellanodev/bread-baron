@@ -13,15 +13,10 @@ function App() {
   >('welcome')
 
   const showHeader = screen !== 'welcome'
-  const showDayTimer =
-    screen === 'game' ||
-    screen === 'hireHelper' ||
-    screen === 'economy' ||
-    screen === 'industry'
 
   return (
     <>
-      {showDayTimer && <DayTimer />}
+      {showHeader && <DayTimer />}
       {showHeader && <Header onEconomy={() => setScreen('economy')} />}
       {screen === 'welcome' ? (
         <WelcomeScreen onStart={() => setScreen('game')} />
