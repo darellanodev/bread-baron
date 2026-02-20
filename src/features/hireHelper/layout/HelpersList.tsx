@@ -50,6 +50,7 @@ export function HelpersList() {
                       onClick={() => hireWorker(helper.id, months)}
                       disabled={!canHire}
                       size="sm"
+                      width="sm"
                       className="shadow-lg"
                     >
                       ${totalPrice}

@@ -26,6 +26,12 @@ const buttonVariants = cva(
         xl: 'px-12 py-4 text-xl rounded-xl',
         icon: 'h-10 w-10 rounded-full',
       },
+      width: {
+        none: '',
+        sm: 'w-16',
+        md: 'w-24',
+        lg: 'w-32',
+      },
       fullWidth: {
         true: 'w-full',
         false: '',
@@ -34,6 +40,7 @@ const buttonVariants = cva(
     defaultVariants: {
       variant: 'primary',
       size: 'md',
+      width: 'none',
       fullWidth: false,
     },
   },
@@ -52,6 +59,7 @@ export function Button({
   className,
   variant,
   size,
+  width,
   fullWidth,
   icon,
   iconPosition = 'start',
@@ -61,7 +69,10 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
-      className={cn(buttonVariants({ variant, size, fullWidth }), className)}
+      className={cn(
+        buttonVariants({ variant, size, width, fullWidth }),
+        className,
+      )}
       disabled={disabled}
       {...props}
     >
