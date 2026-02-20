@@ -1,18 +1,18 @@
 import type { ReactNode } from 'react'
 
-interface ScreenContainerProps {
+interface WindowContainerProps {
   children: ReactNode
   maxWidth?: string
   height?: string
   rounded?: 'xl' | '3xl'
 }
 
-export function ScreenContainer({
+export function WindowContainer({
   children,
   maxWidth = 'max-w-4xl',
   height = 'max-h-[calc(100vh-100px)]',
   rounded = 'xl',
-}: ScreenContainerProps) {
+}: WindowContainerProps) {
   return (
     <div className="bg-bgSecondary dark:bg-bgDark min-h-[calc(100vh-64px)] flex items-center justify-center p-4">
       <div

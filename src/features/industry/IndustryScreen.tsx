@@ -1,4 +1,4 @@
-import { ScreenContainer } from '@/components/ui/ScreenContainer'
+import { WindowContainer } from '@/components/ui/WindowContainer'
 import { WindowHeader } from '@/components/ui/WindowHeader'
 import { IndustryMap, IndustryFooter } from '@/features/industry/layout'
 
@@ -8,7 +8,7 @@ interface IndustryScreenProps {
 
 export function IndustryScreen({ onClose }: IndustryScreenProps) {
   return (
-    <ScreenContainer>
+    <WindowContainer>
       <WindowHeader title="Industry" onClose={onClose} />
 
       <main className="flex-1 overflow-y-auto p-12">
@@ -16,6 +16,6 @@ export function IndustryScreen({ onClose }: IndustryScreenProps) {
       </main>
 
       <IndustryFooter onClose={onClose} />
-    </ScreenContainer>
+    </WindowContainer>
   )
 }

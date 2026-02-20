@@ -1,4 +1,4 @@
-import { ScreenContainer } from '@/components/ui/ScreenContainer'
+import { WindowContainer } from '@/components/ui/WindowContainer'
 import { WindowHeader } from '@/components/ui/WindowHeader'
 import { EconomyChart, EconomyFooter } from '@/features/economy/layout'
 
@@ -8,7 +8,7 @@ interface EconomyScreenProps {
 
 export function EconomyScreen({ onClose }: EconomyScreenProps) {
   return (
-    <ScreenContainer maxWidth="max-w-[960px]">
+    <WindowContainer maxWidth="max-w-[960px]">
       <WindowHeader title="Economy" onClose={onClose} />
 
       <div className="flex-1 overflow-y-auto custom-scrollbar p-8">
@@ -25,6 +25,6 @@ export function EconomyScreen({ onClose }: EconomyScreenProps) {
       </div>
 
       <EconomyFooter onClose={onClose} />
-    </ScreenContainer>
+    </WindowContainer>
   )
 }
