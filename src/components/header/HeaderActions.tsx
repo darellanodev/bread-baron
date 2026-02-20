@@ -1,4 +1,4 @@
-import { SettingsMenu } from '@/components/ui'
+import { SettingsMenu } from './SettingsMenu'
 import { Button } from '@/components/ui/Button'
 import { useGameStore } from '@/store/gameStore'
 
