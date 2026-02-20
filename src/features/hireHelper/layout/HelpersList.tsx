@@ -1,6 +1,7 @@
 import { Worker } from '@/features/game/components/Worker'
 import { useGameStore } from '@/store/gameStore'
 import { Button } from '@/components/ui/Button'
+import { MaxWorkersWarning } from '../components/MaxWorkersWarning'
 
 export function HelpersList() {
   const { availableHelpers, hireWorker, money, workers, maxWorkers } =
@@ -12,14 +13,7 @@ export function HelpersList() {
   return (
     <div className="flex-grow bg-bgLight dark:bg-deepDark p-6 overflow-y-auto">
       {hasReachedMaxWorkers && (
-        <div className="mb-4 p-4 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-700 rounded-xl text-center">
-          <p className="text-red-700 dark:text-red-300 font-semibold">
-            Maximum workers reached: {workers.length}/{maxWorkers}
-          </p>
-          <p className="text-sm text-red-600 dark:text-red-400 mt-1">
-            Upgrade your industry to hire more workers
-          </p>
-        </div>
+        <MaxWorkersWarning current={workers.length} max={maxWorkers} />
       )}
       <div className="space-y-4">
         {availableHelpers.map((helper) => (
