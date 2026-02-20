@@ -1,6 +1,6 @@
 import { useDarkMode } from '@/hooks/useDarkMode'
 
-export default function DarkModeToggle() {
+export function DarkModeToggle() {
   const { toggle } = useDarkMode()
 
   return (

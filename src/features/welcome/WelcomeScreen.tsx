@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import DarkModeToggle from '@/components/header/DarkModeToggle'
+import { DarkModeToggle } from '@/components/header/DarkModeToggle'
 import {
   WelcomeHeader,
   WelcomeDescription,
