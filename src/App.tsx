@@ -5,7 +5,7 @@ import { HireHelperScreen } from '@/features/hireHelper/HireHelperScreen'
 import { EconomyScreen } from '@/features/economy/EconomyScreen'
 import { IndustryScreen } from '@/features/industry/IndustryScreen'
 import { DayTimer } from '@/hooks/DayTimer'
-import { Header } from '@/features/game/layout/Header'
+import { Header } from '@/components/header'
 
 function App() {
   const [screen, setScreen] = useState<

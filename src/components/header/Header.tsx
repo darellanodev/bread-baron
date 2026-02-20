@@ -1,4 +1,4 @@
-import { HeaderTitle, HeaderStats, HeaderActions } from './header/index'
+import { HeaderTitle, HeaderStats, HeaderActions } from './index'
 
 interface HeaderProps {
   onEconomy: () => void
