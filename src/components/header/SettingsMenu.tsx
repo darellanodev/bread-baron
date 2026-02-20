@@ -1,5 +1,5 @@
-import { DropdownMenu } from '@/components/ui/DropdownMenu'
-import { Switch } from '@/components/ui/Switch'
+import { DropdownMenu } from './DropdownMenu'
+import { Switch } from './Switch'
 import { useDarkMode } from '@/hooks/useDarkMode'
 
 export function SettingsMenu() {
