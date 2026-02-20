@@ -1,5 +1,4 @@
-import { WindowContainer } from '@/components/ui/WindowContainer'
-import { WindowHeader } from '@/components/ui/WindowHeader'
+import { WindowContainer, WindowHeader } from '@/components/window'
 import { HelpersList, HireHelperFooter } from '@/features/hireHelper/layout'
 
 interface HireHelperScreenProps {

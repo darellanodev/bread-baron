@@ -1,5 +1,4 @@
-import { WindowContainer } from '@/components/ui/WindowContainer'
-import { WindowHeader } from '@/components/ui/WindowHeader'
+import { WindowContainer, WindowHeader } from '@/components/window'
 import { EconomyChart, EconomyFooter } from '@/features/economy/layout'
 
 interface EconomyScreenProps {

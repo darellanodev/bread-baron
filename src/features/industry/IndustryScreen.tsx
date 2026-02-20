@@ -1,5 +1,4 @@
-import { WindowContainer } from '@/components/ui/WindowContainer'
-import { WindowHeader } from '@/components/ui/WindowHeader'
+import { WindowContainer, WindowHeader } from '@/components/window'
 import { IndustryMap, IndustryFooter } from '@/features/industry/layout'
 
 interface IndustryScreenProps {
