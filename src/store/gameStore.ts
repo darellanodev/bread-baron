@@ -10,6 +10,8 @@ import {
   createIndustryActions,
   INDUSTRY_LEVELS,
 } from '@/store/actions/industryActions'
+import { createMoneyActions } from '@/store/actions/moneyActions'
+import { createPauseActions } from '@/store/actions/pauseActions'
 import { formatMoney } from '@/utils/formatters'
 import {
   INITIAL_MONEY,
@@ -39,18 +41,8 @@ export const useGameStore = create<GameState>((set) => ({
   ...createWorkerActions(set),
   ...createPromotionActions(set),
   ...createIndustryActions(set),
-
-  updateMoney: (amount: number) => {
-    set((state) => ({
-      money: state.money + amount,
-    }))
-  },
-
-  togglePause: () => {
-    set((state) => ({
-      isPaused: !state.isPaused,
-    }))
-  },
+  ...createMoneyActions(set),
+  ...createPauseActions(set),
 
   formatMoney,
 }))
