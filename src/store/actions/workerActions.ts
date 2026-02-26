@@ -10,6 +10,7 @@ import {
   workerProductivityRange,
   workerPriceRange,
 } from '@/data/gameData'
+import { getRandomInRange, getRandomItem } from '@/utils/randomUtils'
 import {
   JOB_OFFER_COST,
   MIN_WORKERS_PER_OFFER,
@@ -88,32 +89,26 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
         return state
       }
 
-      // Generate random number of workers (MIN_WORKERS_PER_OFFER to MAX_WORKERS_PER_OFFER)
-      const workerRange = MAX_WORKERS_PER_OFFER - MIN_WORKERS_PER_OFFER + 1
-      const numWorkers =
-        Math.floor(Math.random() * workerRange) + MIN_WORKERS_PER_OFFER
+      // Generate random number of workers
+      const numWorkers = getRandomInRange(
+        MIN_WORKERS_PER_OFFER,
+        MAX_WORKERS_PER_OFFER,
+      )
       const newHelpers: AvailableHelper[] = []
       let nextWorkerId = getNextWorkerId(state)
 
       for (let i = 0; i < numWorkers; i++) {
-        // Select random name
-        const nameIndex = Math.floor(Math.random() * workerNames.length)
-        const workerName = workerNames[nameIndex]
+        const workerName = getRandomItem(workerNames)
+        const workerEmoji = getRandomItem(workerEmojis)
 
-        // Select random emoji
-        const emojiIndex = Math.floor(Math.random() * workerEmojis.length)
-        const workerEmoji = workerEmojis[emojiIndex]
-
-        // Generate random productivity
         const productivity =
           Math.random() *
             (workerProductivityRange.max - workerProductivityRange.min) +
           workerProductivityRange.min
 
-        // Generate random price
-        const hirePricePerMonth = Math.floor(
-          Math.random() * (workerPriceRange.max - workerPriceRange.min) +
-            workerPriceRange.min,
+        const hirePricePerMonth = getRandomInRange(
+          workerPriceRange.min,
+          workerPriceRange.max,
         )
 
         newHelpers.push({

@@ -1,5 +1,6 @@
 import type { GameState, Customer, Order, SetState } from '@/store/types'
 import { customerNames, orderTypes } from '@/data/gameData'
+import { getRandomInRange, getRandomItem } from '@/utils/randomUtils'
 import {
   PROMOTION_COST,
   MIN_CUSTOMERS_PER_PROMOTION,
@@ -37,14 +38,6 @@ const validatePromotionState = (state: GameState): boolean => {
     return false
   }
   return true
-}
-
-const getRandomInRange = (min: number, max: number): number => {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
-
-const getRandomItem = <T>(items: T[]): T => {
-  return items[Math.floor(Math.random() * items.length)]
 }
 
 const createOrder = (customerId: string, orderIndex: number): Order => {
