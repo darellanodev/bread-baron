@@ -78,7 +78,10 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
             ? {
                 ...w,
                 level: w.level + 1,
-                productivity: w.productivity * WORKER_PRODUCTIVITY_INCREASE,
+                productivity:
+                  Math.round(
+                    w.productivity * WORKER_PRODUCTIVITY_INCREASE * 10,
+                  ) / 10,
                 upgradePrice: Math.floor(
                   w.upgradePrice * WORKER_UPGRADE_PRICE_MULTIPLIER,
                 ),
