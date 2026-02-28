@@ -134,7 +134,7 @@ describe('createWorkerActions', () => {
       const result = setFn(state)
       expect(result.workers[0].level).toBe(2)
       expect(result.workers[0].productivity).toBeCloseTo(1.8)
-      expect(result.workers[0].upgradePrice).toBe(150)
+      expect(result.workers[0].upgradePrice).toBe(250)
     })
   })
 })

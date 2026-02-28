@@ -66,20 +66,28 @@ export const createWorkerActions = (set: SetState<GameState>) => ({
   },
 
   upgradeWorker: (workerId: string) => {
-    set((state) => ({
-      workers: state.workers.map((worker) =>
-        worker.id === workerId
-          ? {
-              ...worker,
-              level: worker.level + 1,
-              productivity: worker.productivity * WORKER_PRODUCTIVITY_INCREASE,
-              upgradePrice: Math.floor(
-                worker.upgradePrice * WORKER_UPGRADE_PRICE_MULTIPLIER,
-              ),
-            }
-          : worker,
-      ),
-    }))
+    set((state) => {
+      const worker = state.workers.find((w) => w.id === workerId)
+      if (!worker || state.money < worker.upgradePrice) {
+        return state
+      }
+
+      return {
+        workers: state.workers.map((w) =>
+          w.id === workerId
+            ? {
+                ...w,
+                level: w.level + 1,
+                productivity: w.productivity * WORKER_PRODUCTIVITY_INCREASE,
+                upgradePrice: Math.floor(
+                  w.upgradePrice * WORKER_UPGRADE_PRICE_MULTIPLIER,
+                ),
+              }
+            : w,
+        ),
+        money: state.money - worker.upgradePrice,
+      }
+    })
   },
 
   postJobOffer: () => {

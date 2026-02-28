@@ -7,8 +7,13 @@ interface WorkersListProps {
 }
 
 export function WorkersList({ onHireHelper }: WorkersListProps) {
-  const { workers, maxWorkers, increaseBakingProgress, isPaused } =
-    useGameStore()
+  const {
+    workers,
+    maxWorkers,
+    increaseBakingProgress,
+    isPaused,
+    upgradeWorker,
+  } = useGameStore()
   const progressRef = useRef(0)
 
   useEffect(() => {
@@ -81,6 +86,7 @@ export function WorkersList({ onHireHelper }: WorkersListProps) {
             productivity={worker.productivity}
             upgradePrice={worker.upgradePrice}
             daysRemaining={worker.daysRemaining}
+            onUpgrade={() => upgradeWorker(worker.id)}
           />
         ))}
         <div
