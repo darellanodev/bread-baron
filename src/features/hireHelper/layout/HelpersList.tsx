@@ -15,31 +15,28 @@ export function HelpersList() {
         <MaxWorkersWarning current={workers.length} max={maxWorkers} />
       )}
       <div className="space-y-4">
-        {availableHelpers.map((helper) => {
-          const canAfford = money >= helper.hirePricePerMonth
-          const canHire = canAfford && !hasReachedMaxWorkers
-          return (
-            <div
-              key={helper.id}
-              className="flex items-center justify-between bg-bgLight dark:bg-cardDark border border-borderLight dark:border-borderDark rounded-xl p-4 hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
-            >
-              <Worker
-                emoji={helper.emoji}
-                name={helper.name}
-                productivity={helper.productivity}
-                upgradePrice={helper.hirePricePerMonth}
-                onUpgrade={() => hireWorker(helper.id, 1)}
-                showUpgradeButton={false}
-                showFrame={false}
-              />
-              <ContractButtons
-                pricePerMonth={helper.hirePricePerMonth}
-                canHire={canHire}
-                onHire={(months) => hireWorker(helper.id, months)}
-              />
-            </div>
-          )
-        })}
+        {availableHelpers.map((helper) => (
+          <div
+            key={helper.id}
+            className="flex items-center justify-between bg-bgLight dark:bg-cardDark border border-borderLight dark:border-borderDark rounded-xl p-4 hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
+          >
+            <Worker
+              emoji={helper.emoji}
+              name={helper.name}
+              productivity={helper.productivity}
+              upgradePrice={helper.hirePricePerMonth}
+              onUpgrade={() => hireWorker(helper.id, 1)}
+              showUpgradeButton={false}
+              showFrame={false}
+            />
+            <ContractButtons
+              pricePerMonth={helper.hirePricePerMonth}
+              money={money}
+              maxWorkersReached={hasReachedMaxWorkers}
+              onHire={(months) => hireWorker(helper.id, months)}
+            />
+          </div>
+        ))}
       </div>
     </div>
   )

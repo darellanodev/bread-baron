@@ -2,7 +2,8 @@ import { Button } from '@/components/ui/Button'
 
 interface ContractButtonsProps {
   pricePerMonth: number
-  canHire: boolean
+  money: number
+  maxWorkersReached: boolean
   onHire: (months: number) => void
 }
 
@@ -10,13 +11,17 @@ const contractOptions = [1, 2, 3]
 
 export function ContractButtons({
   pricePerMonth,
-  canHire,
+  money,
+  maxWorkersReached,
   onHire,
 }: ContractButtonsProps) {
   return (
     <div className="flex gap-2">
       {contractOptions.map((months) => {
         const totalPrice = pricePerMonth * months
+        const canAfford = money >= totalPrice
+        const canHire = canAfford && !maxWorkersReached
+
         return (
           <div key={months} className="flex flex-col items-center">
             <span className="text-xs text-textSecondary mb-1">
