@@ -1,16 +1,13 @@
 import type { GameState, Customer, Order, SetState } from '@/store/types'
-import {
-  DEFAULT_BAKING_PROGRESS_INCREMENT,
-  BAKING_PROGRESS_THRESHOLD,
-} from '@/constants/bakingConstants'
+import { BAKING_PROGRESS_THRESHOLD } from '@/constants/bakingConstants'
 
 export const createBakingActions = (set: SetState<GameState>) => ({
-  increaseBakingProgress: (amount?: number) => {
+  increaseBakingProgress: (amount: number) => {
     set((state) => {
       if (!validateBakingState(state)) return state
 
       const currentCustomer = state.customers[0]
-      const progressAmount = amount ?? DEFAULT_BAKING_PROGRESS_INCREMENT
+      const progressAmount = amount
       const newProgress = state.bakingProgress + progressAmount
 
       if (newProgress >= BAKING_PROGRESS_THRESHOLD) {
