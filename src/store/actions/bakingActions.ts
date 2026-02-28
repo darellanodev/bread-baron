@@ -18,7 +18,7 @@ export const createBakingActions = (set: SetState<GameState>) => ({
           targetOrder,
         )
 
-        if (targetOrder && !targetOrder.isInactive) {
+        if (targetOrder) {
           return completeOrder(
             state,
             customerOrders,
@@ -52,9 +52,7 @@ const validateBakingState = (state: GameState): boolean => {
 }
 
 const findTargetOrder = (orders: Order[]) => {
-  const prioritizedOrder = orders.find(
-    (order) => order.isPrioritized && !order.isInactive,
-  )
+  const prioritizedOrder = orders.find((order) => order.isPrioritized)
   return prioritizedOrder || orders[0]
 }
 

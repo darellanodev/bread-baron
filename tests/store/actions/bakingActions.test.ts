@@ -138,7 +138,7 @@ describe('createBakingActions', () => {
       expect(result.customers[0].orders[1].progress).toBe(1)
     })
 
-    it('should not process inactive prioritized order and create product only', () => {
+    it('should remove customer when all orders are completed', () => {
       const mockSet = vi.fn()
       const actions = createBakingActions(mockSet)
 
@@ -150,52 +150,11 @@ describe('createBakingActions', () => {
         customers: [
           {
             id: 'c1',
-            orders: [
-              {
-                id: 'o1',
-                progress: 0,
-                maxProgress: 5,
-                isPrioritized: true,
-                isInactive: true,
-              },
-              {
-                id: 'o2',
-                progress: 0,
-                maxProgress: 5,
-                isPrioritized: false,
-                isInactive: false,
-              },
-            ],
+            orders: [{ id: 'o1', progress: 4, maxProgress: 5, price: 50 }],
           },
-        ],
-        bakingProgress: 95,
-        totalProductsCreated: 0,
-        showProduct: false,
-        money: 100,
-      }
-      const result = setFn(state)
-      expect(result.customers[0].orders[0].progress).toBe(0)
-      expect(result.customers[0].orders[1].progress).toBe(0)
-      expect(result.bakingProgress).toBe(0)
-      expect(result.showProduct).toBe(true)
-      expect(result.totalProductsCreated).toBe(1)
-    })
-
-    it('should create product without completing order when target order is inactive', () => {
-      const mockSet = vi.fn()
-      const actions = createBakingActions(mockSet)
-
-      actions.increaseBakingProgress(5)
-
-      const setFn = mockSet.mock.calls[0][0]
-      const state = {
-        isPaused: false,
-        customers: [
           {
-            id: 'c1',
-            orders: [
-              { id: 'o1', progress: 0, maxProgress: 5, isInactive: true },
-            ],
+            id: 'c2',
+            orders: [{ id: 'o2', progress: 0, maxProgress: 5, price: 30 }],
           },
         ],
         bakingProgress: 95,
@@ -204,11 +163,9 @@ describe('createBakingActions', () => {
         money: 100,
       }
       const result = setFn(state)
-      expect(result.bakingProgress).toBe(0)
-      expect(result.showProduct).toBe(true)
-      expect(result.totalProductsCreated).toBe(1)
-      expect(result.money).toBe(100)
-      expect(result.customers[0].orders.length).toBe(1)
+      expect(result.customers.length).toBe(1)
+      expect(result.customers[0].id).toBe('c2')
+      expect(result.money).toBe(150)
     })
   })
 

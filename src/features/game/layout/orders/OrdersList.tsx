@@ -18,7 +18,6 @@ export function OrdersList() {
           price={order.price}
           progress={order.progress}
           maxProgress={order.maxProgress}
-          isInactive={order.isInactive}
           isPrioritized={order.isPrioritized}
           onPrioritize={() => prioritizeOrder(order.id)}
         />
