@@ -13,21 +13,12 @@ export function EconomyFooter({ onClose }: EconomyFooterProps) {
           <Button className="flex-1 md:flex-none min-w-[160px]" size="md">
             Request Loan
           </Button>
-          <Button
-            variant="outline"
-            className="flex-1 md:flex-none min-w-[160px]"
-            size="md"
-          >
+          <Button className="flex-1 md:flex-none min-w-[160px]" size="md">
             Pay Loan
           </Button>
         </div>
         {/* Close */}
-        <Button
-          onClick={onClose}
-          variant="ghost"
-          size="md"
-          className="w-full md:w-auto min-w-[100px]"
-        >
+        <Button onClick={onClose} size="lg">
           Close
         </Button>
       </div>
