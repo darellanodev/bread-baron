@@ -38,6 +38,7 @@ describe('createTimeActions', () => {
         money: 1000,
         dailyMoneyHistory: [],
         workers: [],
+        activeDebt: 1000,
       }
       const result = setFn(state)
       expect(result.currentDay).toBe(11)
@@ -61,6 +62,7 @@ describe('createTimeActions', () => {
         money: 1000,
         dailyMoneyHistory: [{ day: 364, money: 900 }],
         workers: [],
+        activeDebt: 1000,
       }
       const result = setFn(state)
       expect(result.currentDay).toBe(1)
