@@ -12,6 +12,7 @@ import {
 } from '@/store/actions/industryActions'
 import { createMoneyActions } from '@/store/actions/moneyActions'
 import { createPauseActions } from '@/store/actions/pauseActions'
+import { createEconomyActions } from '@/store/actions/economyActions'
 import { formatMoney } from '@/utils/formatters'
 import {
   INITIAL_MONEY,
@@ -45,6 +46,7 @@ export const useGameStore = create<GameState>((set) => ({
   ...createIndustryActions(set),
   ...createMoneyActions(set),
   ...createPauseActions(set),
+  ...createEconomyActions(set),
 
   formatMoney,
 }))

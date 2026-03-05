@@ -1,0 +1,12 @@
+import type { SetState, GameState } from '@/store/types'
+
+export const LOAN_AMOUNT = 5000
+
+export const createEconomyActions = (set: SetState<GameState>) => ({
+  requestLoan: () =>
+    set((state) => ({ activeDebt: state.activeDebt + LOAN_AMOUNT })),
+  payLoan: () =>
+    set((state) => ({
+      activeDebt: Math.max(0, state.activeDebt - LOAN_AMOUNT),
+    })),
+})
