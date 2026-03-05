@@ -1,11 +1,14 @@
 import { WindowContainer, WindowHeader } from '@/components/window'
 import { EconomyChart, EconomyFooter } from '@/features/economy/layout'
+import { useGameStore } from '@/store/gameStore'
+import { formatMoney } from '@/utils/formatters'
 
 interface EconomyScreenProps {
   onClose: () => void
 }
 
 export function EconomyScreen({ onClose }: EconomyScreenProps) {
+  const activeDebt = useGameStore((state) => state.activeDebt)
   return (
     <WindowContainer maxWidth="max-w-[960px]">
       <WindowHeader title="Economy" onClose={onClose} />
@@ -18,7 +21,9 @@ export function EconomyScreen({ onClose }: EconomyScreenProps) {
             <p className="text-xs text-textSecondary dark:text-textDarkSecondary font-semibold uppercase">
               Active Debt
             </p>
-            <p className="text-lg font-bold text-red-500">30.000$</p>
+            <p className="text-lg font-bold text-red-500">
+              {formatMoney(activeDebt)}
+            </p>
           </div>
         </div>
       </div>

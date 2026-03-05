@@ -15,6 +15,7 @@ import { createPauseActions } from '@/store/actions/pauseActions'
 import { formatMoney } from '@/utils/formatters'
 import {
   INITIAL_MONEY,
+  INITIAL_ACTIVE_DEBT,
   INITIAL_DAY,
   INITIAL_YEAR,
   INITIAL_OVEN_LEVEL,
@@ -22,6 +23,7 @@ import {
 
 export const useGameStore = create<GameState>((set) => ({
   money: INITIAL_MONEY,
+  activeDebt: INITIAL_ACTIVE_DEBT,
   currentDay: INITIAL_DAY,
   currentYear: INITIAL_YEAR,
   dailyMoneyHistory: [],

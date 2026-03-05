@@ -43,6 +43,7 @@ export interface Customer {
 
 export interface GameState {
   money: number
+  activeDebt: number
   currentDay: number
   currentYear: number
   dailyMoneyHistory: DailyMoneyRecord[]
