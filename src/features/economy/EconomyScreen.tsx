@@ -9,6 +9,7 @@ interface EconomyScreenProps {
 
 export function EconomyScreen({ onClose }: EconomyScreenProps) {
   const activeDebt = useGameStore((state) => state.activeDebt)
+  const dailyDebtCost = Math.round(activeDebt * 0.01)
   return (
     <WindowContainer maxWidth="max-w-[960px]">
       <WindowHeader title="Economy" onClose={onClose} />
@@ -23,6 +24,9 @@ export function EconomyScreen({ onClose }: EconomyScreenProps) {
             </p>
             <p className="text-lg font-bold text-red-500">
               {formatMoney(activeDebt)}
+            </p>
+            <p className="text-xs text-textSecondary dark:text-textDarkSecondary mt-1">
+              Daily cost (1%): {formatMoney(dailyDebtCost)}
             </p>
           </div>
         </div>

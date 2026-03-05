@@ -1,15 +1,17 @@
 import type { GameState } from '@/store/types'
 import type { SetState } from '@/store/types'
-import {
-  DAYS_PER_YEAR,
-  DAILY_OPERATIONAL_COST,
-} from '@/constants/timeConstants'
+import { DAYS_PER_YEAR } from '@/constants/timeConstants'
+
+const DEBT_INTEREST_RATE = 0.01
 
 export const createTimeActions = (set: SetState<GameState>) => ({
   nextDay: () => {
     set((state) => {
       // Don't advance days when game is paused
       if (state.isPaused) return state
+
+      // Calculate daily operational cost (1% of active debt)
+      const dailyDebtCost = Math.round(state.activeDebt * DEBT_INTEREST_RATE)
 
       // Update contract days and remove expired workers
       const updatedWorkers = state.workers
@@ -25,7 +27,7 @@ export const createTimeActions = (set: SetState<GameState>) => ({
         return {
           currentDay: 1,
           currentYear: state.currentYear + 1,
-          money: state.money - DAILY_OPERATIONAL_COST,
+          money: state.money - dailyDebtCost,
           dailyMoneyHistory: [],
           workers: updatedWorkers,
         }
@@ -33,7 +35,7 @@ export const createTimeActions = (set: SetState<GameState>) => ({
       const updatedHistory = [...state.dailyMoneyHistory, newRecord]
       return {
         currentDay: state.currentDay + 1,
-        money: state.money - DAILY_OPERATIONAL_COST,
+        money: state.money - dailyDebtCost,
         dailyMoneyHistory: updatedHistory,
         workers: updatedWorkers,
       }
