@@ -11,10 +11,10 @@ export function EconomyFooter({ onClose }: EconomyFooterProps) {
         {/* Actions */}
         <div className="flex flex-1 gap-3 w-full md:w-auto">
           <Button className="flex-1 md:flex-none min-w-[160px]" size="md">
-            Request Loan
+            Request Loan ($5K)
           </Button>
           <Button className="flex-1 md:flex-none min-w-[160px]" size="md">
-            Pay Loan
+            Pay Loan ($5K)
           </Button>
         </div>
         {/* Close */}
