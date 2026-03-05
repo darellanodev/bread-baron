@@ -4,7 +4,10 @@ export const LOAN_AMOUNT = 5000
 
 export const createEconomyActions = (set: SetState<GameState>) => ({
   requestLoan: () =>
-    set((state) => ({ activeDebt: state.activeDebt + LOAN_AMOUNT })),
+    set((state) => ({
+      activeDebt: state.activeDebt + LOAN_AMOUNT,
+      money: state.money + LOAN_AMOUNT,
+    })),
   payLoan: () =>
     set((state) => {
       if (state.money < LOAN_AMOUNT) return state
