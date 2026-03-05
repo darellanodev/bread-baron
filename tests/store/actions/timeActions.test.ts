@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { createTimeActions } from '../../../src/store/actions/timeActions'
+import { DEBT_INTEREST_RATE } from '../../../src/constants/timeConstants'
 
 describe('createTimeActions', () => {
   describe('nextDay', () => {
@@ -38,7 +39,7 @@ describe('createTimeActions', () => {
         money: 1000,
         dailyMoneyHistory: [],
         workers: [],
-        activeDebt: 1000,
+        activeDebt: 25000,
       }
       const result = setFn(state)
       expect(result.currentDay).toBe(11)
@@ -62,7 +63,7 @@ describe('createTimeActions', () => {
         money: 1000,
         dailyMoneyHistory: [{ day: 364, money: 900 }],
         workers: [],
-        activeDebt: 1000,
+        activeDebt: 25000,
       }
       const result = setFn(state)
       expect(result.currentDay).toBe(1)

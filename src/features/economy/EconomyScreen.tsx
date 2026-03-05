@@ -2,6 +2,7 @@ import { WindowContainer, WindowHeader } from '@/components/window'
 import { EconomyChart, EconomyFooter } from '@/features/economy/layout'
 import { useGameStore } from '@/store/gameStore'
 import { formatMoney } from '@/utils/formatters'
+import { DEBT_INTEREST_RATE } from '@/constants/timeConstants'
 
 interface EconomyScreenProps {
   onClose: () => void
@@ -9,7 +10,8 @@ interface EconomyScreenProps {
 
 export function EconomyScreen({ onClose }: EconomyScreenProps) {
   const activeDebt = useGameStore((state) => state.activeDebt)
-  const dailyDebtCost = Math.round(activeDebt * 0.01)
+  const dailyDebtCost = Math.round(activeDebt * DEBT_INTEREST_RATE)
+  const interestPercentage = DEBT_INTEREST_RATE * 100
   return (
     <WindowContainer maxWidth="max-w-[960px]">
       <WindowHeader title="Economy" onClose={onClose} />
@@ -26,7 +28,7 @@ export function EconomyScreen({ onClose }: EconomyScreenProps) {
               {formatMoney(activeDebt)}
             </p>
             <p className="text-xs text-textSecondary dark:text-textDarkSecondary mt-1">
-              Daily cost (1%): {formatMoney(dailyDebtCost)}
+              Daily cost ({interestPercentage}%): {formatMoney(dailyDebtCost)}
             </p>
           </div>
         </div>
