@@ -6,8 +6,10 @@ interface EconomyFooterProps {
 }
 
 export function EconomyFooter({ onClose }: EconomyFooterProps) {
+  const money = useGameStore((state) => state.money)
   const requestLoan = useGameStore((state) => state.requestLoan)
   const payLoan = useGameStore((state) => state.payLoan)
+  const canPayLoan = money >= 5000
   return (
     <footer className="p-6 border-t border-solid border-borderLight dark:border-borderDark bg-bgSecondary dark:bg-cardDark">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -24,6 +26,7 @@ export function EconomyFooter({ onClose }: EconomyFooterProps) {
             className="flex-1 md:flex-none min-w-[160px]"
             size="md"
             onClick={payLoan}
+            disabled={!canPayLoan}
           >
             Pay Loan ($5K)
           </Button>
