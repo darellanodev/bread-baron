@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/Button'
+import { DarkModeToggle } from '@/components/header/DarkModeToggle'
 import { useGameStore } from '@/store/gameStore'
 
 export function GameSettingsScreen({ onStart }: { onStart?: () => void }) {
@@ -18,6 +19,8 @@ export function GameSettingsScreen({ onStart }: { onStart?: () => void }) {
 
   return (
     <div className="bg-bgLight dark:bg-bgDark min-h-screen flex items-center justify-center p-4 font-sans transition-colors duration-300 hero-pattern">
+      <DarkModeToggle />
+
       <main
         className={`
           max-w-4xl w-full transition-all duration-500
