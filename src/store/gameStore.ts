@@ -23,6 +23,8 @@ import {
 } from '@/constants/gameStateConstants'
 
 export const useGameStore = create<GameState>((set) => ({
+  playerName: 'John Doe',
+  setPlayerName: (name) => set({ playerName: name }),
   money: INITIAL_MONEY,
   activeDebt: INITIAL_ACTIVE_DEBT,
   currentDay: INITIAL_DAY,
