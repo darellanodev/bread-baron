@@ -1,10 +1,14 @@
 import { Button } from '@/components/ui/Button'
 
-export default function WelcomeButton({ onStart }: { onStart?: () => void }) {
+interface WelcomeButtonProps {
+  onNext?: () => void
+}
+
+export default function WelcomeButton({ onNext }: WelcomeButtonProps) {
   return (
     <div className="flex justify-center">
       <Button
-        onClick={() => onStart?.()}
+        onClick={() => onNext?.()}
         size="xl"
         iconPosition="end"
         icon={
@@ -24,7 +28,7 @@ export default function WelcomeButton({ onStart }: { onStart?: () => void }) {
         }
         className="font-display text-2xl md:text-3xl shadow-[0_6px_0_#8b4513] hover:shadow-[0_4px_0_#8b4513] active:shadow-none active:translate-y-1"
       >
-        Start Kneading!
+        Next
       </Button>
     </div>
   )
