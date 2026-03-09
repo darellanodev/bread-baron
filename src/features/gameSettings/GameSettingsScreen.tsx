@@ -1,12 +1,20 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/Button'
+import { useGameStore } from '@/store/gameStore'
 
 export function GameSettingsScreen({ onStart }: { onStart?: () => void }) {
   const [isVisible, setIsVisible] = useState(false)
+  const [name, setName] = useState('John Doe')
+  const setPlayerName = useGameStore((state) => state.setPlayerName)
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100)
   }, [])
+
+  const handleStart = () => {
+    setPlayerName(name)
+    onStart?.()
+  }
 
   return (
     <div className="bg-bgLight dark:bg-bgDark min-h-screen flex items-center justify-center p-4 font-sans transition-colors duration-300 hero-pattern">
@@ -25,10 +33,26 @@ export function GameSettingsScreen({ onStart }: { onStart?: () => void }) {
               The following settings can be modified during the game at any
               time, so don&apos;t worry, but you can also configure them now.
             </p>
+            <div className="mt-8">
+              <label
+                htmlFor="playerName"
+                className="block text-lg font-medium text-textLight dark:text-amber-50 mb-2"
+              >
+                What is your name?
+              </label>
+              <input
+                id="playerName"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full max-w-xs mx-auto px-4 py-3 text-lg border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-textLight dark:text-amber-50 focus:outline-none focus:border-primary dark:focus:border-primary transition-colors"
+                placeholder="Enter your name"
+              />
+            </div>
           </div>
           <div className="flex justify-center">
             <Button
-              onClick={() => onStart?.()}
+              onClick={handleStart}
               size="xl"
               iconPosition="end"
               icon={

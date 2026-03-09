@@ -42,6 +42,7 @@ export interface Customer {
 }
 
 export interface GameState {
+  playerName: string
   money: number
   activeDebt: number
   currentDay: number
@@ -56,6 +57,7 @@ export interface GameState {
   showProduct: boolean
   isPaused: boolean
   totalProductsCreated: number
+  setPlayerName: (name: string) => void
   increaseBakingProgress: (amount: number) => void
   hideProduct: () => void
   updateOrderProgress: (orderId: string) => void
