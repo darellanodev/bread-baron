@@ -28,7 +28,15 @@ Use this skill whenever you need to make changes to an existing feature or creat
    - What components it uses
    - How it connects to the store
 
-### Step 2: Check for Reusable Components
+### Step 2: Check How Features are Displayed
+
+**Important**: Features/screens are shown to the user via `src/App.tsx`. If you need to display or navigate to a feature, you must check this file to understand:
+
+- How features are conditionally rendered
+- How navigation/routing works
+- What state controls which screen is shown
+
+### Step 3: Check for Reusable Components
 
 Before creating new components, always check:
 
@@ -48,7 +56,7 @@ If a suitable component exists:
 - If it needs adjustments, modify it first to make it more generic
 - Only create a new component if it's truly specific to your feature
 
-### Step 3: Check Related Directories
+### Step 4: Check Related Directories
 
 Depending on your changes, also check:
 
@@ -63,7 +71,7 @@ Depending on your changes, also check:
 
 - **`src/hooks/`** - Custom React hooks
 
-### Step 4: Implement the Feature
+### Step 5: Implement the Feature
 
 Follow these guidelines:
 
@@ -80,7 +88,7 @@ Follow these guidelines:
    - Consider placing them in `src/features/<feature>/components/`
    - If truly generic, propose moving to `src/components/`
 
-### Step 5: Verify
+### Step 6: Verify
 
 After implementation:
 
