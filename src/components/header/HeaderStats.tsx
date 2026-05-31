@@ -68,7 +68,7 @@ export function HeaderStats({ onEconomy }: HeaderStatsProps) {
 
   return (
     <div className="flex items-center gap-6">
-      <button onClick={onEconomy} className="cursor-pointer">
+      <button type="button" onClick={onEconomy} className="cursor-pointer">
         <Stat icon="💰" value={formatMoney(money)} />
       </button>
       <Stat icon="📅" value={formattedDate} />

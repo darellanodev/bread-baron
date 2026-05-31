@@ -68,7 +68,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   return (
-    <button
+    <button type="button"
       className={cn(
         buttonVariants({ variant, size, width, fullWidth }),
         className,

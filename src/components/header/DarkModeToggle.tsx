@@ -4,7 +4,7 @@ export function DarkModeToggle() {
   const { toggle } = useDarkMode()
 
   return (
-    <button
+    <button type="button"
       className="fixed top-6 right-6 p-3 bg-bgSecondary dark:bg-cardDark rounded-full shadow-lg hover:scale-110 transition-transform z-50 text-brownDark dark:text-amber-100"
       onClick={toggle}
     >
