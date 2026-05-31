@@ -27,10 +27,12 @@ export const createPromotionActions = (set: SetState<GameState>) => ({
 })
 
 const getNextCustomerId = (state: GameState): number => {
-  const allIds = state.customers
-    .map((c) => parseInt(c.id, 10))
-    .filter((id) => !isNaN(id))
-  return allIds.length > 0 ? Math.max(...allIds) + 1 : 1
+  let maxId = 0
+  for (const c of state.customers) {
+    const id = parseInt(c.id, 10)
+    if (!isNaN(id) && id > maxId) maxId = id
+  }
+  return maxId + 1
 }
 
 const validatePromotionState = (state: GameState): boolean => {

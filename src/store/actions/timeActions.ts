@@ -12,12 +12,11 @@ export const createTimeActions = (set: SetState<GameState>) => ({
       const dailyDebtCost = Math.round(state.activeDebt * DEBT_INTEREST_RATE)
 
       // Update contract days and remove expired workers
-      const updatedWorkers = state.workers
-        .map((worker) => ({
-          ...worker,
-          daysRemaining: worker.daysRemaining - 1,
-        }))
-        .filter((worker) => worker.daysRemaining > 0)
+      const updatedWorkers = []
+      for (const worker of state.workers) {
+        const updated = { ...worker, daysRemaining: worker.daysRemaining - 1 }
+        if (updated.daysRemaining > 0) updatedWorkers.push(updated)
+      }
 
       const newRecord = { day: state.currentDay, money: state.money }
 
