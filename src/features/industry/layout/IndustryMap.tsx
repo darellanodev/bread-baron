@@ -4,18 +4,18 @@ import { Button } from '@/components/ui/Button'
 
 const STAGE_EMOJIS = ['🏠', '🏪', '🏢', '🏭', '🌍']
 
+const formatUpgradePrice = (price: number): string => {
+  if (price >= 1000000) {
+    return `$${(price / 1000000).toFixed(0)}M`
+  } else if (price >= 1000) {
+    return `$${(price / 1000).toFixed(0)}K`
+  }
+  return `$${price}`
+}
+
 export function IndustryMap() {
   const { ovenLevel, money, upgradeOven } = useGameStore()
   const currentLevelIndex = ovenLevel - 1
-
-  const formatUpgradePrice = (price: number): string => {
-    if (price >= 1000000) {
-      return `$${(price / 1000000).toFixed(0)}M`
-    } else if (price >= 1000) {
-      return `$${(price / 1000).toFixed(0)}K`
-    }
-    return `$${price}`
-  }
 
   return (
     <div className="relative mb-16">
