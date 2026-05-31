@@ -7,7 +7,7 @@ export function BakingStatus() {
     <div className="w-full max-w-md flex flex-col gap-3">
       <div className="flex justify-between items-end px-2">
         <span className="text-xl font-extrabold text-brownDark dark:text-primary">
-          Baking Sourdough...
+          Baking Sourdough…
         </span>
         <span className="font-bold">{bakingProgress}%</span>
       </div>
