@@ -14,7 +14,8 @@ export function WelcomeScreen({ onNext }: WelcomeScreenProps) {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    setTimeout(() => setIsVisible(true), 100)
+    const timer = setTimeout(() => setIsVisible(true), 100)
+    return () => clearTimeout(timer)
   }, [])
 
   return (

@@ -9,7 +9,8 @@ export function GameSettingsScreen({ onStart }: { onStart?: () => void }) {
   const setPlayerName = useGameStore((state) => state.setPlayerName)
 
   useEffect(() => {
-    setTimeout(() => setIsVisible(true), 100)
+    const timer = setTimeout(() => setIsVisible(true), 100)
+    return () => clearTimeout(timer)
   }, [])
 
   const handleStart = () => {
