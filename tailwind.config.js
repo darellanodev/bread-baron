@@ -4,6 +4,15 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      keyframes: {
+        enter: {
+          from: { opacity: '0', transform: 'translateY(1.25rem)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        enter: 'enter 0.5s ease-out 0.1s both',
+      },
       colors: {
         primary: '#eca013',
         // Light mode colors

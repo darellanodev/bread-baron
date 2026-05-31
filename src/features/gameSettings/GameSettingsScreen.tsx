@@ -1,17 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import { DarkModeToggle } from '@/components/header/DarkModeToggle'
 import { useGameStore } from '@/store/gameStore'
 
 export function GameSettingsScreen({ onStart }: { onStart?: () => void }) {
-  const [isVisible, setIsVisible] = useState(false)
   const [name, setName] = useState('John Doe')
   const setPlayerName = useGameStore((state) => state.setPlayerName)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 100)
-    return () => clearTimeout(timer)
-  }, [])
 
   const handleStart = () => {
     setPlayerName(name)
@@ -23,10 +17,7 @@ export function GameSettingsScreen({ onStart }: { onStart?: () => void }) {
       <DarkModeToggle />
 
       <main
-        className={`
-          max-w-4xl w-full transition-all duration-500
-          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
-        `}
+        className="max-w-4xl w-full opacity-100 translate-y-0 animate-enter"
       >
         <div className="bg-bgCream dark:bg-cardDark rounded-2xl p-8 md:p-16 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border-b-8 border-black/10 dark:border-black/30 relative overflow-hidden transition-all duration-300">
           <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-textLight dark:text-amber-50">
