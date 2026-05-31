@@ -13,7 +13,7 @@ export default function WelcomeButton({ onNext }: WelcomeButtonProps) {
         iconPosition="end"
         icon={
           <svg
-            className="h-8 w-8 group-hover:translate-x-1 transition-transform"
+            className="size-8 group-hover:translate-x-1 transition-transform"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

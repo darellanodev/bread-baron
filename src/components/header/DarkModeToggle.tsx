@@ -10,7 +10,7 @@ export function DarkModeToggle() {
     >
       {/* Moon icon – visible in light mode */}
       <svg
-        className="h-6 w-6 dark:hidden"
+        className="size-6 dark:hidden"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -24,7 +24,7 @@ export function DarkModeToggle() {
       </svg>
       {/* Sun icon – visible in dark mode */}
       <svg
-        className="h-6 w-6 hidden dark:block"
+        className="size-6 hidden dark:block"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

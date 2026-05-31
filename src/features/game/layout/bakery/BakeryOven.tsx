@@ -8,7 +8,7 @@ export function BakeryOven() {
   return (
     <div className="relative group">
       <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
-      <div className="w-72 h-72 bg-gradient-to-br from-brownDark to-brownDarker rounded-xl border-8 border-brownDarkest shadow-2xl flex items-center justify-center relative">
+      <div className="size-72 bg-gradient-to-br from-brownDark to-brownDarker rounded-xl border-8 border-brownDarkest shadow-2xl flex items-center justify-center relative">
         {isPaused ? (
           <div className="w-56 h-40 bg-brownDeep rounded-lg border-4 border-primary/30 flex items-center justify-center">
             <div className="text-center">

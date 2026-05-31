@@ -60,7 +60,7 @@ export function GameSettingsScreen({ onStart }: { onStart?: () => void }) {
               iconPosition="end"
               icon={
                 <svg
-                  className="h-8 w-8 group-hover:translate-x-1 transition-transform"
+                  className="size-8 group-hover:translate-x-1 transition-transform"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -78,8 +78,8 @@ export function GameSettingsScreen({ onStart }: { onStart?: () => void }) {
               Start Baking!
             </Button>
           </div>
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/5 dark:bg-white/2 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-10 -right-10 size-40 bg-white/5 dark:bg-white/2 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-10 -left-10 size-40 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         </div>
       </main>
     </div>
