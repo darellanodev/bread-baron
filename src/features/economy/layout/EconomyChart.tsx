@@ -1,13 +1,9 @@
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from 'recharts'
+import { lazy, Suspense } from 'react'
 import { useGameStore } from '@/store/gameStore'
+
+const EconomyChartInner = lazy(() =>
+  import('./EconomyChartInner').then((m) => ({ default: m.EconomyChartInner })),
+)
 
 // Format money values (e.g., 45000 -> $45K)
 const formatMoney = (value: number): string => {
@@ -29,7 +25,7 @@ const getLastDaysData = (
 }
 
 // Calculate Y-axis domain based on data range
-const calculateYDomain = (data: Array<{ money: number }>) => {
+const calculateYDomain = (data: Array<{ money: number }>): [number, number] => {
   if (data.length === 0) return [0, 50000]
 
   const values = data.map((d) => d.money)
@@ -100,81 +96,19 @@ export function EconomyChart() {
         </div>
       )}
 
-      <div className="w-full h-[280px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart
-            data={chartData}
-            margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
-          >
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke="currentColor"
-              strokeOpacity={0.1}
-              className="text-borderLight dark:text-borderDark"
-            />
-            <XAxis
-              dataKey="day"
-              stroke="currentColor"
-              strokeOpacity={0.5}
-              tick={{
-                fill: 'currentColor',
-                fontSize: 11,
-                fontWeight: 'bold',
-                className: 'text-textSecondary dark:text-textDarkSecondary',
-              }}
-              tickFormatter={(value) => `D${value}`}
-            />
-            <YAxis
-              domain={yDomain}
-              stroke="currentColor"
-              strokeOpacity={0.5}
-              tick={{
-                fill: 'currentColor',
-                fontSize: 11,
-                fontWeight: 'bold',
-                className: 'text-textSecondary dark:text-textDarkSecondary',
-              }}
-              tickFormatter={formatMoney}
-            />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: 'var(--tw-colors-bgLight)',
-                border: '1px solid var(--tw-colors-borderLight)',
-                borderRadius: '8px',
-                padding: '8px 12px',
-              }}
-              labelStyle={{
-                color: 'var(--tw-colors-textLight)',
-                fontWeight: 'bold',
-                marginBottom: '4px',
-              }}
-              itemStyle={{
-                color: 'var(--tw-colors-primary)',
-                fontWeight: 'bold',
-              }}
-              formatter={(value: number | undefined) =>
-                value !== undefined
-                  ? [storeFormatMoney(value), 'Money']
-                  : ['', 'Money']
-              }
-              labelFormatter={(label) => `Day ${label}`}
-            />
-            <Line
-              type="monotone"
-              dataKey="money"
-              stroke="#eca013"
-              strokeWidth={3}
-              dot={false}
-              activeDot={{
-                r: 6,
-                fill: '#eca013',
-                stroke: '#fff',
-                strokeWidth: 2,
-              }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
+      <Suspense
+        fallback={
+          <div className="w-full h-[280px] flex items-center justify-center">
+            <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+          </div>
+        }
+      >
+        <EconomyChartInner
+          chartData={chartData}
+          yDomain={yDomain}
+          storeFormatMoney={storeFormatMoney}
+        />
+      </Suspense>
     </div>
   )
 }
