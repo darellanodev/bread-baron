@@ -91,6 +91,9 @@ export function WorkersList({ onHireHelper }: WorkersListProps) {
         ))}
         <div
           onClick={onHireHelper}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onHireHelper() }}
+          tabIndex={0}
+          role="button"
           className="flex-none w-48 border-4 border-dashed border-borderLight dark:border-borderDark rounded-xl flex flex-col items-center justify-center p-4 hover:border-primary transition-colors cursor-pointer group"
         >
           <span className="text-3xl text-textSecondary group-hover:text-primary mb-2">

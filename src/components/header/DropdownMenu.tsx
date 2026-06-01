@@ -22,7 +22,14 @@ export function DropdownMenu({ children, trigger }: DropdownMenuProps) {
 
   return (
     <div className="relative" ref={menuRef}>
-      <div onClick={() => setIsOpen(!isOpen)}>{trigger}</div>
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsOpen(!isOpen) }}
+        tabIndex={0}
+        role="button"
+      >
+        {trigger}
+      </div>
       {isOpen && (
         <div className="absolute right-0 top-full mt-2 w-56 rounded-lg bg-bgLight dark:bg-cardDark border border-primary/20 shadow-lg z-50">
           <div className="py-1">{children}</div>
