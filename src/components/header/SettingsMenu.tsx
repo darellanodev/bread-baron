@@ -17,7 +17,7 @@ export function SettingsMenu() {
         <span className="text-sm text-textLight dark:text-bgLight">
           Dark mode
         </span>
-        <Switch checked={isDark} onChange={() => toggle()} />
+        <Switch checked={isDark} onChange={() => toggle()} aria-label="Dark mode" />
       </div>
       <div className="px-4 py-2">
         <a
