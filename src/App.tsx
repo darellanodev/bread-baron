@@ -7,22 +7,33 @@ import { IndustryScreen } from '@/features/industry/IndustryScreen'
 import { GameSettingsScreen } from '@/features/gameSettings/GameSettingsScreen'
 import { DayTimer } from '@/hooks/DayTimer'
 import { Header } from '@/components/header'
-import { useAutoSave } from '@/hooks/useAutoSave'
+import { useHasSave } from '@/hooks/useHasSave'
+import { loadFromStorage } from '@/utils/loadFromStorage'
 
 function App() {
-  useAutoSave()
+  const hasSave = useHasSave()
   const [screen, setScreen] = useState<
     'welcome' | 'game' | 'hireHelper' | 'economy' | 'industry' | 'gameSettings'
   >('welcome')
 
   const showHeader = screen !== 'welcome' && screen !== 'gameSettings'
 
+  const handleContinue = () => {
+    if (loadFromStorage()) {
+      setScreen('game')
+    }
+  }
+
   return (
     <>
       {showHeader && <DayTimer />}
       {showHeader && <Header onEconomy={() => setScreen('economy')} />}
       {screen === 'welcome' ? (
-        <WelcomeScreen onNext={() => setScreen('gameSettings')} />
+        <WelcomeScreen
+          onNext={() => setScreen('gameSettings')}
+          onContinue={handleContinue}
+          hasSave={hasSave}
+        />
       ) : screen === 'hireHelper' ? (
         <HireHelperScreen onClose={() => setScreen('game')} />
       ) : screen === 'economy' ? (
