@@ -7,8 +7,10 @@ import { IndustryScreen } from '@/features/industry/IndustryScreen'
 import { GameSettingsScreen } from '@/features/gameSettings/GameSettingsScreen'
 import { DayTimer } from '@/hooks/DayTimer'
 import { Header } from '@/components/header'
+import { useAutoSave } from '@/hooks/useAutoSave'
 
 function App() {
+  useAutoSave()
   const [screen, setScreen] = useState<
     'welcome' | 'game' | 'hireHelper' | 'economy' | 'industry' | 'gameSettings'
   >('welcome')
