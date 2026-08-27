@@ -8,7 +8,7 @@ export function SettingsMenu() {
   return (
     <DropdownMenu
       trigger={
-        <button type="button" className="flex items-center justify-center rounded-full size-10 bg-bgLight dark:bg-cardDark text-textLight dark:text-bgLight transition-all hover:bg-primary/20 text-xl">
+        <button type="button" className="flex items-center justify-center rounded-full w-8 h-8 md:w-10 md:h-10 bg-bgLight dark:bg-cardDark text-textLight dark:text-bgLight transition-all hover:bg-primary/20 text-xl">
           ⚙️
         </button>
       }

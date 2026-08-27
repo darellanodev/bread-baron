@@ -89,3 +89,14 @@ The system SHALL reduce WorkersPanel minimum height from `min-h-[180px]` to `min
 #### Scenario: Mobile WorkersPanel uses compact height
 - **WHEN** the viewport width is less than 1024px
 - **THEN** WorkersPanel SHALL use `min-h-[120px]` instead of `min-h-[180px]`
+
+### Requirement: Header gap responsive spacing
+The system SHALL reduce the gap between HeaderStats and HeaderActions from `gap-8` to `gap-3` on viewports below 768px, supplementing the existing padding and stat visibility responsive behaviors.
+
+#### Scenario: Mobile header uses compact gap
+- **WHEN** the viewport width is less than 768px
+- **THEN** the stats+actions container SHALL use `gap-3` instead of `gap-8`
+
+#### Scenario: Desktop header uses standard gap
+- **WHEN** the viewport width is 768px or greater
+- **THEN** the stats+actions container SHALL use `gap-8`

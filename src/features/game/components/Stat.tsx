@@ -12,7 +12,7 @@ export function Stat({ icon, label, value }: StatProps) {
       ) : (
         <span className="text-xs text-textSecondary">{label}</span>
       )}
-      <span className="text-textLight dark:text-bgLight text-sm font-bold">
+      <span className="text-textLight dark:text-bgLight text-xs md:text-sm font-bold">
         {value}
       </span>
     </div>

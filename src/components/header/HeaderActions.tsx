@@ -11,7 +11,7 @@ export function HeaderActions() {
         onClick={togglePause}
         size="sm"
         icon={isPaused ? '▶️' : '⏸️'}
-        className="min-w-[84px] rounded-full"
+        className="md:min-w-[84px] rounded-full"
       >
         <span className="hidden lg:inline">{isPaused ? 'Resume game' : 'Pause game'}</span>
       </Button>
