@@ -13,7 +13,7 @@ export function HeaderActions() {
         icon={isPaused ? '▶️' : '⏸️'}
         className="min-w-[84px] rounded-full"
       >
-        {isPaused ? 'Resume game' : 'Pause game'}
+        <span className="hidden lg:inline">{isPaused ? 'Resume game' : 'Pause game'}</span>
       </Button>
       <SettingsMenu />
     </div>

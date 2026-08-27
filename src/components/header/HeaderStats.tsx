@@ -67,11 +67,13 @@ export function HeaderStats({ onEconomy }: HeaderStatsProps) {
   const formattedDate = formatDate(currentDay, currentYear)
 
   return (
-    <div className="flex items-center gap-6">
+    <div className="flex items-center lg:gap-6 gap-3">
       <button type="button" onClick={onEconomy} className="cursor-pointer">
         <Stat icon="💰" value={formatMoney(money)} />
       </button>
-      <Stat icon="📅" value={formattedDate} />
+      <div className="hidden lg:block">
+        <Stat icon="📅" value={formattedDate} />
+      </div>
       <Stat icon="🥖" value={`${formatNumber(totalProductsCreated)} Baked`} />
     </div>
   )

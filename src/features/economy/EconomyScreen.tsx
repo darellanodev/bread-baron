@@ -19,7 +19,7 @@ export function EconomyScreen({ onClose }: EconomyScreenProps) {
       <div className="flex-1 overflow-y-auto custom-scrollbar p-8">
         <EconomyChart />
 
-        <div className="mt-6 grid grid-cols-2 gap-4">
+        <div className="mt-6 grid lg:grid-cols-2 grid-cols-1 gap-4">
           <div className="p-4 rounded-lg bg-bgSecondary dark:bg-cardDark border border-borderLight dark:border-borderDark">
             <p className="text-xs text-textSecondary dark:text-textDarkSecondary font-semibold uppercase">
               Active Debt

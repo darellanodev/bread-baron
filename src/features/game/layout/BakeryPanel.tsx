@@ -18,7 +18,7 @@ export function BakeryPanel({ onOpenIndustry }: BakeryPanelProps) {
   const canAfford = nextLevel ? money >= nextLevel.upgradePrice : false
 
   return (
-    <section className="w-1/2 flex flex-col bg-bgCream dark:bg-bgDark p-8 relative overflow-hidden">
+    <section className="lg:w-1/2 w-full flex flex-col bg-bgCream dark:bg-bgDark p-8 relative lg:overflow-hidden">
       <div className="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center text-[30rem]">
         🍪
       </div>

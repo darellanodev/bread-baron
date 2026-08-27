@@ -18,7 +18,8 @@ export function IndustryMap() {
   const currentLevelIndex = ovenLevel - 1
 
   return (
-    <div className="relative mb-16">
+    <div className="relative mb-16 overflow-x-auto">
+      <div className="min-w-[640px] relative">
       {/* Connection Line */}
       <div className="absolute top-12 left-24 right-24 h-1 bg-borderLight dark:bg-borderDark rounded-full"></div>
 
@@ -29,7 +30,7 @@ export function IndustryMap() {
       ></div>
 
       {/* Stages */}
-      <div className="relative flex justify-between items-start px-16">
+      <div className="relative flex justify-between items-start lg:px-16 px-4">
         {INDUSTRY_LEVELS.map((level, index) => {
           const isCompleted = index < currentLevelIndex
           const isCurrent = index === currentLevelIndex
@@ -109,6 +110,7 @@ export function IndustryMap() {
             </div>
           )
         })}
+      </div>
       </div>
     </div>
   )

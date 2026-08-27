@@ -12,8 +12,8 @@ interface GameScreenProps {
 export function GameScreen({ onHireHelper, onOpenIndustry }: GameScreenProps) {
   useAutoSave()
   return (
-    <div className="bg-bgSecondary dark:bg-bgDark text-textLight dark:text-bgLight h-[calc(100vh-64px)] overflow-hidden flex flex-col font-sans">
-      <main className="flex flex-1 overflow-hidden">
+    <div className="bg-bgSecondary dark:bg-bgDark text-textLight dark:text-bgLight lg:h-[calc(100vh-64px)] lg:overflow-hidden flex flex-col font-sans">
+      <main className="flex flex-col lg:flex-row flex-1 lg:overflow-hidden overflow-y-auto">
         <OrdersPanel />
         <BakeryPanel onOpenIndustry={onOpenIndustry} />
         <MarketPanel />
