@@ -1,6 +1,5 @@
 import { Worker } from '@/features/game/components/Worker'
 import { useGameStore } from '@/store/gameStore'
-import { useEffect, useRef } from 'react'
 
 interface WorkersListProps {
   onHireHelper: () => void
@@ -10,54 +9,8 @@ export function WorkersList({ onHireHelper }: WorkersListProps) {
   const {
     workers,
     maxWorkers,
-    increaseBakingProgress,
-    isPaused,
     upgradeWorker,
   } = useGameStore()
-  const progressRef = useRef(0)
-
-  useEffect(() => {
-    const style = document.createElement('style')
-    style.textContent = `
-      :root {
-        --scrollbar-color: #d6d2cb;
-      }
-      .dark {
-        --scrollbar-color: #3a3121;
-      }
-    `
-    document.head.appendChild(style)
-    return () => {
-      document.head.removeChild(style)
-    }
-  }, [])
-
-  // Game loop for automatic worker production
-  useEffect(() => {
-    if (workers.length === 0) return
-
-    const interval = setInterval(() => {
-      // Don't work when paused
-      if (isPaused) return
-
-      // Calculate total productivity (products per second)
-      const totalProductivity = workers.reduce(
-        (sum, worker) => sum + worker.productivity,
-        0,
-      )
-
-      // Add progress for this tick (100ms = 0.1s)
-      progressRef.current += totalProductivity * 0.1
-
-      // Process complete products - workers add 1% progress each
-      while (progressRef.current >= 1) {
-        increaseBakingProgress(1)
-        progressRef.current -= 1
-      }
-    }, 100)
-
-    return () => clearInterval(interval)
-  }, [workers, isPaused, increaseBakingProgress])
 
   return (
     <div className="flex-1 flex flex-col h-full py-4 overflow-hidden">

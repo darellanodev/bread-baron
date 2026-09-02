@@ -1,7 +1,31 @@
 import { useGameStore } from '@/store/gameStore'
 
-export function WorkersButton() {
+interface WorkersButtonProps {
+  compact?: boolean
+}
+
+export function WorkersButton({ compact = false }: WorkersButtonProps) {
   const { increaseBakingProgress, isPaused } = useGameStore()
+
+  if (compact) {
+    return (
+      <button
+        type="button"
+        onClick={() => increaseBakingProgress(5)}
+        disabled={isPaused}
+        className={`w-full h-14 rounded-2xl bg-primary border-4 border-white dark:border-cardDark shadow-xl flex items-center justify-center gap-3 text-white transition-all active:scale-[0.98] ${
+          isPaused
+            ? 'cursor-not-allowed opacity-50'
+            : 'cursor-pointer hover:bg-primary/90 active:shadow-inner'
+        }`}
+      >
+        <span className="text-2xl">{isPaused ? '⏸️' : '👆'}</span>
+        <span className="font-black text-base uppercase tracking-tight">
+          {isPaused ? 'PAUSED' : 'KNEAD NOW!'}
+        </span>
+      </button>
+    )
+  }
 
   return (
     <div className="flex-none">
