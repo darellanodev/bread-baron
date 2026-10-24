@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "D:\\projects\\games\\bread-baron\\.archify\\architecture-react-zustand-features-20261024-142321\\candidate.json",
+    "sha256": "3e787b95bae0394b24c6ef467c00e819306d0bfa927d938c9bb0c166224a2153",
+    "bytes": 3178
+  },
+  "artifact": {
+    "path": "D:\\projects\\games\\bread-baron\\.archify\\architecture-react-zustand-features-20261024-142321\\react-zustand-features.html",
+    "sha256": "6df20865b73e79ff545555c01c335e7951ef9c0f1a4f4423c1fa66b007349c1c",
+    "bytes": 834264
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "D:\\projects\\games\\bread-baron\\.archify\\architecture-react-zustand-features-20261024-142321\\react-zustand-features.finalize.json",
+    "summaryReceipt": "D:\\projects\\games\\bread-baron\\.archify\\architecture-react-zustand-features-20261024-142321\\react-zustand-features.finalize-summary.json",
+    "browserCheckReceipt": "D:\\projects\\games\\bread-baron\\.archify\\architecture-react-zustand-features-20261024-142321\\react-zustand-features.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-24T11:51:37.773Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 5931,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 12,
+      "routesOverSuggestedBends": 6,
+      "routesOverSuggestedStretch": 3
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "app-welcome",
+            "from": "app",
+            "to": "welcome",
+            "label": "",
+            "collectionIndex": 0,
+            "artifactIndex": 1
+          },
+          "right": {
+            "id": "app-game",
+            "from": "app",
+            "to": "game",
+            "label": "",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "point": [
+            98,
+            128
+          ],
+          "sharedNode": "app"
+        },
+        {
+          "left": {
+            "id": "app-gameSettings",
+            "from": "app",
+            "to": "gameSettings",
+            "label": "",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "right": {
+            "id": "welcome-store",
+            "from": "welcome",
+            "to": "store",
+            "label": "read",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "point": [
+            214,
+            172
+          ]
+        },
+        {
+          "left": {
+            "id": "app-hireHelper",
+            "from": "app",
+            "to": "hireHelper",
+            "label": "",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "right": {
+            "id": "app-industry",
+            "from": "app",
+            "to": "industry",
+            "label": "",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "point": [
+            29,
+            72
+          ],
+          "sharedNode": "app"
+        },
+        {
+          "left": {
+            "id": "app-economy",
+            "from": "app",
+            "to": "economy",
+            "label": "",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "right": {
+            "id": "app-industry",
+            "from": "app",
+            "to": "industry",
+            "label": "",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "point": [
+            21,
+            72.38461538461539
+          ],
+          "sharedNode": "app"
+        },
+        {
+          "left": {
+            "id": "game-store-read",
+            "from": "game",
+            "to": "store",
+            "label": "read",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "right": {
+            "id": "hireHelper-store-action",
+            "from": "hireHelper",
+            "to": "store",
+            "label": "actions",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "point": [
+            245.99999999999997,
+            428
+          ],
+          "sharedNode": "store"
+        },
+        {
+          "left": {
+            "id": "game-store-read",
+            "from": "game",
+            "to": "store",
+            "label": "read",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "right": {
+            "id": "economy-store-read",
+            "from": "economy",
+            "to": "store",
+            "label": "read",
+            "collectionIndex": 13,
+            "artifactIndex": 14
+          },
+          "point": [
+            310,
+            428
+          ],
+          "sharedNode": "store"
+        },
+        {
+          "left": {
+            "id": "game-store-action",
+            "from": "game",
+            "to": "store",
+            "label": "actions",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "right": {
+            "id": "gameSettings-store-action",
+            "from": "gameSettings",
+            "to": "store",
+            "label": "actions",
+            "collectionIndex": 10,
+            "artifactIndex": 11
+          },
+          "point": [
+            286,
+            316
+          ],
+          "sharedNode": "store"
+        },
+        {
+          "left": {
+            "id": "game-store-action",
+            "from": "game",
+            "to": "store",
+            "label": "actions",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "right": {
+            "id": "welcome-store",
+            "from": "welcome",
+            "to": "store",
+            "label": "read",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "point": [
+            317,
+            316
+          ],
+          "sharedNode": "store"
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "app-game",
+            "from": "app",
+            "to": "game",
+            "label": "",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "bends": 4,
+          "stretch": 1.628
+        },
+        {
+          "relationship": {
+            "id": "app-hireHelper",
+            "from": "app",
+            "to": "hireHelper",
+            "label": "",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "bends": 4,
+          "stretch": 1.488
+        },
+        {
+          "relationship": {
+            "id": "app-economy",
+            "from": "app",
+            "to": "economy",
+            "label": "",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "bends": 4,
+          "stretch": 1.397,
+          "directCorridorBlockers": [
+            {
+              "id": "welcome",
+              "label": "Welcome",
+              "box": [
+                40,
+                140,
+                130,
+                64
+              ]
+            },
+            {
+              "id": "gameSettings",
+              "label": "GameSettings",
+              "box": [
+                40,
+                240,
+                150,
+                64
+              ]
+            },
+            {
+              "id": "game",
+              "label": "Game",
+              "box": [
+                40,
+                340,
+                150,
+                64
+              ]
+            },
+            {
+              "id": "hireHelper",
+              "label": "HireHelper",
+              "box": [
+                40,
+                440,
+                150,
+                64
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "game-store-read",
+            "from": "game",
+            "to": "store",
+            "label": "read",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "bends": 3,
+          "stretch": 1.302
+        },
+        {
+          "relationship": {
+            "id": "game-store-action",
+            "from": "game",
+            "to": "store",
+            "label": "actions",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "bends": 3,
+          "stretch": 1.267
+        },
+        {
+          "relationship": {
+            "id": "hireHelper-store-action",
+            "from": "hireHelper",
+            "to": "store",
+            "label": "actions",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "bends": 3,
+          "stretch": 1.17
+        }
+      ],
+      "truncated": true
+    },
+    "hints": [
+      "store has 7 relationships facing its left side, which fits 3 ports: make that side at least 116px, or move some of those neighbours so they face another side of store.",
+      "app → welcome and app → game cross next to app: move node welcome or game so the two reach app from different sides (for example one level with it, one directly above or below it).",
+      "app → gameSettings crosses welcome → store: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "app → hireHelper and app → industry cross next to app: move node hireHelper or industry so the two reach app from different sides (for example one level with it, one directly above or below it).",
+      "app → economy and app → industry cross next to app: move node economy or industry so the two reach app from different sides (for example one level with it, one directly above or below it).",
+      "game → store and hireHelper → store cross next to store: move node game or hireHelper so the two reach store from different sides (for example one level with it, one directly above or below it).",
+      "game → store and economy → store cross next to store: move node game or economy so the two reach store from different sides (for example one level with it, one directly above or below it).",
+      "game → store and gameSettings → store cross next to store: move node game or gameSettings so the two reach store from different sides (for example one level with it, one directly above or below it)."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

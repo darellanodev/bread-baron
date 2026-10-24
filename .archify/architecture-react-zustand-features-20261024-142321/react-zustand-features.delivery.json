@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "260e538a-8a1a-4837-85b5-7f59a1242de0",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "D:\\projects\\games\\bread-baron\\.archify\\architecture-react-zustand-features-20261024-142321\\candidate.json",
+  "output": "D:\\projects\\games\\bread-baron\\.archify\\architecture-react-zustand-features-20261024-142321\\react-zustand-features.html",
+  "specification": {
+    "sha256": "3e787b95bae0394b24c6ef467c00e819306d0bfa927d938c9bb0c166224a2153",
+    "bytes": 3178
+  },
+  "artifact": {
+    "sha256": "6df20865b73e79ff545555c01c335e7951ef9c0f1a4f4423c1fa66b007349c1c",
+    "bytes": 834264
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Bread Baron - React + Zustand (Features)",
+    "output": ".archify/architecture-react-zustand-features-20261024-142321/react-zustand-features.html",
+    "locale": "en",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    {"id": "app", "type": "frontend", "label": "App", "sublabel": "Entry Point", "pos": [40, 40], "size": [130, 64]},
+    {"id": "welcome", "type": "frontend", "label": "Welcome", "sublabel": "Read-only", "pos": [40, 140], "size": [130, 64]},
+    {"id": "gameSettings", "type": "frontend", "label": "GameSettings", "sublabel": "setPlayerName", "pos": [40, 240], "size": [150, 64]},
+    {"id": "game", "type": "frontend", "label": "Game", "sublabel": "Orders/Bakery/Market", "pos": [40, 340], "size": [150, 64]},
+    {"id": "hireHelper", "type": "frontend", "label": "HireHelper", "sublabel": "Hire/Job Offer", "pos": [40, 440], "size": [150, 64]},
+    {"id": "economy", "type": "frontend", "label": "Economy", "sublabel": "Read-only", "pos": [40, 540], "size": [130, 64]},
+    {"id": "industry", "type": "frontend", "label": "Industry", "sublabel": "Upgrade Oven", "pos": [40, 640], "size": [130, 64]},
+    {"id": "store", "type": "backend", "label": "Zustand Store", "sublabel": "Game State", "pos": [270, 340], "size": [150, 64]},
+    {"id": "actions", "type": "backend", "label": "Actions", "sublabel": "Slices", "pos": [500, 240], "size": [130, 64]},
+    {"id": "data", "type": "backend", "label": "Game Data", "sublabel": "Config", "pos": [500, 440], "size": [130, 64]},
+    {"id": "storage", "type": "database", "label": "LocalStorage", "sublabel": "Save/Load", "pos": [500, 340], "size": [150, 64]}
+  ],
+  "connections": [
+    {"id": "app-welcome", "from": "app", "to": "welcome"},
+    {"id": "app-gameSettings", "from": "app", "to": "gameSettings"},
+    {"id": "app-game", "from": "app", "to": "game"},
+    {"id": "app-hireHelper", "from": "app", "to": "hireHelper"},
+    {"id": "app-economy", "from": "app", "to": "economy"},
+    {"id": "app-industry", "from": "app", "to": "industry"},
+    {"id": "game-store-read", "from": "game", "to": "store", "label": "read", "labelDy": -12},
+    {"id": "game-store-action", "from": "game", "to": "store", "label": "actions", "labelDy": 12},
+    {"id": "hireHelper-store-read", "from": "hireHelper", "to": "store", "label": "read"},
+    {"id": "hireHelper-store-action", "from": "hireHelper", "to": "store", "label": "actions"},
+    {"id": "gameSettings-store-action", "from": "gameSettings", "to": "store", "label": "actions"},
+    {"id": "industry-store-read", "from": "industry", "to": "store", "label": "read"},
+    {"id": "industry-store-action", "from": "industry", "to": "store", "label": "actions"},
+    {"id": "economy-store-read", "from": "economy", "to": "store", "label": "read"},
+    {"id": "welcome-store", "from": "welcome", "to": "store", "label": "read"},
+    {"id": "store-actions", "from": "store", "to": "actions", "label": "composed"},
+    {"id": "store-data", "from": "store", "to": "data", "label": "init"},
+    {"id": "store-storage", "from": "store", "to": "storage", "label": "persist"}
+  ]
+}
